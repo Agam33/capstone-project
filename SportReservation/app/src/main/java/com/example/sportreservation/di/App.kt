@@ -13,6 +13,7 @@ class App: Application() {
             modules(listOf(
                 appModule,
                 repoModule,
+                viewModels,
                 databaseModule
             ))
         }

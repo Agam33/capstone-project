@@ -1,4 +1,4 @@
-package com.example.sportreservation.data.source.entity
+package com.example.sportreservation.data.source.local.entity
 
 class RefereeEntity(
 
