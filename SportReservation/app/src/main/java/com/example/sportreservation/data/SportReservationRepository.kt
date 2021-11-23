@@ -1,4 +1,9 @@
 package com.example.sportreservation.data
 
-class SportReservationRepository {
+import com.example.sportreservation.utils.AppExecutors
+
+class SportReservationRepository(
+    private val appExecutors: AppExecutors
+) {
+
 }
