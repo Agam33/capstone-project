@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,14 +37,34 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
+    // Kotlin
+    implementation "androidx.core:core-ktx:$coreVersion"
+
+    // UI
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$fragmentNavigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$fragmentNavigation"
+    implementation "androidx.legacy:legacy-support-v4:$legacySupport"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // Testing
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // dependency injection - Koin
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    //architecture component
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelKtx"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeDataKtx"
+    implementation "androidx.activity:activity-ktx:$activityKtx"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtx"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+
 }
