@@ -4,7 +4,7 @@ import androidx.room.Entity
 
 
 @Entity
-class OrderListEntity(
+data class OrderListEntity(
     val id: Int,
     val name: String,
     val dueDate: Long,
