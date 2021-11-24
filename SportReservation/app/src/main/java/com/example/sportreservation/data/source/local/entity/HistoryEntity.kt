@@ -3,7 +3,7 @@ package com.example.sportreservation.data.source.local.entity
 import androidx.room.Entity
 
 @Entity
-class HistoryEntity(
+data class HistoryEntity(
     val id: Int,
     val name: String,
     val status: Boolean,

@@ -1,0 +1,59 @@
+{
+  "basket": [
+    {
+      "id": 1,
+      "nama": "Brickhouse 1.0 Kalibata",
+      "alamat": "Jl. Kalibata Utara II No.25, RT.4/RW.7, Kalibata, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12740",
+      "buka": "07:00",
+      "tutup": "19:00",
+      "harga": "700.000 /2jam",
+      "noTlp": "+6282261159337",
+      "fasilitas":"-",
+      "imgUrl": ""
+    },
+    {
+      "id": 2,
+      "nama": "Senayan Basketball Court",
+      "alamat": "Area Gelora Bung Karno Senayan, Jl. Pintu Satu Senayan, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
+      "buka": "06:00",
+      "tutup": "22:00",
+      "harga": "200.000 - 400.000 / 2 jam",
+      "noTlp": "+62215734070",
+      "fasilitas":"-",
+      "imgUrl": ""
+    },
+    {
+      "id": 3,
+      "nama": "GBK Basketball Hall",
+      "alamat": "Jl. Pintu Satu Senayan, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
+      "buka": "09:00",
+      "tutup": "21:00",
+      "harga": "50 juta / 12 jam per hari",
+      "noTlp": "+62215734070",
+      "fasilitas":"",
+      "imgUrl": ""
+    },
+    {
+      "id": 4,
+      "nama": "Buls Arena",
+      "alamat": "Panglima Polim St No.37, RT.1/RW.1, Melawai, Kebayoran Baru, South Jakarta City, Jakarta 12130",
+      "buka": "06:00",
+      "tutup": "12:00",
+      "harga": "-",
+      "noTlp": "+6281310239090",
+      "fasilitas": "-",
+      "imgUrl": ""
+    },
+    {
+      "id": 5,
+      "nama": "Pati Unus Courtyard",
+      "alamat": "Jl. Pati Unus No.F4, RT.4/RW.4, Gunung, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12110",
+      "buka": "08:00",
+      "tutup": "23:59",
+      "harga": "150.000",
+      "noTlp": "+62217392300",
+      "fasilitas": "-",
+      "imgUrl": ""
+    }
+  ]
+}
