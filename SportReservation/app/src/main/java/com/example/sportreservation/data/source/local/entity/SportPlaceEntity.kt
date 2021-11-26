@@ -9,7 +9,9 @@ data class SportPlaceEntity (
     val address: String,
     val phone: String,
     val open: String,
+    val close: String,
     val cost: String,
     val facility: String,
     val imgUrl: String,
+    val sportName: String,
 )

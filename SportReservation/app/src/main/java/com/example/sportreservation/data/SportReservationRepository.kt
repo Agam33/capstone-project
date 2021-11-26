@@ -1,9 +1,142 @@
 package com.example.sportreservation.data
 
-import com.example.sportreservation.utils.AppExecutors
+import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import com.example.sportreservation.data.source.NetworkBoundResource
+import com.example.sportreservation.data.source.local.LocalDataSourceImpl
+import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
+import com.example.sportreservation.data.source.remote.ApiResponse
+import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
+import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
+import com.example.sportreservation.utils.Resource
 
 class SportReservationRepository(
-    private val appExecutors: AppExecutors
-) {
+    private val remoteDataSourceImpl: RemoteDataSourceImpl,
+    private val localDataSourceImpl: LocalDataSourceImpl
+): SportReservationDataSource {
+
+    override fun getBadmintonPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
+        val sportName = "badminton"
+        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
+                data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
+                remoteDataSourceImpl.getBadmintonPlace()
+
+            override fun saveCallResult(data: List<SportPlaceResponse>) {
+                val sportPlace = ArrayList<SportPlaceEntity>()
+                for(place in data) {
+                    sportPlace.add(
+                        SportPlaceEntity(
+                            place.id,
+                            place.name,
+                            place.address,
+                            place.phone,
+                            place.open,
+                            place.close,
+                            place.cost,
+                            place.facility,
+                            place.imgUrl,
+                            sportName
+                        )
+                    )
+                }
+                localDataSourceImpl.insertSport(sportPlace)
+            }
+        }.asLiveData()
+    }
+
+    override fun getBasketPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
+        val sportName = "basket"
+        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean  =
+                data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
+                remoteDataSourceImpl.getBasketPlace()
+
+            override fun saveCallResult(data: List<SportPlaceResponse>) {
+                val sportPlace = ArrayList<SportPlaceEntity>()
+                for(place in data) {
+                    sportPlace.add(
+                        SportPlaceEntity(
+                            place.id,
+                            place.name,
+                            place.address,
+                            place.phone,
+                            place.open,
+                            place.close,
+                            place.cost,
+                            place.facility,
+                            place.imgUrl,
+                            sportName
+                        )
+                    )
+                }
+                localDataSourceImpl.insertSport(sportPlace)
+            }
+        }.asLiveData()
+    }
+
+    override fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
+        val sportName = "futsal"
+        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
+                data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
+                remoteDataSourceImpl.getFutsalPlace()
+
+            override fun saveCallResult(data: List<SportPlaceResponse>) {
+                val sportPlace = ArrayList<SportPlaceEntity>()
+                for (place in data) {
+                    sportPlace.add(
+                        SportPlaceEntity(
+                            place.id,
+                            place.name,
+                            place.address,
+                            place.phone,
+                            place.open,
+                            place.close,
+                            place.cost,
+                            place.facility,
+                            place.imgUrl,
+                            sportName
+                        )
+                    )
+                }
+                localDataSourceImpl.insertSport(sportPlace)
+            }
+        }.asLiveData()
+    }
 
 }
