@@ -5,16 +5,20 @@ import androidx.room.Room
 import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.data.source.local.room.SportReservationDatabase
 import com.example.sportreservation.data.source.local.room.SportReservationDao
-import com.example.sportreservation.utils.AppExecutors
+import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
+import com.example.sportreservation.utils.JsonHelper
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 var appModule = module {
-    single { AppExecutors() }
+    single { RemoteDataSourceImpl(get()) }
+
+    single { JsonHelper(androidContext()) }
 }
 
 var repoModule = module {
-    factory { SportReservationRepository( appExecutors = get()) }
+    factory { SportReservationRepository(get()) }
 }
 
 var viewModels = module {

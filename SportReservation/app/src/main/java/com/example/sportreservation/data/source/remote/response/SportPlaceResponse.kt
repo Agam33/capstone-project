@@ -8,6 +8,6 @@ data class SportPlaceResponse(
     val close: String,
     val cost: String,
     val phone: String,
-    val fasilitas: String,
+    val facility: String,
     val imgUrl: String,
 )

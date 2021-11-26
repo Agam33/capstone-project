@@ -9,10 +9,10 @@ class JsonHelper(private val context: Context) {
 
     private fun parsingFileToString(fileName: String): String? {
         return try {
-            val `is` = context.assets.open(fileName)
-            val buffer = ByteArray(`is`.available())
-            `is`.read(buffer)
-            `is`.close()
+            val inputStream = context.assets.open(fileName)
+            val buffer = ByteArray(inputStream.available())
+            inputStream.read(buffer)
+            inputStream.close()
             String(buffer)
 
         } catch (ex: IOException) {
@@ -104,4 +104,5 @@ class JsonHelper(private val context: Context) {
         }
         return list
     }
+
 }

@@ -4,10 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.StatusResponse
-import com.example.sportreservation.utils.AppExecutors
 import com.example.sportreservation.utils.Resource
+import com.example.sportreservation.utils.mainThread
+import com.example.sportreservation.utils.singleThreadIO
 
-abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecutors: AppExecutors) {
+abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private val result = MediatorLiveData<Resource<ResultType>>()
 
@@ -51,15 +52,15 @@ abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecut
             result.removeSource(dbSource)
             when (response.status) {
                 StatusResponse.SUCCESS ->
-                    mExecutors.diskIO().execute {
+                    singleThreadIO {
                     saveCallResult(response.body)
-                    mExecutors.mainThread().execute {
+                    mainThread {
                         result.addSource(loadFromDB()) { newData ->
                             result.value = Resource.success(newData)
                         }
                     }
                 }
-                StatusResponse.EMPTY -> mExecutors.mainThread().execute {
+                StatusResponse.EMPTY -> mainThread {
                     result.addSource(loadFromDB()) { newData ->
                         result.value = Resource.success(newData)
                     }
