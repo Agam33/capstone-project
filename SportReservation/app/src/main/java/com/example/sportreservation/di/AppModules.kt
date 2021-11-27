@@ -3,6 +3,7 @@ package com.example.sportreservation.di
 import android.app.Application
 import androidx.room.Room
 import com.example.sportreservation.data.SportReservationRepository
+import com.example.sportreservation.data.source.local.LocalDataSourceImpl
 import com.example.sportreservation.data.source.local.room.SportReservationDatabase
 import com.example.sportreservation.data.source.local.room.SportReservationDao
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
@@ -12,13 +13,13 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 var appModule = module {
-    single { RemoteDataSourceImpl(get()) }
-
-    single { JsonHelper(androidContext()) }
+    single { RemoteDataSourceImpl(jsonHelper = get()) }
+    single { LocalDataSourceImpl(sportReservationDao = get()) }
+    single { JsonHelper(context = androidContext()) }
 }
 
 var repoModule = module {
-    factory { SportReservationRepository(get()) }
+    factory { SportReservationRepository(remoteDataSourceImpl = get(), localDataSourceImpl =  get()) }
 }
 
 var viewModels = module {

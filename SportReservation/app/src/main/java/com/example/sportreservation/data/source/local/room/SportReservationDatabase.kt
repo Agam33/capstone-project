@@ -11,7 +11,7 @@ import com.example.sportreservation.data.source.local.entity.*
         OrderListEntity::class,
         ArticleEntity::class,
         SportPlaceEntity::class,
-        RefereeEntity::class,
+
    ],
     version = 1,
     exportSchema = false
