@@ -7,6 +7,6 @@
     <string name="txt_input_your_name">Nama</string>
     <string name="txt_input_email">Email</string>
     <string name="txt_input_address">Alamat</string>
-    <string name="txt_input_phone_number">masukan: +6289284634</string>
+    <string name="txt_input_phone_number">No. tlp</string>
     <string name="txt_regis">daftar</string>
 </resources>

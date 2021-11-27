@@ -64,8 +64,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_ed_phone"
-            android:maxLines="4"
-            android:maxLength="255"
+            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
