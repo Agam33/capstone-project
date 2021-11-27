@@ -2,9 +2,8 @@ package com.example.sportreservation.userpreferences
 
 import android.content.Context
 
-class UserPreference(
-    context: Context
-) {
+class UserPreference(context: Context) {
+
     private val preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
     fun setUser(userModel: UserModel) =
@@ -24,7 +23,7 @@ class UserPreference(
             preferences.getString(PHONE, ""),
             preferences.getString(IMAGE, ""),
         )
-    
+
     companion object {
         private const val PREFS_NAME = "user_pref"
         private const val NAME = "name"

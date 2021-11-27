@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kuliah/Semester 5/Study independent/Kelas Dicoding/Capstone_Project/SportReservation/app/src/main/res/layout/activity_registration.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 5/Study independent/Kelas Dicoding/Capstone_Project/SportReservation/app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="..\:/Kuliah/Semester 5/Study independent/Kelas Dicoding/Capstone_Project/SportReservation/app/src/main/res/layout/fragment_history.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 5/Study independent/Kelas Dicoding/Capstone_Project/SportReservation/app/src/main/res/layout/layout_user_input.xml" value="0.31979166666666664" />
       </map>
     </option>
   </component>
