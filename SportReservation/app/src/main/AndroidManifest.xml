@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportReservation">
         <activity
+            android:name=".ui.regis.RegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.detailarticle.DetailArticleActivity"
             android:exported="false" />
         <activity
