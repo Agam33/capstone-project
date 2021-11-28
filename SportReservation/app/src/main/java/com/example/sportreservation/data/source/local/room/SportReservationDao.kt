@@ -21,7 +21,7 @@ interface SportReservationDao {
     fun getSportById(id: Int): SportPlaceEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticle(articleEntity: List<ArticleEntity>)
+    fun insertArticles(articleEntity: List<ArticleEntity>)
 
     @Query("SELECT * FROM articleentity")
     fun getArticles(): DataSource.Factory<Int, ArticleEntity>
