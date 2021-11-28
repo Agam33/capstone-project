@@ -23,6 +23,9 @@ interface SportReservationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticle(articleEntity: List<ArticleEntity>)
 
+    @Query("SELECT * FROM articleentity")
+    fun getArticles(): DataSource.Factory<Int, ArticleEntity>
+
     @Query("SELECT * FROM articleentity WHERE id= :id")
     fun getArticleById(id: Int): ArticleEntity
 
