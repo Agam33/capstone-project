@@ -5,9 +5,11 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.example.sportreservation.data.source.NetworkBoundResource
 import com.example.sportreservation.data.source.local.LocalDataSourceImpl
+import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
+import com.example.sportreservation.data.source.remote.response.ArticleResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.Resource
 
@@ -138,5 +140,47 @@ class SportReservationRepository(
             }
         }.asLiveData()
     }
+
+    override fun getSportById(id: Int): SportPlaceEntity =
+        localDataSourceImpl.getSportById(id)
+
+    override fun getArticle(): LiveData<Resource<PagedList<ArticleEntity>>> {
+        return object : NetworkBoundResource<PagedList<ArticleEntity>, List<ArticleResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<ArticleEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getArticles(), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<ArticleEntity>?): Boolean =
+                data == null || data.isEmpty()
+
+
+            override fun createCall(): LiveData<ApiResponse<List<ArticleResponse>>> =
+                remoteDataSourceImpl.getArticle()
+
+            override fun saveCallResult(data: List<ArticleResponse>) {
+                val articles = ArrayList<ArticleEntity>()
+                for(article in data) {
+                    articles.add(
+                        ArticleEntity(
+                            article.id,
+                            article.title,
+                            article.writer,
+                            article.imgUrl,
+                            article.content
+                        )
+                    )
+                }
+                localDataSourceImpl.insertArticles(articles)
+            }
+        }.asLiveData()
+    }
+
+    override fun getArticleById(id: Int): ArticleEntity =
+        localDataSourceImpl.getArticleById(id)
 
 }
