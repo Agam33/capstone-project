@@ -7,9 +7,13 @@ import com.example.sportreservation.data.source.local.LocalDataSourceImpl
 import com.example.sportreservation.data.source.local.room.SportReservationDatabase
 import com.example.sportreservation.data.source.local.room.SportReservationDao
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
+import com.example.sportreservation.ui.detailarticle.DetailArticleViewModel
+import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
+import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
 import com.example.sportreservation.utils.JsonHelper
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 var appModule = module {
@@ -23,7 +27,9 @@ var repoModule = module {
 }
 
 var viewModels = module {
-
+    viewModel { HomeFragmentViewModel(sportReservationRepository = get()) }
+    viewModel { DetailArticleViewModel(sportReservationRepository = get()) }
+    viewModel { DetailPlaceViewModel(sportReservationRepository = get()) }
 }
 
 var databaseModule = module {
