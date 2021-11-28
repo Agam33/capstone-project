@@ -1,6 +1,7 @@
 package com.example.sportreservation.utils
 
 import android.content.Context
+import com.example.sportreservation.data.source.remote.response.ArticleResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import org.json.JSONObject
 import java.io.IOException
@@ -104,5 +105,30 @@ class JsonHelper(private val context: Context) {
         }
         return list
     }
+
+    fun loadArticle(): List<ArticleResponse> {
+        val list = ArrayList<ArticleResponse>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("Article.json").toString())
+            val listArray = responseObject.getJSONArray("article")
+            for(item in 0 until listArray.length()) {
+                val place = listArray.getJSONObject(item)
+
+                list.add(
+                    ArticleResponse(
+                        place.getInt("id"),
+                        place.getString("title"),
+                        place.getString("writer"),
+                        place.getString("imgUrl"),
+                        place.getString("content")
+                    )
+                )
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return list
+    }
+
 
 }

@@ -2,6 +2,7 @@ package com.example.sportreservation.data.source.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.sportreservation.data.source.remote.response.ArticleResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.JsonHelper
 import com.example.sportreservation.utils.mainThreadDelay
@@ -30,6 +31,14 @@ class RemoteDataSourceImpl(
         val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
         mainThreadDelay {
             result.value = ApiResponse.success(jsonHelper.loadFutsalPlace())
+        }
+        return result
+    }
+
+    override fun getArticle(): LiveData<ApiResponse<List<ArticleResponse>>> {
+        val result = MutableLiveData<ApiResponse<List<ArticleResponse>>>()
+        mainThreadDelay {
+            result.value = ApiResponse.success(jsonHelper.loadArticle())
         }
         return result
     }

@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 @Dao
@@ -15,5 +16,14 @@ interface SportReservationDao {
 
     @Query("SELECT * FROM sportplaceentity WHERE sportName = :sportName")
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
+
+    @Query("SELECT * FROM sportplaceentity WHERE id = :id")
+    fun getSportById(id: Int): SportPlaceEntity
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertArticle(articleEntity: List<ArticleEntity>)
+
+    @Query("SELECT * FROM articleentity WHERE id= :id")
+    fun getArticleById(id: Int): ArticleEntity
 
 }
