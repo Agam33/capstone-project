@@ -7,11 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.databinding.FragmentArticleBinding
+import com.example.sportreservation.utils.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleFragment : Fragment() {
 
+    private val viewModel: ArticleFragmentViewModel by viewModel()
     private var _binding: FragmentArticleBinding? = null
     private val binding get() = _binding
+    private val articleAdapter = ArticleAdapter()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,13 +29,44 @@ class ArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val articleAdapter = ArticleAdapter()
+        showListArticle()
+    }
+
+    private fun showListArticle() {
+        viewModel.getArticle().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { article ->
+                        articleAdapter.submitList(article)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
 
         with(binding?.rvArticle) {
             this?.layoutManager = LinearLayoutManager(context)
             this?.setHasFixedSize(true)
             this?.adapter = articleAdapter
         }
+    }
+
+    private fun success() {
+
+    }
+
+    private fun loading() {
+
+    }
+
+    private fun error() {
+
     }
 
     override fun onDestroyView() {
