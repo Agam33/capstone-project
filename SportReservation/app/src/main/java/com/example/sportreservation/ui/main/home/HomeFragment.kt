@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.FragmentHomeBinding
+import com.example.sportreservation.utils.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -27,7 +27,29 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showListFutsal()
+        showListBadminton()
+        showListBasket()
+    }
+
+    private fun showListFutsal() {
         val homeAdapter = HomeAdapter()
+        viewModel.getFutsalPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { futsal ->
+                        homeAdapter.submitList(futsal)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
 
         with(binding?.rvFutsal) {
             this?.layoutManager =
@@ -35,27 +57,74 @@ class HomeFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
+    }
+
+    private fun showListBadminton() {
+        val homeAdapter = HomeAdapter()
+
+        viewModel.getBadmintonPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { badminton ->
+
+                        homeAdapter.submitList(badminton)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
 
         with(binding?.rvBadminton) {
-            viewModel.getBadmintonPlace().observe(this@HomeFragment, { badminton ->
-                //homeAdapter.listPlaces = badminton
-            })
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
+    }
 
+    private fun showListBasket() {
+        val homeAdapter = HomeAdapter()
+
+        viewModel.getBasketPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { basket ->
+                        homeAdapter.submitList(basket)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
         with(binding?.rvBasket) {
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
+    }
 
-        viewModel.getBadmintonPlace().observe(this, {
+    private fun success() {
 
-        })
+    }
+
+    private fun loading() {
+
+    }
+
+    private fun error() {
+
     }
 
     override fun onDestroyView() {
