@@ -3,15 +3,19 @@ package com.example.sportreservation.data
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.sportreservation.data.source.NetworkBoundResource
 import com.example.sportreservation.data.source.local.LocalDataSourceImpl
 import com.example.sportreservation.data.source.local.entity.ArticleEntity
+import com.example.sportreservation.data.source.local.entity.HistoryEntity
+import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
 import com.example.sportreservation.data.source.remote.response.ArticleResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.Resource
+import com.example.sportreservation.utils.singleThreadIO
 
 class SportReservationRepository(
     private val remoteDataSourceImpl: RemoteDataSourceImpl,
@@ -141,7 +145,7 @@ class SportReservationRepository(
         }.asLiveData()
     }
 
-    override fun getSportById(id: Int): SportPlaceEntity =
+    override fun getSportById(id: Int): LiveData<SportPlaceEntity> =
         localDataSourceImpl.getSportById(id)
 
     override fun getArticle(): LiveData<Resource<PagedList<ArticleEntity>>> {
@@ -180,7 +184,31 @@ class SportReservationRepository(
         }.asLiveData()
     }
 
-    override fun getArticleById(id: Int): ArticleEntity =
+    override fun getArticleById(id: Int): LiveData<ArticleEntity> =
         localDataSourceImpl.getArticleById(id)
 
+    override fun getOrderList(): LiveData<PagedList<OrderEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSourceImpl.getOrderList(), config).build()
+    }
+
+    override fun getHistory(query: SupportSQLiteQuery): LiveData<PagedList<HistoryEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSourceImpl.getHistory(query), config).build()
+    }
+
+    override fun getOrderByDate(date: String): List<OrderEntity> =
+        localDataSourceImpl.getOrderByDate(date)
+
+    override fun deleteOrder(order: OrderEntity) {
+        singleThreadIO { localDataSourceImpl.deleteOrder(order) }
+    }
 }
