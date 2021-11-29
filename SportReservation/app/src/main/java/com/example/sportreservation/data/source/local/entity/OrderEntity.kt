@@ -4,13 +4,14 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.sportreservation.utils.OrderStatus
 
-
 @Entity
-data class OrderListEntity(
+data class OrderEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val dueDate: Long,
+    val date: String,
+    val startTime: String,
+    val endTime: String,
     val orderStatus: OrderStatus,
     val imgUrl: String,
 )

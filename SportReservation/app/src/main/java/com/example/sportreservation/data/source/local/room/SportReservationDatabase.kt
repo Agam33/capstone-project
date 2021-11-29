@@ -8,7 +8,7 @@ import com.example.sportreservation.data.source.local.entity.*
 @Database(
     entities = [
         HistoryEntity::class,
-        OrderListEntity::class,
+        OrderEntity::class,
         ArticleEntity::class,
         SportPlaceEntity::class,
 
