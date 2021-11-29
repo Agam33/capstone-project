@@ -6,12 +6,12 @@ buildscript {
     }
 
     ext {
-        kotlin_version = '1.5.31'
+        kotlin_version = '1.6.0'
         coreVersion = '1.7.0'
         gradle_version = '7.0.3'
 
-        appCompatVersion = '1.3.1'
-        constraintLayoutVersion = '2.1.1'
+        appCompatVersion = '1.4.0'
+        constraintLayoutVersion = '2.1.2'
         fragmentNavigation = '2.3.5'
         legacySupport = '1.0.0'
         glideVersion = '4.12.0'
@@ -19,9 +19,9 @@ buildscript {
         viewModelKtx = '2.4.0'
         lifeDataKtx = '2.4.0'
         activityKtx = '1.4.0'
-        fragmentKtx = '1.3.6'
+        fragmentKtx = '1.4.0'
 
-        koin_version = '3.1.3'
+        koin_version = '3.1.4'
 
         roomVersion = '2.3.0'
         roomRuntimeVersion = '2.3.0'
