@@ -4,11 +4,12 @@ import android.app.Application
 import androidx.room.Room
 import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.data.source.local.LocalDataSourceImpl
-import com.example.sportreservation.data.source.local.room.SportReservationDatabase
 import com.example.sportreservation.data.source.local.room.SportReservationDao
+import com.example.sportreservation.data.source.local.room.SportReservationDatabase
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
 import com.example.sportreservation.ui.detailarticle.DetailArticleViewModel
 import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
+import com.example.sportreservation.ui.main.article.ArticleFragmentViewModel
 import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
 import com.example.sportreservation.utils.JsonHelper
 import org.koin.android.ext.koin.androidApplication
@@ -23,13 +24,19 @@ var appModule = module {
 }
 
 var repoModule = module {
-    factory { SportReservationRepository(remoteDataSourceImpl = get(), localDataSourceImpl =  get()) }
+    factory {
+        SportReservationRepository(
+            remoteDataSourceImpl = get(),
+            localDataSourceImpl = get()
+        )
+    }
 }
 
 var viewModels = module {
     viewModel { HomeFragmentViewModel(sportReservationRepository = get()) }
     viewModel { DetailArticleViewModel(sportReservationRepository = get()) }
     viewModel { DetailPlaceViewModel(sportReservationRepository = get()) }
+    viewModel { ArticleFragmentViewModel(sportReservationRepository = get()) }
 }
 
 var databaseModule = module {

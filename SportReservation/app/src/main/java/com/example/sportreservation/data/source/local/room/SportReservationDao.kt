@@ -9,6 +9,7 @@ import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 @Dao
+
 interface SportReservationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -21,7 +22,7 @@ interface SportReservationDao {
     fun getSportById(id: Int): SportPlaceEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticles(articleEntity: List<ArticleEntity>)
+    fun insertArticle(articleEntity: List<ArticleEntity>)
 
     @Query("SELECT * FROM articleentity")
     fun getArticles(): DataSource.Factory<Int, ArticleEntity>
@@ -30,3 +31,4 @@ interface SportReservationDao {
     fun getArticleById(id: Int): ArticleEntity
 
 }
+

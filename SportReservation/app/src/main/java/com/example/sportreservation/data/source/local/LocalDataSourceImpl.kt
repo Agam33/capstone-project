@@ -19,7 +19,7 @@ class LocalDataSourceImpl(
         sportReservationDao.getSportById(id)
 
     override fun insertArticles(article: List<ArticleEntity>) =
-        sportReservationDao.insertArticles(article)
+        sportReservationDao.insertArticle(article)
 
     override fun getArticleById(id: Int): ArticleEntity =
         sportReservationDao.getArticleById(id)

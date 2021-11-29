@@ -6,7 +6,7 @@ import java.util.concurrent.Executors
 
 private val SINGLE_THREAD = Executors.newSingleThreadExecutor()
 private val MAIN_THREAD = Handler(Looper.getMainLooper())
-private const val SERVICE_LATENCY_IN_MILLIS: Long = 2000
+private const val SERVICE_LATENCY_IN_MILLIS: Long = 1000
 
 fun singleThreadIO(t: () -> Unit) {
     SINGLE_THREAD.execute(t)

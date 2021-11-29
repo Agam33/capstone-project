@@ -1,21 +1,76 @@
 package com.example.sportreservation.ui.main.article
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sportreservation.R
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportreservation.databinding.FragmentArticleBinding
+import com.example.sportreservation.utils.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleFragment : Fragment() {
+
+    private val viewModel: ArticleFragmentViewModel by viewModel()
+    private var _binding: FragmentArticleBinding? = null
+    private val binding get() = _binding
+    private val articleAdapter = ArticleAdapter()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_article, container, false)
+        _binding = FragmentArticleBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        showListArticle()
+    }
+
+    private fun showListArticle() {
+        viewModel.getArticle().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { article ->
+                        articleAdapter.submitList(article)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
+
+        with(binding?.rvArticle) {
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = articleAdapter
+        }
+    }
+
+    private fun success() {
+
+    }
+
+    private fun loading() {
+
+    }
+
+    private fun error() {
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
