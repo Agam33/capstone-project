@@ -9,24 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SportReservation">
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.detailarticle.DetailArticleActivity"
             android:exported="false" />
         <activity
             android:name=".ui.detailplace.DetailPlaceActivity"
             android:exported="false" />
+
         <activity
-            android:name=".ui.DetailUserActivity"
-            android:exported="false"
-            android:label="@string/title_activity_detail_user"
-            android:theme="@style/Theme.SportReservation.NoActionBar" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name=".ui.regis.RegistrationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -4,8 +4,10 @@ data class SportPlaceResponse(
     val id: Int,
     val name: String,
     val address: String,
-    val phone: String,
     val open: String,
-    val cost: Long,
+    val close: String,
+    val cost: String,
+    val phone: String,
+    val facility: String,
     val imgUrl: String,
 )
