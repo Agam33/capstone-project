@@ -1,7 +1,7 @@
 package com.example.sportreservation.ui.detailarticle
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
 
 class DetailArticleActivity : AppCompatActivity() {

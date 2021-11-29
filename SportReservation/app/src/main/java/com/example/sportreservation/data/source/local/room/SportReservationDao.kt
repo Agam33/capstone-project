@@ -9,6 +9,7 @@ import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 @Dao
+
 interface SportReservationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -30,3 +31,4 @@ interface SportReservationDao {
     fun getArticleById(id: Int): ArticleEntity
 
 }
+

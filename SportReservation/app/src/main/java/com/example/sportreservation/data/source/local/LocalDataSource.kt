@@ -1,6 +1,5 @@
 package com.example.sportreservation.data.source.local
 
-
 import androidx.paging.DataSource
 import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
