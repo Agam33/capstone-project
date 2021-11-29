@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.databinding.FragmentArticleBinding
 
 class ArticleFragment : Fragment() {
@@ -18,6 +19,18 @@ class ArticleFragment : Fragment() {
     ): View? {
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val articleAdapter = ArticleAdapter()
+
+        with(binding?.rvArticle) {
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = articleAdapter
+        }
     }
 
     override fun onDestroyView() {

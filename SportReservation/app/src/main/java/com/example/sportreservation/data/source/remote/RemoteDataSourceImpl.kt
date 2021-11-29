@@ -4,6 +4,4 @@ import com.example.sportreservation.utils.JsonHelper
 
 class RemoteDataSourceImpl(
     private val jsonHelper: JsonHelper
-): RemoteDataSource {
-
-}
+) : RemoteDataSource

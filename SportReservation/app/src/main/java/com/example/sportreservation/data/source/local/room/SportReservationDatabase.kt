@@ -12,6 +12,6 @@ import com.example.sportreservation.data.source.local.entity.UserEntity
     version = 1,
     exportSchema = false
 )
-abstract class SportReservationDatabase:RoomDatabase() {
+abstract class SportReservationDatabase : RoomDatabase() {
     abstract fun sportReservationDao(): SportReservationDao
 }

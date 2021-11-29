@@ -6,4 +6,9 @@
     <string name="title_article">Article</string>
     <string name="title_history">History</string>
     <string name="title_Profile">Profile</string>
+    <string name="image_sport_place">Image Sport Place</string>
+    <string name="futsal">Futsal</string>
+    <string name="basket">Basket</string>
+    <string name="badminton">Badminton</string>
+    <string name="image_article">Image Article</string>
 </resources>
