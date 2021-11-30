@@ -11,14 +11,5 @@ class DetailPlaceViewModel(
     private val sportReservationRepository: SportReservationRepository
 ): ViewModel() {
 
-    private var _detailId = MutableLiveData<Int>()
-    private val _detailArticle = _detailId.switchMap { id ->
-        sportReservationRepository.getArticleById(id)
-    }
 
-    val detailArticle: LiveData<ArticleEntity> = _detailArticle
-
-    fun getById(id: Int) {
-        _detailId.value = id
-    }
 }
