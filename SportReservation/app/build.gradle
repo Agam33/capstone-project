@@ -49,6 +49,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$fragmentNavigation"
     implementation "androidx.legacy:legacy-support-v4:$legacySupport"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "androidx.preference:preference-ktx:$preference_version"
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
