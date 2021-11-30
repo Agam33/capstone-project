@@ -11,6 +11,12 @@ import com.example.sportreservation.utils.loadImage
 
 class HomeAdapter : PagedListAdapter<SportPlaceEntity, HomeAdapter.ViewHolder>(diffCallback) {
 
+    private var onItemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickListener = onItemClickListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -27,10 +33,17 @@ class HomeAdapter : PagedListAdapter<SportPlaceEntity, HomeAdapter.ViewHolder>(d
         RecyclerView.ViewHolder(binding.root) {
         fun bind(place: SportPlaceEntity) {
             with(binding) {
+                itemView.setOnClickListener {
+                    onItemClickListener?.onItemClicked(place)
+                }
                 tvTitle.text = place.name
                 imgPlace.loadImage(place.imgUrl)
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClicked(data: SportPlaceEntity)
     }
 
     companion object {

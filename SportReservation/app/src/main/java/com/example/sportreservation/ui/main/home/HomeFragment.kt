@@ -1,12 +1,15 @@
 package com.example.sportreservation.ui.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.FragmentHomeBinding
+import com.example.sportreservation.ui.detailplace.DetailPlaceActivity
 import com.example.sportreservation.utils.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -15,6 +18,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeFragmentViewModel by viewModel()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
+    private val homeAdapter = HomeAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,13 +31,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
         showListFutsal()
-        showListBadminton()
-        showListBasket()
+        /*showListBadminton()
+        showListBasket()*/
     }
 
     private fun showListFutsal() {
-        val homeAdapter = HomeAdapter()
+        //val homeAdapter = HomeAdapter()
         viewModel.getFutsalPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -52,14 +64,13 @@ class HomeFragment : Fragment() {
         })
 
         with(binding?.rvFutsal) {
-            this?.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.layoutManager = LinearLayoutManager(context)
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
     }
 
-    private fun showListBadminton() {
+    /*private fun showListBadminton() {
         val homeAdapter = HomeAdapter()
 
         viewModel.getBadmintonPlace().observe(viewLifecycleOwner, {
@@ -113,7 +124,7 @@ class HomeFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
-    }
+    }*/
 
     private fun success() {
 
