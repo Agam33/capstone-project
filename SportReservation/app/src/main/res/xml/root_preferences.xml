@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:title ="@string/notification_title"
+        android:summary = "@string/notification_summary"
+        android:key="@string/notification_key"/>
+
+</androidx.preference.PreferenceScreen>
