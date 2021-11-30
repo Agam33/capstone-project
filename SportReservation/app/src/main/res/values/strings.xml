@@ -2,7 +2,6 @@
     <string name="app_name">Sport Reservation</string>
     <string name="title_activity_detail_user">DetailUserActivity</string>
 
-
     <string name="title_home">Home</string>
     <string name="title_article">Article</string>
     <string name="title_history">History</string>
@@ -20,5 +19,10 @@
     <string name="txt_input_address">Alamat</string>
     <string name="txt_input_phone_number">No. tlp</string>
     <string name="txt_regis">daftar</string>
+    <string name="txt_setting">Setting</string>
+
+    <string name="notification_key">notification_key</string>
+    <string name="notification_title">Notification</string>
+    <string name="notification_summary">Notifikasi akan aktif setiap jam 5.30</string>
 
 </resources>
