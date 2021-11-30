@@ -24,5 +24,9 @@
     <string name="notification_key">notification_key</string>
     <string name="notification_title">Notification</string>
     <string name="notification_summary">Notifikasi akan aktif setiap jam 5.30</string>
+    <string name="notification_message_format">(%1$s - %2$s) %3$s</string>
+
+    <string name="notification_content_title">Sport Reservation</string>
+
 
 </resources>
