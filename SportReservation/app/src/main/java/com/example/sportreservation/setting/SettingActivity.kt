@@ -2,6 +2,7 @@ package com.example.sportreservation.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.sportreservation.R
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -17,6 +18,9 @@ class SettingActivity : AppCompatActivity() {
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
+        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.txt_setting)
     }
 
     class SettingsFragment: PreferenceFragmentCompat() {
@@ -34,15 +38,16 @@ class SettingActivity : AppCompatActivity() {
                         when(it as Boolean) {
                             true ->  {
                                 notification.setRemainderOrder(requireContext())
+                                Toast.makeText(requireContext(), getString(R.string.notification_enable), Toast.LENGTH_SHORT).show()
                             }
                             false -> {
                                 notification.cancelRemainderOrder(requireContext())
+                                Toast.makeText(requireContext(), getString(R.string.notification_disable), Toast.LENGTH_SHORT).show()
                             }
                         }
                     }
                     true
                 }
         }
-
     }
 }
