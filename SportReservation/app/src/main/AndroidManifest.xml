@@ -15,6 +15,7 @@
         <activity
             android:parentActivityName=".ui.main.MainActivity"
             android:name=".ui.order.OrderActivity"
+            android:theme="@style/Theme.custom_1"
             android:exported="false"/>
         <activity
             android:name=".setting.SettingActivity"
