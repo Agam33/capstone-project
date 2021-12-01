@@ -25,8 +25,24 @@
     <string name="notification_title">Notification</string>
     <string name="notification_summary">Notifikasi akan aktif setiap jam 5.30</string>
     <string name="notification_message_format">(%1$s - %2$s) %3$s</string>
-
     <string name="notification_content_title">Sport Reservation</string>
+    <string name="notification_enable">Notifikasi diaktifkan</string>
+    <string name="notification_disable">Notifikasi dimatikan</string>
+
+    <string name="txt_dummy_place_name">Dummy Place Name</string>
+    <string name="txt_dummy_sport_location">Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540</string>
+    <string name="txt_title_place">Nama Tempat</string>
+    <string name="txt_title_location">Lokasi</string>
+    <string name="txt_title_sport_name">Nama olahraga</string>
+    <string name="txt_dummy_sport_name">Badminton</string>
+    <string name="txt_title_date">Tanggal</string>
+    <string name="txt_dummy_date">01/12/2021</string>
+    <string name="txt_title_time">Waktu</string>
+    <string name="txt_dummy_time">09:00 - 10:00</string>
+    <string name="txt_done">selesai</string>
+    <string name="txt_reservasi">Reservasi</string>
+
+    <string name="order_time">%1$s - %2$s</string>
 
 
 </resources>
