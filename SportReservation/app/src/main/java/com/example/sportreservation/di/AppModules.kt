@@ -48,7 +48,10 @@ var databaseModule = module {
             application.applicationContext,
             SportReservationDatabase::class.java,
             "SportReservation.db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
     }
 
     fun provideDao(sportRepositoryDatabase: SportReservationDatabase): SportReservationDao {
