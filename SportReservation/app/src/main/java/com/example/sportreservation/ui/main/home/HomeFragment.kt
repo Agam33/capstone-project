@@ -19,6 +19,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
     private val homeAdapter = HomeAdapter()
+    //private val basketAdapter = BasketAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showListFutsal()
+        showListBasket()
+        showListBadminton()
+    }
+
+    private fun showListFutsal() {
         homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
@@ -39,13 +46,6 @@ class HomeFragment : Fragment() {
             }
         })
 
-        showListFutsal()
-        /*showListBadminton()
-        showListBasket()*/
-    }
-
-    private fun showListFutsal() {
-        //val homeAdapter = HomeAdapter()
         viewModel.getFutsalPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -64,14 +64,53 @@ class HomeFragment : Fragment() {
         })
 
         with(binding?.rvFutsal) {
-            this?.layoutManager = LinearLayoutManager(context)
+            this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
     }
 
-    /*private fun showListBadminton() {
-        val homeAdapter = HomeAdapter()
+    private fun showListBasket() {
+        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
+        viewModel.getBasketPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { basket ->
+                        homeAdapter.submitList(basket)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
+        with(binding?.rvBasket) {
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.setHasFixedSize(true)
+            this?.adapter = homeAdapter
+        }
+    }
+
+    private fun showListBadminton() {
+        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
 
         viewModel.getBadmintonPlace().observe(viewLifecycleOwner, {
             when (it.status) {
@@ -98,33 +137,6 @@ class HomeFragment : Fragment() {
             this?.adapter = homeAdapter
         }
     }
-
-    private fun showListBasket() {
-        val homeAdapter = HomeAdapter()
-
-        viewModel.getBasketPlace().observe(viewLifecycleOwner, {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    success()
-                    it.data?.let { basket ->
-                        homeAdapter.submitList(basket)
-                    }
-                }
-                Status.ERROR -> {
-                    error()
-                }
-                Status.LOADING -> {
-                    loading()
-                }
-            }
-        })
-        with(binding?.rvBasket) {
-            this?.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
-        }
-    }*/
 
     private fun success() {
 

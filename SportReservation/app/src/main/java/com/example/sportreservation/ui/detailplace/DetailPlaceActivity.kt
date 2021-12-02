@@ -34,8 +34,8 @@ class DetailPlaceActivity : AppCompatActivity() {
         with(binding) {
             tvName.text = detailPlace.name
             tvOpen.text = String.format(getString(R.string.open), detailPlace.open, detailPlace.close)
-            tvPrice.text = String.format(getString(R.string.price), detailPlace.cost)
-            tvTelephone.text = String.format(getString(R.string.telephone), detailPlace.phone)
+            tvCost.text = String.format(getString(R.string.price), detailPlace.cost)
+            tvPhone.text = String.format(getString(R.string.telephone), detailPlace.phone)
             tvFacility.text = String.format(getString(R.string.facility), detailPlace.facility)
             tvAddress.text = String.format(getString(R.string.address), detailPlace.address)
             imgPlace.loadImage(detailPlace.imgUrl)

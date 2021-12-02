@@ -31,7 +31,7 @@ class DetailArticleActivity : AppCompatActivity() {
     private fun populateArticle(detailArticle: ArticleEntity) {
         with(binding) {
             tvTitle.text = detailArticle.title
-            tvDokter.text = detailArticle.writer
+            tvWriter.text = detailArticle.writer
             tvContent.text = detailArticle.content
             imgArticle.loadImage(detailArticle.imgUrl)
         }

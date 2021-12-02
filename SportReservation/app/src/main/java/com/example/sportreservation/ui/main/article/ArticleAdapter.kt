@@ -37,7 +37,7 @@ class ArticleAdapter : PagedListAdapter<ArticleEntity, ArticleAdapter.ViewHolder
             }
             with(binding) {
                 tvTitle.text = article.title
-                tvDokter.text = article.writer
+                tvWriter.text = article.writer
                 imgArticle.loadImage(article.imgUrl)
             }
         }

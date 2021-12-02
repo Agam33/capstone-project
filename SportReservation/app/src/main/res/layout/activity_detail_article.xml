@@ -17,7 +17,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/image_article" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -34,7 +35,7 @@
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/tv_dokter"
+            android:id="@+id/tv_writer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -49,9 +50,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_dokter"
-            app:layout_constraintStart_toStartOf="@+id/tv_dokter"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dokter"
+            app:layout_constraintEnd_toEndOf="@+id/tv_writer"
+            app:layout_constraintStart_toStartOf="@+id/tv_writer"
+            app:layout_constraintTop_toBottomOf="@+id/tv_writer"
             tools:text="Keracunan terjadi akibat paparan zat berbahaya melalui berbagai cara, seperti menelan, menghirup, atau menyentuh. Tidak hanya menimbulkan kesakitan, keracunan bisa berakibat fatal bahkan menyebabkan kematian. Kenali lebih jauh tentang gejala, penyebab, dan cara mengatasi keracunan berikut ini. \n\nKenali gejala keracunan\nGejala keracunan bisa berbeda pada tiap orang tergantung pada zat berbahaya yang meracuninya. Berikut ini beberapa gejala umum keracunan yang perlu Anda waspadai:\nKemerahan dan rasa terbakar di sekitar mulut jika racun tertelan\nBibir kebiruan\nNapas bau zat kimia, seperti bensin atau spiritus \nMual dan muntah\nMengantuk\nSulit bernapas\nSakit di dada\nBatuk \nKebingungan dan perubahan kondisi mental\nHalusinasi \nSakit perut\nDiare \nPusing atau sakit kepala\nPenglihatan ganda\nDemam\nJantung berdegup kencang\nPerubahan emosi seperti lekas marah\nTidak nafsu makan\nTidak bisa mengontrol buang air kecil \nKedutan otot\nLemah\nKesemutan\nMati rasa\nPingsan\nKejang\nKoma \nUmumnya, beberapa gejala di atas lebih sering dirasakan jika Anda menelan atau menghirup zat berbahaya. Sementara, jika Anda keracunan akibat menyentuhnya, akan muncul pula gejala di kulit, seperti kemerahan, melepuh, atau terasa terbakar.\nPenyebab keracunan yang sering terjadi\nKebanyakan keracunan terjadi secara tidak sengaja. Banyak zat di sekitar Anda yang bisa menyebabkan keracunan jika tertelan. Tidak hanya zat kimia, obat-obatan yang tidak diminum dengan benar atau melebihi dosis yang dianjurkan juga bisa menyebabkan keracunan obat.\n\nBerikut ini beberapa zat yang menjadi penyebab keracunan jika tertelan, antara lain:\nMakanan tertentu, seperti jamur Death Cap atau Yellow Staining \nBahan kimia di tempat kerja\nObat-obatan bebas atau resep yang tidak diminum dengan benar (overdosis aspirin, kokain)\nDeterjen dan produk pembersih rumah tangga\nInsektisida\nCat \nSelain itu, kebocoran gas juga jadi salah satu penyebab seseorang keracunan karbon monoksida. \nPertolongan pertama pada keracunan\nKetika terjadi keracunan, hal utama yang perlu Anda lakukan adalah tetap tenang dan segera hubungi rumah sakit atau ambulans untuk mendapatkan penanganan medis. \nSambil menunggu pertolongan medis datang, beberapa cara mengatasi keracunan bisa Anda lakukan sebagai pertolongan pertama, antara lain:\n\n1. Racun tertelan\nPertolongan pertama yang dapat Anda berikan saat mengetahui racun tertelan adalah membuang apa pun yang tersisa di mulut. Kemudian, kenali gejalanya dan cek jalan napas korban. \nHindari menetralkan racun dengan jus lemon, cuka, atau zat lain yang tidak direkomendasikan oleh tenaga kesehatan.\nJangan pula memaksa untuk memuntahkannya, kecuali petugas kesehatan menganjurkannya.\nNamun, jika muntah terjadi dengan sendirinya, Anda mungkin bisa menyimpan muntahannya agar petugas kesehatan bisa mengidentifikasi zat yang menyebabkan keracunan. \n\n2. Racun terhirup\nKeracunan juga bisa akibat menghirup zat berbahaya, keracunan karbon monoksida misalnya. Jika hal ini terjadi, segera bawa korban ke tempat terbuka untuk mendapatkan udara segar. Anda juga bisa menutup hidung dan mulut dengan handuk basah.\nJika korban tidak sadarkan diri, baringkan badannya secara miring ke samping untuk mencegah tersedak. Cek napas dan nadi korban. Jika tidak teraba, lakukan RJP (resusitasi jantung paru) atau CPR untuk menjaga aliran darah ke organ vital. \n\n3. Racun mengenai kulit \nJika racun atau zat berbahaya mengenai kulit, hal utama yang perlu Anda lakukan adalah melepaskan pakaian yang terkontaminasi menggunakan sarung tangan. Selanjutnya bilas kulit dengan air mengalir selama 15-20 menit. \n\n4. Racun mengenai mata\nTidak menutup kemungkinan mata juga bisa terkena percikan atau udara yang mengandung racun. Jika hal ini terjadi, bilas perlahan mata dengan air dingin atau hangat selama 20 menit. Anda juga bisa menggunakan wadah berisi air dan mengedip-ngedipkan mata Anda untuk membasuhnya. \nMayo Clinic menyarankan untuk menghubungi nomor darurat jika korban keracunan mengalami salah satu atau beberapa kondisi berikut ini:\nKesulitan bernapas atau henti napas\nMengantuk atau tidak sadarkan diri\nGelisah yang tak terkendali\nKejang\nDiketahui telah mengonsumsi obat-obatan atau zat lain dengan dosis yang tinggi secara sengaja maupun tidak sengaja\n" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
