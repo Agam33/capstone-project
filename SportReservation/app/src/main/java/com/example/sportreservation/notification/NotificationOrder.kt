@@ -19,7 +19,6 @@ import java.util.*
 
 @SuppressLint("UnspecifiedImmutableFlag")
 class NotificationOrder: BroadcastReceiver() {
-
     override fun onReceive(context: Context, intent: Intent) {
         singleThreadIO {
             val repository : SportReservationRepository by inject(SportReservationRepository::class.java)
