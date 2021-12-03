@@ -28,6 +28,17 @@ class NotificationOrder: BroadcastReceiver() {
 
             val orderList = repository.getOrderByDate(dateFormat.format(date))
 
+=======
+
+    override fun onReceive(context: Context, intent: Intent) {
+        singleThreadIO {
+            val repository : SportReservationRepository by inject(SportReservationRepository::class.java)
+
+            val date = Calendar.getInstance().time
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+            val orderList = repository.getOrderByDate(dateFormat.format(date))
+            
             if(orderList.isNotEmpty()) {
                 showNotification(context, orderList)
             }
