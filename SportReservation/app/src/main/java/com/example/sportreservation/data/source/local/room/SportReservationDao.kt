@@ -19,7 +19,7 @@ interface SportReservationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun  insertArticles(articleEntity: List<ArticleEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertOrder(order: OrderEntity)
 
     @Query("SELECT * FROM sportplaceentity WHERE sportName = :sportName")
@@ -42,6 +42,9 @@ interface SportReservationDao {
 
     @Query("SELECT * FROM orderentity WHERE date = :date")
     fun getOrderByDate(date: String): List<OrderEntity>
+
+    @Query("SELECT * FROM orderentity WHERE id = :id")
+    fun getOrderById(id: Int): LiveData<OrderEntity>
 
     @Delete
     fun deleteOrder(order: OrderEntity)

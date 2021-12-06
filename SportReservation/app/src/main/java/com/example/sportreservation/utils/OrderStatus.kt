@@ -1,7 +1,7 @@
 package com.example.sportreservation.utils
 
 enum class OrderStatus {
-    MENUNGGU,
+    PESAN,
     SELESAI,
-    DIBATALKAN
+    BATALKAN
 }

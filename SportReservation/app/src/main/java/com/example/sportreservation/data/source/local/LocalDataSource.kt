@@ -9,8 +9,9 @@ import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 interface LocalDataSource {
-    fun insertSport(sport:  List<SportPlaceEntity>)
+    fun insertSport(sport: List<SportPlaceEntity>)
     fun insertArticles(article: List<ArticleEntity>)
+    fun insertOrder(order: OrderEntity)
 
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
     fun getSportById(id: Int): LiveData<SportPlaceEntity>
@@ -19,6 +20,7 @@ interface LocalDataSource {
     fun getOrderList(): DataSource.Factory<Int, OrderEntity>
     fun getHistory(query: SupportSQLiteQuery):  DataSource.Factory<Int, HistoryEntity>
     fun getOrderByDate(date: String): List<OrderEntity>
+    fun getOrderById(id: Int): LiveData<OrderEntity>
 
     fun deleteOrder(order: OrderEntity)
 }

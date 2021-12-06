@@ -35,15 +35,13 @@ class SettingActivity : AppCompatActivity() {
             findPreference<SwitchPreference>(getString(R.string.notification_key))
                 ?.setOnPreferenceChangeListener { _, newValue ->
                     newValue?.let {
-                        when(it as Boolean) {
-                            true ->  {
-                                notification.setRemainderOrder(requireContext())
-                                Toast.makeText(requireContext(), getString(R.string.notification_enable), Toast.LENGTH_SHORT).show()
-                            }
-                            false -> {
-                                notification.cancelRemainderOrder(requireContext())
-                                Toast.makeText(requireContext(), getString(R.string.notification_disable), Toast.LENGTH_SHORT).show()
-                            }
+                        val isRemainder = it as Boolean
+                        if(isRemainder) {
+                            notification.setRemainderOrder(requireContext())
+                            Toast.makeText(requireContext(), getString(R.string.notification_enable), Toast.LENGTH_SHORT).show()
+                        } else {
+                            notification.cancelRemainderOrder(requireContext())
+                            Toast.makeText(requireContext(), getString(R.string.notification_disable), Toast.LENGTH_SHORT).show()
                         }
                     }
                     true
