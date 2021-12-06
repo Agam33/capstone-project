@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityDetailPlaceBinding
+import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
