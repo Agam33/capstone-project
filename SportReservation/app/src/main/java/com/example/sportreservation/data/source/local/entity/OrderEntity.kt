@@ -14,5 +14,5 @@ data class OrderEntity(
     val date: String,
     val startTime: String,
     val endTime: String,
-    val orderStatus: OrderStatus = OrderStatus.PESAN,
+    val orderStatus: OrderStatus,
 )

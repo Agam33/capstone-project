@@ -26,10 +26,4 @@ class DetailPlaceViewModel(
     fun getOrderById(id: Int): LiveData<OrderEntity> =
         sportReservationRepository.getOrderById(id)
 
-    fun insertOrder(order: OrderEntity) =
-        sportReservationRepository.insertOrder(order)
-
-
-    fun deleteOrder(orderEntity: OrderEntity) =
-        sportReservationRepository.deleteOrder(orderEntity)
 }

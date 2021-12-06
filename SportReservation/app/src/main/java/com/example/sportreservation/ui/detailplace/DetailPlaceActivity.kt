@@ -1,11 +1,13 @@
 package com.example.sportreservation.ui.detailplace
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityDetailPlaceBinding
+import com.example.sportreservation.ui.order.input.OrderInputActivity
 import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,29 +52,20 @@ class DetailPlaceActivity : AppCompatActivity() {
             if(order == null) {
                 binding.btnBook.text = "Pesan"
                 binding.btnBook.setBackgroundColor(getColor(R.color.purple_500))
-                val order = OrderEntity(
-                    detailPlace.id,
-                    detailPlace.name,
-                    detailPlace.sportName,
-                    detailPlace.address,
-                    "07/12/2021",
-                    "04:36",
-                    "24:00",
-                    OrderStatus.BATALKAN,
-                )
+                binding.btnBook.isEnabled = true
                 binding.btnBook.setOnClickListener {
-                    viewModel.insertOrder(order)
+                    startActivity(Intent(this, OrderInputActivity::class.java).apply {
+                        putExtra(EXTRA_PLACE, detailPlace.id)
+                    })
                 }
             } else {
-                binding.btnBook.text = "Batalkan"
-                binding.btnBook.setBackgroundColor(getColor(R.color.red))
                 when(order.orderStatus) {
-                    OrderStatus.PESAN -> {}
-                    OrderStatus.BATALKAN -> {
-                        binding.btnBook.setOnClickListener {
-                            viewModel.deleteOrder(order)
-                        }
+                    OrderStatus.PESAN -> {
+                        binding.btnBook.text = "Dipesan"
+                        binding.btnBook.setBackgroundColor(getColor(R.color.red))
+                        binding.btnBook.isEnabled = false
                     }
+                    OrderStatus.BATALKAN -> {}
                     OrderStatus.SELESAI -> {}
                 }
             }
