@@ -10,6 +10,5 @@ data class HistoryEntity(
     val id: Int,
     val name: String,
     val status: OrderStatus,
-    val date: String,
-    val imgUrl: String,
+    val date: String
 )
