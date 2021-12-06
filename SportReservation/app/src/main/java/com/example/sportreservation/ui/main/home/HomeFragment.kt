@@ -64,7 +64,8 @@ class HomeFragment : Fragment() {
         })
 
         with(binding?.rvFutsal) {
-            this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = homeAdapter
         }
@@ -139,15 +140,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun success() {
-
+        showLoading(false)
     }
 
     private fun loading() {
-
+        showLoading(true)
     }
 
     private fun error() {
+        showLoading(false)
+    }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {
