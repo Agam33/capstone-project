@@ -12,6 +12,12 @@
     <string name="badminton">Badminton</string>
     <string name="image_article">Image Article</string>
 
+    <string name="open">Open: %1s - %2s</string>
+    <string name="price">Harga: %1s</string>
+    <string name="telephone">No Telephone: %1s</string>
+    <string name="facility">Fasilitas: %1s</string>
+    <string name="address">Alamat: %1s</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_input_your_name">Nama</string>
