@@ -13,35 +13,26 @@ class RemoteDataSourceImpl(
 
     override fun getBadmintonPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>> {
         val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
-        mainThreadDelay {
-            result.value = ApiResponse.success(jsonHelper.loadBadmintonPlace())
-        }
+        result.postValue( ApiResponse.success(jsonHelper.loadBadmintonPlace()))
         return result
     }
 
     override fun getBasketPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>> {
         val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
-        mainThreadDelay {
-            result.value = ApiResponse.success(jsonHelper.loadBasketPlace())
-        }
+        result.postValue(ApiResponse.success(jsonHelper.loadBasketPlace()))
         return result
     }
 
     override fun getFutsalPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>> {
         val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
-        mainThreadDelay {
-            result.value = ApiResponse.success(jsonHelper.loadFutsalPlace())
-        }
+        result.postValue(ApiResponse.success(jsonHelper.loadFutsalPlace()))
         return result
     }
 
     override fun getArticle(): LiveData<ApiResponse<List<ArticleResponse>>> {
         val result = MutableLiveData<ApiResponse<List<ArticleResponse>>>()
-        mainThreadDelay {
-            result.value = ApiResponse.success(jsonHelper.loadArticle())
-        }
+        result.value = ApiResponse.success(jsonHelper.loadArticle())
         return result
     }
-
 }
 
