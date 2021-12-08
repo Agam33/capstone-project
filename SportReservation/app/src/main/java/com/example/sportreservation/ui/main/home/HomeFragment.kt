@@ -32,12 +32,17 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainThreadDelay {
-
             showListFutsal()
-            showListBasket()
-            showListBadminton()
-
         }
+
+        mainThreadDelay {
+            showListBasket()
+        }
+
+        mainThreadDelay {
+            showListBadminton()
+        }
+
     }
 
     private fun showListFutsal() {

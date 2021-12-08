@@ -22,7 +22,8 @@ interface SportReservationDataSource {
     fun getArticleById(id: Int): LiveData<ArticleEntity>
 
     // History
-    fun getHistory(query: SupportSQLiteQuery): LiveData<PagedList<HistoryEntity>>
+    fun insertHistory(historyEntity: HistoryEntity)
+    fun getHistory(): LiveData<PagedList<HistoryEntity>>
 
     // Order
     fun insertOrder(order: OrderEntity)
@@ -31,7 +32,4 @@ interface SportReservationDataSource {
     fun getOrderByDate(date: String): List<OrderEntity>
     fun getOrderById(id: Int): LiveData<OrderEntity>
 
-
-
-    fun getSportByName(name: String): LiveData<Resource<PagedList<SportPlaceEntity>>>
 }

@@ -12,6 +12,12 @@ import com.example.sportreservation.databinding.ItemOrderBinding
 class OrderAdapter: PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffCallback) {
 
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(ItemOrderBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
@@ -32,7 +38,19 @@ class OrderAdapter: PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffC
             tvDate.text = orderEntity.date
             tvTime.text = String.format(root.context.getString(R.string.order_time), orderEntity.startTime, orderEntity.endTime)
             tvLocation.text = orderEntity.address
+
+            btnDone.setOnClickListener {
+                onItemClickCallback.orderDone(orderEntity)
+            }
+            btnCancel.setOnClickListener {
+                onItemClickCallback.orderCancel(orderEntity)
+            }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun orderDone(orderEntity: OrderEntity)
+        fun orderCancel(orderEntity: OrderEntity)
     }
 
     companion object {
