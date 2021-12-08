@@ -45,7 +45,7 @@ class SportReservationRepository(
                 for(place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            place.id,
+                            0,
                             place.name,
                             place.address,
                             place.phone,
@@ -86,7 +86,7 @@ class SportReservationRepository(
                 for(place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            place.id,
+                            0,
                             place.name,
                             place.address,
                             place.phone,
@@ -127,7 +127,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            place.id,
+                          0,
                             place.name,
                             place.address,
                             place.phone,

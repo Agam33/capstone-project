@@ -13,7 +13,7 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 interface SportReservationDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     fun insertSport(sport: List<SportPlaceEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

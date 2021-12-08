@@ -9,6 +9,7 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityDetailPlaceBinding
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.ui.order.input.OrderInputActivity
+import com.example.sportreservation.ui.order.input.OrderInputActivity.Companion.EXTRA_BUNDLE_PLACE
 import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -53,7 +54,7 @@ class DetailPlaceActivity : AppCompatActivity() {
                 binding.btnBook.isEnabled = true
                 binding.btnBook.setOnClickListener {
                     startActivity(Intent(this, OrderInputActivity::class.java).apply {
-                        putExtra(EXTRA_PLACE, detailPlace.id)
+                        putExtra(EXTRA_BUNDLE_PLACE, detailPlace)
                     })
                 }
             } else {
