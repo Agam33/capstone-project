@@ -30,7 +30,7 @@ class HistoryAdapter : PagedListAdapter<HistoryEntity, HistoryAdapter.ViewHolder
                 tvName.text = history.name
                 tvDate.text = history.date
                 tvStatus.text =
-                    if (history.status == OrderStatus.DIBATALKAN) "Dibatalkan" else "SELESAI"
+                    if (history.status == OrderStatus.BATALKAN) "Dibatalkan" else "SELESAI"
             }
         }
     }
