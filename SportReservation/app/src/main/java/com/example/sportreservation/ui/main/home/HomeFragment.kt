@@ -18,8 +18,6 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeFragmentViewModel by viewModel()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
-    private val homeAdapter = HomeAdapter()
-    //private val basketAdapter = BasketAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +36,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun showListFutsal() {
-        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+
+        val futsalAdapter = FutsalAdapter()
+
+        futsalAdapter.setOnItemClickListener(object : FutsalAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -51,7 +52,7 @@ class HomeFragment : Fragment() {
                 Status.SUCCESS -> {
                     success()
                     it.data?.let { futsal ->
-                        homeAdapter.submitList(futsal)
+                        futsalAdapter.submitList(futsal)
                     }
                 }
                 Status.ERROR -> {
@@ -64,14 +65,18 @@ class HomeFragment : Fragment() {
         })
 
         with(binding?.rvFutsal) {
-            this?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
+            this?.adapter = futsalAdapter
         }
     }
 
     private fun showListBasket() {
-        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+
+        val basketAdapter = BasketAdapter()
+
+        basketAdapter.setOnItemClickListener(object : BasketAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -84,7 +89,7 @@ class HomeFragment : Fragment() {
                 Status.SUCCESS -> {
                     success()
                     it.data?.let { basket ->
-                        homeAdapter.submitList(basket)
+                        basketAdapter.submitList(basket)
                     }
                 }
                 Status.ERROR -> {
@@ -99,12 +104,15 @@ class HomeFragment : Fragment() {
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
+            this?.adapter = basketAdapter
         }
     }
 
     private fun showListBadminton() {
-        homeAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+
+        val badmintonAdapter = BadmintonAdapter()
+
+        badmintonAdapter.setOnItemClickListener(object : BadmintonAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -117,8 +125,7 @@ class HomeFragment : Fragment() {
                 Status.SUCCESS -> {
                     success()
                     it.data?.let { badminton ->
-
-                        homeAdapter.submitList(badminton)
+                        badmintonAdapter.submitList(badminton)
                     }
                 }
                 Status.ERROR -> {
@@ -134,20 +141,24 @@ class HomeFragment : Fragment() {
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
+            this?.adapter = badmintonAdapter
         }
     }
 
     private fun success() {
-
+        showLoading(false)
     }
 
     private fun loading() {
-
+        showLoading(true)
     }
 
     private fun error() {
+        showLoading(false)
+    }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {
