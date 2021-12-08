@@ -205,10 +205,15 @@ class SportReservationRepository(
         return LivePagedListBuilder(localDataSourceImpl.getHistory(query), config).build()
     }
 
+    override fun insertOrder(order: OrderEntity) =
+        singleThreadIO { localDataSourceImpl.insertOrder(order) }
+
     override fun getOrderByDate(date: String): List<OrderEntity> =
         localDataSourceImpl.getOrderByDate(date)
 
-    override fun deleteOrder(order: OrderEntity) {
+    override fun getOrderById(id: Int): LiveData<OrderEntity> =
+        localDataSourceImpl.getOrderById(id)
+
+    override fun deleteOrder(order: OrderEntity) =
         singleThreadIO { localDataSourceImpl.deleteOrder(order) }
-    }
 }
