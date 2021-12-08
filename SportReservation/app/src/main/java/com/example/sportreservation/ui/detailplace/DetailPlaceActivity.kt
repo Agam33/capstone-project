@@ -34,23 +34,20 @@ class DetailPlaceActivity : AppCompatActivity() {
         }
     }
 
-    private fun populatePlace(detailPlace: SportPlaceEntity) {
-        with(binding) {
-            tvName.text = detailPlace.name
-            tvOpen.text = String.format(getString(R.string.open), detailPlace.open, detailPlace.close)
-            tvCost.text = String.format(getString(R.string.price), detailPlace.cost)
-            tvPhone.text = String.format(getString(R.string.telephone), detailPlace.phone)
-            tvFacility.text = String.format(getString(R.string.facility), detailPlace.facility)
-            tvAddress.text = String.format(getString(R.string.address), detailPlace.address)
-            imgPlace.loadImage(detailPlace.imgUrl)
-        }
+    private fun populatePlace(detailPlace: SportPlaceEntity) = with(binding) {
+        tvName.text = detailPlace.name
+        tvOpen.text = String.format(getString(R.string.open), detailPlace.open, detailPlace.close)
+        tvCost.text = String.format(getString(R.string.price), detailPlace.cost)
+        tvPhone.text = String.format(getString(R.string.telephone), detailPlace.phone)
+        tvFacility.text = String.format(getString(R.string.facility), detailPlace.facility)
+        tvAddress.text = String.format(getString(R.string.address), detailPlace.address)
+        imgPlace.loadImage(detailPlace.imgUrl)
     }
 
     private fun setOrder(detailPlace: SportPlaceEntity) {
-
         viewModel.getOrderById(detailPlace.id).observe(this, { order ->
             if(order == null) {
-                binding.btnBook.text = "Pesan"
+                binding.btnBook.text = getString(R.string.txt_booking)
                 binding.btnBook.setBackgroundColor(getColor(R.color.purple_500))
                 binding.btnBook.isEnabled = true
                 binding.btnBook.setOnClickListener {
@@ -61,7 +58,7 @@ class DetailPlaceActivity : AppCompatActivity() {
             } else {
                 when(order.orderStatus) {
                     OrderStatus.PESAN -> {
-                        binding.btnBook.text = "Dipesan"
+                        binding.btnBook.text = getString(R.string.txt_sudah_pesan)
                         binding.btnBook.setBackgroundColor(getColor(R.color.red))
                         binding.btnBook.isEnabled = false
                     }
