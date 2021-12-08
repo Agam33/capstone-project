@@ -34,7 +34,6 @@ class OrderInputActivity : AppCompatActivity(),
         setContentView(orderInputBinding?.root)
 
         setSupportActionBar(orderInputBinding?.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val sportPlaceEntity = intent.getParcelableExtra<SportPlaceEntity>(EXTRA_BUNDLE_PLACE) as SportPlaceEntity
 

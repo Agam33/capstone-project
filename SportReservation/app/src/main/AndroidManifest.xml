@@ -17,7 +17,6 @@
         <activity
             android:name=".ui.order.input.OrderInputActivity"
             android:theme="@style/Theme.custom_1"
-            android:parentActivityName=".ui.detailplace.DetailPlaceActivity"
             android:exported="false" />
         <activity
             android:name=".ui.order.OrderActivity"
@@ -31,6 +30,7 @@
             android:theme="@style/Theme.custom_1" />
         <activity
             android:name=".ui.main.MainActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".ui.detailarticle.DetailArticleActivity"

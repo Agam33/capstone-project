@@ -17,6 +17,7 @@ interface SportReservationDataSource {
     fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
     fun getSportById(id: Int): LiveData<SportPlaceEntity>
 
+
     fun getArticle(): LiveData<Resource<PagedList<ArticleEntity>>>
     fun getArticleById(id: Int): LiveData<ArticleEntity>
 
@@ -29,4 +30,8 @@ interface SportReservationDataSource {
     fun deleteOrder(order: OrderEntity)
     fun getOrderByDate(date: String): List<OrderEntity>
     fun getOrderById(id: Int): LiveData<OrderEntity>
+
+
+
+    fun getSportByName(name: String): LiveData<Resource<PagedList<SportPlaceEntity>>>
 }
