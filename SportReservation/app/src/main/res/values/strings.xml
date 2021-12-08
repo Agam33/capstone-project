@@ -58,5 +58,6 @@
     <string name="txt_hours">Jam</string>
     <string name="txt_pesan">Pesan</string>
     <string name="txt_status">Status</string>
+    <string name="txt_dibatalkan">Dibatalkan</string>
 
 </resources>

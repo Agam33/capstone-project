@@ -110,7 +110,7 @@
                 android:id="@+id/date_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="128dp"
+                android:layout_marginStart="64dp"
                 android:background="@color/white"
                 android:src="@drawable/ic_calendar_month_24" />
 

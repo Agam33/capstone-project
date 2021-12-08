@@ -24,7 +24,7 @@ class OrderInputActivity : AppCompatActivity(),
 
     private val orderInputViewModel: OrderInputViewModel by viewModel()
 
-    private var startTime = ""
+    private var startTime = "00:00"
     private var endTime = ""
     private var startDate = ""
 
@@ -61,7 +61,7 @@ class OrderInputActivity : AppCompatActivity(),
         }
 
         val timeString = getString(R.string.txt_input_start_time)
-        val arrTime = startTime.split(":").map { it.toInt() }
+        val arrTime = startTime.split(":").filter { it != ":" }.map { it.toInt() }
         val hourEndTime = arrTime[0] + durationInput.toInt()
         val endTimeText = String.format(timeString, hourEndTime, arrTime[1])
 
@@ -91,6 +91,7 @@ class OrderInputActivity : AppCompatActivity(),
             OrderStatus.PESAN
         ))
 
+        finish()
     }
 
     private fun showTimePicker() {

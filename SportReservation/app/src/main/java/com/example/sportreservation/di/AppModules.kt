@@ -51,8 +51,7 @@ var databaseModule = module {
             SportReservationDatabase::class.java,
             "SportReservation.db"
         )
-            .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
+
             .build()
     }
 

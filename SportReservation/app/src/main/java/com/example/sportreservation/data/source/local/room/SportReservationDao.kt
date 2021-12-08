@@ -22,6 +22,9 @@ interface SportReservationDao {
     @Insert
     fun insertOrder(order: OrderEntity)
 
+    @Insert
+    fun insertHistory(historyEntity: HistoryEntity)
+
     @Query("SELECT * FROM sportplaceentity WHERE sportName = :sportName")
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
 
@@ -37,8 +40,8 @@ interface SportReservationDao {
     @Query("SELECT * FROM orderentity")
     fun getOrderList(): DataSource.Factory<Int, OrderEntity>
 
-    @RawQuery(observedEntities = [HistoryEntity::class])
-    fun getHistory(query: SupportSQLiteQuery): DataSource.Factory<Int, HistoryEntity>
+    @Query("SELECT * FROM historyentity")
+    fun getHistory(): DataSource.Factory<Int, HistoryEntity>
 
     @Query("SELECT * FROM orderentity WHERE date = :date")
     fun getOrderByDate(date: String): List<OrderEntity>
@@ -48,6 +51,8 @@ interface SportReservationDao {
 
     @Delete
     fun deleteOrder(order: OrderEntity)
+
+
 
 }
 
