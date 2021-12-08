@@ -2,6 +2,7 @@ package com.example.sportreservation.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.sportreservation.R
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -17,6 +18,9 @@ class SettingActivity : AppCompatActivity() {
                 .replace(R.id.settings, SettingsFragment())
                 .commit()
         }
+        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.txt_setting)
     }
 
     class SettingsFragment: PreferenceFragmentCompat() {
@@ -31,18 +35,17 @@ class SettingActivity : AppCompatActivity() {
             findPreference<SwitchPreference>(getString(R.string.notification_key))
                 ?.setOnPreferenceChangeListener { _, newValue ->
                     newValue?.let {
-                        when(it as Boolean) {
-                            true ->  {
-                                notification.setRemainderOrder(requireContext())
-                            }
-                            false -> {
-                                notification.cancelRemainderOrder(requireContext())
-                            }
+                        val isRemainder = it as Boolean
+                        if(isRemainder) {
+                            notification.setRemainderOrder(requireContext())
+                            Toast.makeText(requireContext(), getString(R.string.notification_enable), Toast.LENGTH_SHORT).show()
+                        } else {
+                            notification.cancelRemainderOrder(requireContext())
+                            Toast.makeText(requireContext(), getString(R.string.notification_disable), Toast.LENGTH_SHORT).show()
                         }
                     }
                     true
                 }
         }
-
     }
 }

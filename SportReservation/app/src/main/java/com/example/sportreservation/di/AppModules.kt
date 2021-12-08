@@ -11,6 +11,7 @@ import com.example.sportreservation.ui.detailarticle.DetailArticleViewModel
 import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
 import com.example.sportreservation.ui.main.article.ArticleFragmentViewModel
 import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
+import com.example.sportreservation.ui.order.OrderViewModel
 import com.example.sportreservation.utils.JsonHelper
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -37,6 +38,7 @@ var viewModels = module {
     viewModel { DetailArticleViewModel(sportReservationRepository = get()) }
     viewModel { DetailPlaceViewModel(sportReservationRepository = get()) }
     viewModel { ArticleFragmentViewModel(sportReservationRepository = get()) }
+    viewModel { OrderViewModel(sportReservationRepository = get()) }
 }
 
 var databaseModule = module {
@@ -46,7 +48,10 @@ var databaseModule = module {
             application.applicationContext,
             SportReservationDatabase::class.java,
             "SportReservation.db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
     }
 
     fun provideDao(sportRepositoryDatabase: SportReservationDatabase): SportReservationDao {

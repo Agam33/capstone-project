@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import com.example.sportreservation.data.SportReservationRepository
+import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 
 class DetailPlaceViewModel(
@@ -21,4 +22,8 @@ class DetailPlaceViewModel(
     fun getById(id: Int) {
         _detailId.value = id
     }
+
+    fun getOrderById(id: Int): LiveData<OrderEntity> =
+        sportReservationRepository.getOrderById(id)
+
 }

@@ -6,12 +6,13 @@ import com.example.sportreservation.utils.OrderStatus
 
 @Entity
 data class OrderEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val id: Int,
     val name: String,
+    val sportName: String,
+    val address: String,
     val date: String,
     val startTime: String,
     val endTime: String,
     val orderStatus: OrderStatus,
-    val imgUrl: String,
 )

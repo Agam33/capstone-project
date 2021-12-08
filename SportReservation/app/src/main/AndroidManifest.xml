@@ -3,6 +3,8 @@
     package="com.example.sportreservation">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".di.App"
@@ -13,8 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportReservation">
         <activity
-            android:name=".setting.SettingActivity"
+            android:name=".ui.order.input.OrderInputActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.order.OrderActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/Theme.custom_1" />
+        <activity
+            android:name=".setting.SettingActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/Theme.custom_1" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
@@ -33,6 +45,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".notification.NotificationOrder"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

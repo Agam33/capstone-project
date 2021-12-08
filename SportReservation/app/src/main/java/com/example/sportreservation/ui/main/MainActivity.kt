@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.sportreservation.R
 import com.example.sportreservation.databinding.ActivityMainBinding
 import com.example.sportreservation.setting.SettingActivity
+import com.example.sportreservation.ui.order.OrderActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +50,10 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId) {
             R.id.action_setting -> {
                 startActivity(Intent(this, SettingActivity::class.java))
+                true
+            }
+            R.id.action_reservasi -> {
+                startActivity(Intent(this, OrderActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)

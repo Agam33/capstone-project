@@ -83,6 +83,18 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_facility"
             app:layout_constraintStart_toStartOf="@+id/tv_facility"
             app:layout_constraintTop_toBottomOf="@+id/tv_facility" />
+
+        <Button
+            android:id="@+id/btn_book"
+            android:text="tes booking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_address"
+            app:layout_constraintStart_toStartOf="@+id/tv_address"
+            app:layout_constraintTop_toTopOf="@+id/tv_address"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
