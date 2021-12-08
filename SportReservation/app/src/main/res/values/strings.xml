@@ -2,21 +2,35 @@
     <string name="app_name">Sport Reservation</string>
     <string name="title_activity_detail_user">DetailUserActivity</string>
 
+    <!-- Botton Navigation -->
     <string name="title_home">Home</string>
     <string name="title_article">Article</string>
     <string name="title_history">History</string>
     <string name="title_Profile">Profile</string>
-    <string name="image_sport_place">Image Sport Place</string>
+
+    <!-- Sport -->
     <string name="futsal">Futsal</string>
     <string name="basket">Basket</string>
     <string name="badminton">Badminton</string>
+    <string name="image_sport_place">Image Sport Place</string>
     <string name="image_article">Image Article</string>
 
-    <string name="open">Open: %1s - %2s</string>
-    <string name="price">Harga: %1s</string>
-    <string name="telephone">No Telephone: %1s</string>
-    <string name="facility">Fasilitas: %1s</string>
-    <string name="address">Alamat: %1s</string>
+    <!-- Detail Place -->
+    <string name="title_open">Open</string>
+    <string name="title_price">Harga</string>
+    <string name="title_phone">No Telephone</string>
+    <string name="title_facility">Fasilitas</string>
+    <string name="title_address">Alamat</string>
+
+    <string name="open">%1s - %2s</string>
+    <string name="price">Rp %1s</string>
+    <string name="phone">%1s</string>
+    <string name="facility">%1s</string>
+    <string name="address">%1s</string>
+
+    <!-- Profile -->
+    <string name="title_name">Nama</string>
+    <string name="title_email">Email</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

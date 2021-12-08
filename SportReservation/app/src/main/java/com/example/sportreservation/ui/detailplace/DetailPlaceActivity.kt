@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
-import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityDetailPlaceBinding
-import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.ui.order.input.OrderInputActivity
 import com.example.sportreservation.ui.order.input.OrderInputActivity.Companion.EXTRA_BUNDLE_PLACE
 import com.example.sportreservation.utils.OrderStatus
@@ -39,8 +37,8 @@ class DetailPlaceActivity : AppCompatActivity() {
     private fun populatePlace(detailPlace: SportPlaceEntity) = with(binding) {
         tvName.text = detailPlace.name
         tvOpen.text = String.format(getString(R.string.open), detailPlace.open, detailPlace.close)
-        tvCost.text = String.format(getString(R.string.price), detailPlace.cost)
-        tvPhone.text = String.format(getString(R.string.telephone), detailPlace.phone)
+        tvPrice.text = String.format(getString(R.string.price), detailPlace.cost)
+        tvPhone.text = String.format(getString(R.string.phone), detailPlace.phone)
         tvFacility.text = String.format(getString(R.string.facility), detailPlace.facility)
         tvAddress.text = String.format(getString(R.string.address), detailPlace.address)
         imgPlace.loadImage(detailPlace.imgUrl)
