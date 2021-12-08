@@ -61,7 +61,9 @@ class OrderInputActivity : AppCompatActivity(),
         }
 
         val timeString = getString(R.string.txt_input_start_time)
-        val arrTime = startTime.split(":").map { it.toInt() }
+        val arrTime = startTime.split(":")
+            .filter { it != ":" }
+            .map { it.toInt() }
         val hourEndTime = arrTime[0] + durationInput.toInt()
         val endTimeText = String.format(timeString, hourEndTime, arrTime[1])
 

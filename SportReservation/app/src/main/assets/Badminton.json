@@ -8,8 +8,8 @@
       "tutup": "23:00",
       "harga": "50.000 / jam",
       "noTlp": "+62816702708",
-      "fasilitas":"-",
-      "imgUrl": "https://www.google.com/maps/place/GCT+Badminton/@-6.2898146,106.8244249,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMwuXOtv5-lLyzk6vk5YKVAGmFFHEhEAF94Hcqs!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMwuXOtv5-lLyzk6vk5YKVAGmFFHEhEAF94Hcqs%3Dw86-h114-k-no!7i3024!8i4032!4m5!3m4!1s0x2e69f204a4a77ef3:0xa4f4466655be0335!8m2!3d-6.2897566!4d106.8244696"
+      "fasilitas":"",
+      "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/azfiij/field/FIBO_FiIm_azfiij_Ngx9Wt.jpg"
     },
     {
       "id": 2,
@@ -19,8 +19,8 @@
       "tutup": "21:00",
       "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+62215807086",
-      "fasilitas":"-",
-      "imgUrl": ""
+      "fasilitas":"",
+      "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/lbpdxa/field/FIBO_FiIm_lbpdxa_oCc2ov.png"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "harga": "45.000 / jam",
       "noTlp": "+6287885545429",
       "fasilitas":"",
-      "imgUrl": ""
+      "imgUrl": "https://rumputinterlock.com/wp-content/uploads/2020/11/WhatsApp-Image-2020-11-23-at-06.08.46.jpeg"
     },
     {
       "id": 4,
@@ -41,8 +41,8 @@
       "tutup": "23:00",
       "harga": "-",
       "noTlp": "+62215825895",
-      "fasilitas": "-",
-      "imgUrl": ""
+      "fasilitas": "",
+      "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/bjlxzm/field/FIBO_FiIm_bjlxzm_vhz0NJ.png"
     },
     {
       "id": 5,
@@ -52,8 +52,8 @@
       "tutup": "23:00",
       "harga": "-",
       "noTlp": "+62818983383",
-      "fasilitas": "-",
-      "imgUrl": ""
+      "fasilitas": "",
+      "imgUrl": "https://admin.saraga.id/storage/images/20210914-172440_1631615724.jpg"
     }
   ]
 }
