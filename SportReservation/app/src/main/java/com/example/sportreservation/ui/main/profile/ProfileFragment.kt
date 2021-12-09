@@ -25,7 +25,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var userPreference = UserPreference(requireContext())
+        val userPreference = UserPreference(requireContext())
         val userModel = userPreference.getUser()
 
         with(binding) {
@@ -33,7 +33,6 @@ class ProfileFragment : Fragment() {
             this?.tvEmail?.text = userModel.email
             this?.tvAddress?.text = userModel.address
             this?.tvPhone?.text = userModel.phone
-
             this?.imgUser?.loadImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
         }
 
