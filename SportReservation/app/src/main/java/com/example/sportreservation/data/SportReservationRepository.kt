@@ -150,6 +150,45 @@ class SportReservationRepository(
         }.asLiveData()
     }
 
+    override fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
+        val sportName = "golf"
+        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(LOAD_PAGE)
+                    .setPageSize(PAGE_SIZE)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean = data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> = remoteDataSourceImpl.getGolfPlace()
+
+            override fun saveCallResult(data: List<SportPlaceResponse>) {
+                val sportPlace = ArrayList<SportPlaceEntity>()
+                for (place in data) {
+                    sportPlace.add(
+                        SportPlaceEntity(
+                            0,
+                            place.name,
+                            place.address,
+                            place.phone,
+                            place.open,
+                            place.close,
+                            place.cost,
+                            place.facility,
+                            place.imgUrl,
+                            sportName
+                        )
+                    )
+                }
+                localDataSourceImpl.insertSport(sportPlace)
+            }
+        }.asLiveData()
+    }
+
     override fun getSportById(id: Int): LiveData<SportPlaceEntity> =
         localDataSourceImpl.getSportById(id)
 

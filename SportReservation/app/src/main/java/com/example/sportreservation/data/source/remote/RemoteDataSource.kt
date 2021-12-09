@@ -9,6 +9,6 @@ interface RemoteDataSource {
     fun getBadmintonPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getBasketPlace():  LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getFutsalPlace():  LiveData<ApiResponse<List<SportPlaceResponse>>>
+    fun getGolfPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getArticle():  LiveData<ApiResponse<List<ArticleResponse>>>
-
 }

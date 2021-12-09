@@ -29,6 +29,12 @@ class RemoteDataSourceImpl(
         return result
     }
 
+    override fun getGolfPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>> {
+        val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
+        result.postValue(ApiResponse.success(jsonHelper.loadGolfPlace()))
+        return result
+    }
+
     override fun getArticle(): LiveData<ApiResponse<List<ArticleResponse>>> {
         val result = MutableLiveData<ApiResponse<List<ArticleResponse>>>()
         result.value = ApiResponse.success(jsonHelper.loadArticle())

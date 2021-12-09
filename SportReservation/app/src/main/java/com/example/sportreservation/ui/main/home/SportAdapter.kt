@@ -9,7 +9,7 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ItemPlaceBinding
 import com.example.sportreservation.utils.loadImage
 
-class BasketAdapter : PagedListAdapter<SportPlaceEntity, BasketAdapter.ViewHolder>(diffCallback) {
+class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickListener: OnItemClickListener? = null
 
@@ -47,7 +47,7 @@ class BasketAdapter : PagedListAdapter<SportPlaceEntity, BasketAdapter.ViewHolde
     }
 
     companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<SportPlaceEntity>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SportPlaceEntity>() {
             override fun areItemsTheSame(
                 oldItem: SportPlaceEntity,
                 newItem: SportPlaceEntity
