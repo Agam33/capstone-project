@@ -39,6 +39,8 @@ class OrderAdapter: PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffC
             tvTime.text = String.format(root.context.getString(R.string.order_time), orderEntity.startTime, orderEntity.endTime)
             tvLocation.text = orderEntity.address
 
+            btnCancel.setBackgroundColor(root.context.getColor(R.color.red))
+
             btnDone.setOnClickListener {
                 onItemClickCallback.orderDone(orderEntity)
             }
