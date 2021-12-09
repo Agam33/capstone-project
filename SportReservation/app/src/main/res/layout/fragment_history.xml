@@ -23,4 +23,5 @@
     <include
         android:id="@+id/empty_box"
         layout="@layout/layout_empty_list"/>
+  
 </androidx.constraintlayout.widget.ConstraintLayout>
