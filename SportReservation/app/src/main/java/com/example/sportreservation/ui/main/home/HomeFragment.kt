@@ -33,16 +33,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showListFutsal()
-        showListBasket()
-        showListBadminton()
+        mainThreadDelay {
+
+            showListFutsal()
+            showListBasket()
+            showListBadminton()
+            showListGolf()
+
+        }
     }
 
     private fun showListFutsal() {
 
-        val futsalAdapter = FutsalAdapter()
+        val futsalAdapter = SportAdapter()
 
-        futsalAdapter.setOnItemClickListener(object : FutsalAdapter.OnItemClickListener {
+        futsalAdapter.setOnItemClickListener(object : SportAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -77,9 +82,9 @@ class HomeFragment : Fragment() {
 
     private fun showListBasket() {
 
-        val basketAdapter = BasketAdapter()
+        val basketAdapter = SportAdapter()
 
-        basketAdapter.setOnItemClickListener(object : BasketAdapter.OnItemClickListener {
+        basketAdapter.setOnItemClickListener(object : SportAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -113,9 +118,9 @@ class HomeFragment : Fragment() {
 
     private fun showListBadminton() {
 
-        val badmintonAdapter = BadmintonAdapter()
+        val badmintonAdapter = SportAdapter()
 
-        badmintonAdapter.setOnItemClickListener(object : BadmintonAdapter.OnItemClickListener {
+        badmintonAdapter.setOnItemClickListener(object : SportAdapter.OnItemClickListener {
             override fun onItemClicked(data: SportPlaceEntity) {
                 val intent = Intent(context, DetailPlaceActivity::class.java)
                 intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
@@ -145,6 +150,43 @@ class HomeFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = badmintonAdapter
+        }
+    }
+
+    private fun showListGolf() {
+
+        val golfAdapter = SportAdapter()
+
+        golfAdapter.setOnItemClickListener(object : SportAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
+        viewModel.getGolfPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { badminton ->
+                        golfAdapter.submitList(badminton)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
+
+        with(binding?.rvGolf) {
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.setHasFixedSize(true)
+            this?.adapter = golfAdapter
         }
     }
 

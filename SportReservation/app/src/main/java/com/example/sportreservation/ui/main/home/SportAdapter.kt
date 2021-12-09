@@ -11,7 +11,7 @@ import com.example.sportreservation.utils.loadImage
 import com.example.sportreservation.utils.mainThreadDelay
 import com.example.sportreservation.utils.singleThreadIO
 
-class FutsalAdapter : PagedListAdapter<SportPlaceEntity, FutsalAdapter.ViewHolder>(DIFF_CALLBACK) {
+class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickListener: OnItemClickListener? = null
 
