@@ -10,6 +10,7 @@ import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
 import com.example.sportreservation.ui.detailarticle.DetailArticleViewModel
 import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
 import com.example.sportreservation.ui.main.article.ArticleFragmentViewModel
+import com.example.sportreservation.ui.main.history.HistoryFragmentViewModel
 import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
 import com.example.sportreservation.ui.order.OrderViewModel
 import com.example.sportreservation.ui.order.input.OrderInputViewModel
@@ -41,6 +42,7 @@ var viewModels = module {
     viewModel { ArticleFragmentViewModel(sportReservationRepository = get()) }
     viewModel { OrderViewModel(sportReservationRepository = get()) }
     viewModel { OrderInputViewModel(sportReservationRepository = get()) }
+    viewModel { HistoryFragmentViewModel(sportReservationRepository = get()) }
 }
 
 var databaseModule = module {

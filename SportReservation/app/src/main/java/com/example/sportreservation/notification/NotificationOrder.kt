@@ -11,7 +11,7 @@ import androidx.core.app.NotificationCompat
 import com.example.sportreservation.R
 import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.data.source.local.entity.OrderEntity
-import com.example.sportreservation.ui.main.MainActivity
+import com.example.sportreservation.ui.order.OrderActivity
 import com.example.sportreservation.utils.*
 import org.koin.java.KoinJavaComponent.inject
 import java.text.SimpleDateFormat
@@ -66,7 +66,7 @@ class NotificationOrder: BroadcastReceiver() {
     }
 
     private fun showNotification(context: Context, orderList: List<OrderEntity>) {
-        val intent = Intent(context, MainActivity::class.java)
+        val intent = Intent(context, OrderActivity::class.java)
         val pendingIntent = TaskStackBuilder.create(context).run {
             addNextIntentWithParentStack(intent)
             getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT,)

@@ -12,5 +12,4 @@ class HistoryFragmentViewModel(
 
     fun getHistoryOrder(): LiveData<PagedList<HistoryEntity>> =
         sportReservationRepository.getHistory()
-
 }
