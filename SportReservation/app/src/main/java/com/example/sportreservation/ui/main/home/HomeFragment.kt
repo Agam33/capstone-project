@@ -1,13 +1,17 @@
 package com.example.sportreservation.ui.main.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.FragmentHomeBinding
+import com.example.sportreservation.ui.detailplace.DetailPlaceActivity
 import com.example.sportreservation.utils.Status
+import com.example.sportreservation.utils.mainThreadDelay
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -27,19 +31,38 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showListFutsal()
-        showListBadminton()
-        showListBasket()
+        mainThreadDelay {
+            showListFutsal()
+        }
+
+        mainThreadDelay {
+            showListBasket()
+        }
+
+        mainThreadDelay {
+            showListBadminton()
+        }
+
     }
 
     private fun showListFutsal() {
-        val homeAdapter = HomeAdapter()
+
+        val futsalAdapter = FutsalAdapter()
+
+        futsalAdapter.setOnItemClickListener(object : FutsalAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
         viewModel.getFutsalPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
                     success()
                     it.data?.let { futsal ->
-                        homeAdapter.submitList(futsal)
+                        futsalAdapter.submitList(futsal)
                     }
                 }
                 Status.ERROR -> {
@@ -55,20 +78,64 @@ class HomeFragment : Fragment() {
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
+            this?.adapter = futsalAdapter
+        }
+    }
+
+    private fun showListBasket() {
+
+        val basketAdapter = BasketAdapter()
+
+        basketAdapter.setOnItemClickListener(object : BasketAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
+        viewModel.getBasketPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { basket ->
+                        basketAdapter.submitList(basket)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
+        with(binding?.rvBasket) {
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.setHasFixedSize(true)
+            this?.adapter = basketAdapter
         }
     }
 
     private fun showListBadminton() {
-        val homeAdapter = HomeAdapter()
+
+        val badmintonAdapter = BadmintonAdapter()
+
+        badmintonAdapter.setOnItemClickListener(object : BadmintonAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
 
         viewModel.getBadmintonPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
                     success()
                     it.data?.let { badminton ->
-
-                        homeAdapter.submitList(badminton)
+                        badmintonAdapter.submitList(badminton)
                     }
                 }
                 Status.ERROR -> {
@@ -84,47 +151,24 @@ class HomeFragment : Fragment() {
             this?.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
-        }
-    }
-
-    private fun showListBasket() {
-        val homeAdapter = HomeAdapter()
-
-        viewModel.getBasketPlace().observe(viewLifecycleOwner, {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    success()
-                    it.data?.let { basket ->
-                        homeAdapter.submitList(basket)
-                    }
-                }
-                Status.ERROR -> {
-                    error()
-                }
-                Status.LOADING -> {
-                    loading()
-                }
-            }
-        })
-        with(binding?.rvBasket) {
-            this?.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            this?.setHasFixedSize(true)
-            this?.adapter = homeAdapter
+            this?.adapter = badmintonAdapter
         }
     }
 
     private fun success() {
-
+        showLoading(false)
     }
 
     private fun loading() {
-
+        showLoading(true)
     }
 
     private fun error() {
+        showLoading(false)
+    }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

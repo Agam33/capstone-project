@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detailplace.DetailPlaceActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_place"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/image_sport_place" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_place"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_open_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_open"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_open"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_open_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_open_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_title"
+            tools:text="07:00 - 23:59" />
+
+        <TextView
+            android:id="@+id/tv_price_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/title_price"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_open"
+            app:layout_constraintStart_toStartOf="@+id/tv_open"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_price_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_price_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price_title"
+            tools:text="Rp 150.000 - 300.000" />
+
+        <TextView
+            android:id="@+id/tv_title_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/title_phone"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_price"
+            app:layout_constraintStart_toStartOf="@+id/tv_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title_phone"
+            app:layout_constraintStart_toStartOf="@+id/tv_title_phone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_phone"
+            tools:text="+6281234567890" />
+
+        <TextView
+            android:id="@+id/tv_facility_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/title_facility"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_phone"
+            app:layout_constraintStart_toStartOf="@+id/tv_phone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+
+        <TextView
+            android:id="@+id/tv_facility"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_phone"
+            app:layout_constraintStart_toStartOf="@+id/tv_phone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_facility_title"
+            tools:text="Rumput Sintesis" />
+
+        <TextView
+            android:id="@+id/tv_address_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_address"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_facility"
+            app:layout_constraintStart_toStartOf="@+id/tv_facility"
+            app:layout_constraintTop_toBottomOf="@+id/tv_facility" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_facility"
+            app:layout_constraintStart_toStartOf="@+id/tv_facility"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address_title"
+            tools:text="Jakarta" />
+
+        <Button
+            android:id="@+id/btn_book"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_address"
+            app:layout_constraintStart_toStartOf="@+id/tv_address"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            tools:text="Tes Booking" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

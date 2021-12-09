@@ -1,10 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".ui.main.profile.ProfileFragment">
 
 
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_name_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_name"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_user" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_title"
+        tools:text="Yono" />
+
+    <TextView
+        android:id="@+id/tv_email_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_email"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_email_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_email_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email_title"
+        tools:text="yono@gmail.com" />
+
+    <TextView
+        android:id="@+id/tv_address_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_address"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_email"
+        app:layout_constraintStart_toStartOf="@+id/tv_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_address_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_address_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address_title"
+        tools:text="Kebayoran" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_phone"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_address"
+        app:layout_constraintStart_toStartOf="@+id/tv_address"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_address"
+        app:layout_constraintStart_toStartOf="@+id/tv_address"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:text="081234567890" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,15 +2,35 @@
     <string name="app_name">Sport Reservation</string>
     <string name="title_activity_detail_user">DetailUserActivity</string>
 
+    <!-- Botton Navigation -->
     <string name="title_home">Home</string>
     <string name="title_article">Article</string>
     <string name="title_history">History</string>
     <string name="title_Profile">Profile</string>
-    <string name="image_sport_place">Image Sport Place</string>
+
+    <!-- Sport -->
     <string name="futsal">Futsal</string>
     <string name="basket">Basket</string>
     <string name="badminton">Badminton</string>
+    <string name="image_sport_place">Image Sport Place</string>
     <string name="image_article">Image Article</string>
+
+    <!-- Detail Place -->
+    <string name="title_open">Open</string>
+    <string name="title_price">Harga</string>
+    <string name="title_phone">No Telephone</string>
+    <string name="title_facility">Fasilitas</string>
+    <string name="title_address">Alamat</string>
+
+    <string name="open">%1s - %2s</string>
+    <string name="price">Rp %1s</string>
+    <string name="phone">%1s</string>
+    <string name="facility">%1s</string>
+    <string name="address">%1s</string>
+
+    <!-- Profile -->
+    <string name="title_name">Nama</string>
+    <string name="title_email">Email</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -38,11 +58,20 @@
     <string name="txt_title_date">Tanggal</string>
     <string name="txt_dummy_date">01/12/2021</string>
     <string name="txt_title_time">Waktu</string>
-    <string name="txt_dummy_time">09:00 - 10:00</string>
+    <string name="txt_dummy_time">09:00 – 10:00</string>
     <string name="txt_done">selesai</string>
     <string name="txt_reservasi">Reservasi</string>
-
+    <string name="txt_booking">Pesan Sekarang</string>
+    <string name="txt_sudah_pesan">Sudah dipesan</string>
+    <string name="txt_min_booking">"Maaf, pesan tempat hanya bisa 1 – 4 jam."</string>
+    <string name="txt_min_date_booking">Tanggal yang kamu masukan sudah terlewat.</string>
     <string name="order_time">%1$s - %2$s</string>
-
+    <string name="txt_input_start_time">%02d:%02d</string>
+    <string name="txt_dummy_start_time">14:20</string>
+    <string name="txt_duration">Durasi</string>
+    <string name="txt_hours">Jam</string>
+    <string name="txt_pesan">Pesan</string>
+    <string name="txt_status">Status</string>
+    <string name="txt_dibatalkan">Dibatalkan</string>
 
 </resources>

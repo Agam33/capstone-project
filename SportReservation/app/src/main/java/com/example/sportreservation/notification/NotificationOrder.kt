@@ -97,6 +97,7 @@ class NotificationOrder: BroadcastReceiver() {
             .setVibrate(longArrayOf(1000,1000,1000,1000,1000))
             .setContentIntent(pendingIntent)
 
+
         val channel = NotificationChannel(
             NOTIFICATION_CHANNEL_ID,
             NOTIFICATION_CHANNEL_NAME,
@@ -106,12 +107,11 @@ class NotificationOrder: BroadcastReceiver() {
         notificationManager.createNotificationChannel(channel)
 
         builder.setStyle(notificationStyle)
-        notificationManager.notify(NOTIFICATION_ID,builder.build())
+        notificationManager.notify(NOTIFICATION_ID, builder.build())
     }
 
     companion object {
         private const val ALARM_HOURS = 5
         private const val ALARM_MINUTE = 30
     }
-
 }

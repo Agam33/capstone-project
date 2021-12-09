@@ -11,7 +11,7 @@ const val ID_REPEATING = 100
 
 private val SINGLE_THREAD = Executors.newSingleThreadExecutor()
 private val MAIN_THREAD = Handler(Looper.getMainLooper())
-private const val SERVICE_LATENCY_IN_MILLIS: Long = 1000
+private const val SERVICE_LATENCY_IN_MILLIS: Long = 8000
 
 fun singleThreadIO(t: () -> Unit) {
     SINGLE_THREAD.execute(t)

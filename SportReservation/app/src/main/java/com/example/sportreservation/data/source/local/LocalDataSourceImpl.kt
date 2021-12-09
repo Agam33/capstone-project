@@ -19,6 +19,13 @@ class LocalDataSourceImpl(
     override fun insertArticles(article: List<ArticleEntity>) =
         sportReservationDao.insertArticles(article)
 
+    override fun insertOrder(order: OrderEntity) =
+        sportReservationDao.insertOrder(order)
+
+    override fun insertHistory(historyEntity: HistoryEntity) {
+        sportReservationDao.insertHistory(historyEntity)
+    }
+
     override fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity> =
         sportReservationDao.getBySportName(sportName)
 
@@ -34,11 +41,14 @@ class LocalDataSourceImpl(
     override fun getOrderList(): DataSource.Factory<Int, OrderEntity> =
         sportReservationDao.getOrderList()
 
-    override fun getHistory(query: SupportSQLiteQuery): DataSource.Factory<Int, HistoryEntity> =
-        sportReservationDao.getHistory(query)
+    override fun getHistory(): DataSource.Factory<Int, HistoryEntity> =
+        sportReservationDao.getHistory()
 
     override fun getOrderByDate(date: String): List<OrderEntity> =
         sportReservationDao.getOrderByDate(date)
+
+    override fun getOrderById(id: Int): LiveData<OrderEntity> =
+        sportReservationDao.getOrderById(id)
 
     override fun deleteOrder(order: OrderEntity) {
         sportReservationDao.deleteOrder(order)

@@ -12,6 +12,7 @@ import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
 import com.example.sportreservation.ui.main.article.ArticleFragmentViewModel
 import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
 import com.example.sportreservation.ui.order.OrderViewModel
+import com.example.sportreservation.ui.order.input.OrderInputViewModel
 import com.example.sportreservation.utils.JsonHelper
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -39,6 +40,7 @@ var viewModels = module {
     viewModel { DetailPlaceViewModel(sportReservationRepository = get()) }
     viewModel { ArticleFragmentViewModel(sportReservationRepository = get()) }
     viewModel { OrderViewModel(sportReservationRepository = get()) }
+    viewModel { OrderInputViewModel(sportReservationRepository = get()) }
 }
 
 var databaseModule = module {
@@ -49,8 +51,7 @@ var databaseModule = module {
             SportReservationDatabase::class.java,
             "SportReservation.db"
         )
-            .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
+
             .build()
     }
 
