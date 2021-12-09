@@ -73,5 +73,6 @@
     <string name="txt_pesan">Pesan</string>
     <string name="txt_status">Status</string>
     <string name="txt_dibatalkan">Dibatalkan</string>
+    <string name="txt_empty_list">Tidak ada Data</string>
 
 </resources>

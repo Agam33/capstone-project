@@ -2,6 +2,7 @@ package com.example.sportreservation.ui.order
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +32,8 @@ class OrderActivity : AppCompatActivity(), OrderAdapter.OnItemClickCallback {
     }
 
     private fun showOrderList(orderList: PagedList<OrderEntity>) {
+        if(orderList.isEmpty()) isEmptyList(true) else isEmptyList(false)
+
         orderAdapter.submitList(orderList)
         orderAdapter.setOnItemClickCallback(this)
         _orderBinding?.rvOrder?.apply {
@@ -38,7 +41,16 @@ class OrderActivity : AppCompatActivity(), OrderAdapter.OnItemClickCallback {
             setHasFixedSize(true)
             adapter = orderAdapter
         }
+    }
 
+    private fun isEmptyList(state: Boolean) {
+        if(state) {
+            orderBinding?.rvOrder?.visibility = View.GONE
+            orderBinding?.emptyBox?.frameLayoutFavorite?.visibility = View.VISIBLE
+        } else {
+            orderBinding?.rvOrder?.visibility = View.VISIBLE
+            orderBinding?.emptyBox?.frameLayoutFavorite?.visibility = View.GONE
+        }
     }
 
     override fun orderDone(orderEntity: OrderEntity) {

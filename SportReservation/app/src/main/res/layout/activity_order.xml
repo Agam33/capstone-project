@@ -19,9 +19,14 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:id="@+id/rv_order"
         tools:listitem="@layout/item_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <include
+        android:id="@+id/empty_box"
+        layout="@layout/layout_empty_list" />
 
 </LinearLayout>
