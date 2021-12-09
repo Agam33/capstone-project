@@ -9,7 +9,7 @@
       "harga": "50.000 / jam",
       "noTlp": "+62816702708",
       "fasilitas":"-",
-      "imgUrl": ""
+      "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+62215807086",
       "fasilitas":"-",
-      "imgUrl": ""
+      "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "harga": "45.000 / jam",
       "noTlp": "+6287885545429",
       "fasilitas":"",
-      "imgUrl": ""
+      "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "harga": "-",
       "noTlp": "+62215825895",
       "fasilitas": "-",
-      "imgUrl": ""
+      "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "harga": "-",
       "noTlp": "+62818983383",
       "fasilitas": "-",
-      "imgUrl": ""
+      "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     }
   ]
 }

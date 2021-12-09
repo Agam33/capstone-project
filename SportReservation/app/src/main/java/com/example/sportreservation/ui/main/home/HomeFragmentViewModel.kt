@@ -20,6 +20,4 @@ class HomeFragmentViewModel(
     fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> =
         sportReservationRepository.getFutsalPlace()
 
-
-
 }
