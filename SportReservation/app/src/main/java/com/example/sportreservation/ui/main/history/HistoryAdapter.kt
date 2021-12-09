@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.databinding.ItemHistoryBinding
 import com.example.sportreservation.utils.OrderStatus
@@ -30,7 +31,7 @@ class HistoryAdapter : PagedListAdapter<HistoryEntity, HistoryAdapter.ViewHolder
                 tvName.text = history.name
                 tvDate.text = history.date
                 tvStatus.text =
-                    if (history.status == OrderStatus.BATALKAN) "Dibatalkan" else "SELESAI"
+                    if (history.status == OrderStatus.BATALKAN) root.context.getString(R.string.dibatalkan) else root.context.getString(R.string.selesai)
             }
         }
     }

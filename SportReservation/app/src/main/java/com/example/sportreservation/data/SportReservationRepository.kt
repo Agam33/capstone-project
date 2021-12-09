@@ -28,7 +28,7 @@ class SportReservationRepository(
     }
 
     override fun getBadmintonPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
-        val sportName = "badminton"
+        val sportName = "Badminton"
         return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
@@ -69,7 +69,7 @@ class SportReservationRepository(
     }
 
     override fun getBasketPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
-        val sportName = "basket"
+        val sportName = "Basket"
         return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
@@ -110,7 +110,7 @@ class SportReservationRepository(
     }
 
     override fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
-        val sportName = "futsal"
+        val sportName = "Futsal"
         return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
@@ -151,7 +151,7 @@ class SportReservationRepository(
     }
 
     override fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
-        val sportName = "golf"
+        val sportName = "Golf"
         return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
