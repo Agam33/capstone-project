@@ -65,6 +65,17 @@ class OrderInputActivity : AppCompatActivity(),
         val hourEndTime = arrTime[0] + durationInput.toInt()
         val endTimeText = String.format(timeString, hourEndTime, arrTime[1])
 
+        val sportPlaceOpen = sportPlaceEntity.open.split(":").filter { it != ":" }.map { it.toInt() }
+        val sportPlaceClose = sportPlaceEntity.close.split(":").filter { it != ":" }.map { it.toInt() }
+
+        if(arrTime.first() < sportPlaceOpen[0]) {
+            Toast.makeText(this, "Tempat kami buka jam ${String.format(timeString, sportPlaceOpen[0], sportPlaceOpen[1])}", Toast.LENGTH_LONG).show()
+            return
+        } else if((hourEndTime > sportPlaceClose[0])) {
+            Toast.makeText(this, "Tempat kami tutup jam ${String.format(timeString, sportPlaceClose[0], sportPlaceClose[1])}", Toast.LENGTH_LONG).show()
+            return
+        }
+
         endTime = endTimeText
 
         /*
