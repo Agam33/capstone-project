@@ -11,7 +11,9 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.FragmentHomeBinding
 import com.example.sportreservation.ui.detailplace.DetailPlaceActivity
 import com.example.sportreservation.utils.Status
+import com.example.sportreservation.utils.mainThread
 import com.example.sportreservation.utils.mainThreadDelay
+import com.example.sportreservation.utils.singleThreadIO
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -31,17 +33,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mainThreadDelay {
-            showListFutsal()
-        }
 
-        mainThreadDelay {
-            showListBasket()
-        }
-
-        mainThreadDelay {
-            showListBadminton()
-        }
+        showListFutsal()
+        showListBasket()
+        showListBadminton()
 
     }
 

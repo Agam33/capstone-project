@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ItemPlaceBinding
 import com.example.sportreservation.utils.loadImage
+import com.example.sportreservation.utils.mainThreadDelay
 
 class BadmintonAdapter : PagedListAdapter<SportPlaceEntity, BadmintonAdapter.ViewHolder>(DIFF_CALLBACK) {
 
@@ -37,7 +38,9 @@ class BadmintonAdapter : PagedListAdapter<SportPlaceEntity, BadmintonAdapter.Vie
                     onItemClickListener?.onItemClicked(place)
                 }
                 tvTitle.text = place.name
-                imgPlace.loadImage(place.imgUrl)
+                mainThreadDelay {
+                    imgPlace.loadImage(place.imgUrl)
+                }
             }
         }
     }
