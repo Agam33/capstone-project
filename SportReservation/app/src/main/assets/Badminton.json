@@ -1,59 +1,59 @@
 {
-  "badminton": [
-    {
-      "id": 1,
-      "nama": "GCT Badminton",
-      "alamat": "Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540",
-      "buka": "08:00",
-      "tutup": "23:00",
-      "harga": "50.000 / jam",
-      "noTlp": "+62816702708",
-      "fasilitas":"-",
-      "imgUrl": ""
-    },
-    {
-      "id": 2,
-      "nama": "Polabugar Sport Center",
-      "alamat": "Jl. Kedoya Raya No.35, RT.6/RW.3, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
-      "buka": "08:00",
-      "tutup": "21:00",
-      "harga": "200.000 - 400.000 / 2 jam",
-      "noTlp": "+62215807086",
-      "fasilitas":"-",
-      "imgUrl": ""
-    },
-    {
-      "id": 3,
-      "nama": "Zeta Sport Center",
-      "alamat": "Jl. Condet Raya No.1, RW.3, Balekambang, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13530",
-      "buka": "08:00",
-      "tutup": "22:00",
-      "harga": "45.000 / jam",
-      "noTlp": "+6287885545429",
-      "fasilitas":"",
-      "imgUrl": ""
-    },
-    {
-      "id": 4,
-      "nama": "Gedung Bulutangkis Mitra Utama",
-      "alamat": "Jl. Musirin 1 No.23A, RT.10/RW.2, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
-      "buka": "07:00",
-      "tutup": "23:00",
-      "harga": "-",
-      "noTlp": "+62215825895",
-      "fasilitas": "-",
-      "imgUrl": ""
-    },
-    {
-      "id": 5,
-      "nama": "Supreme Arena Badminton",
-      "alamat": "Jalan Karet Pedurenan Al Barokah #12A, RT.4/RW.6, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940",
-      "buka": "07:00",
-      "tutup": "23:00",
-      "harga": "-",
-      "noTlp": "+62818983383",
-      "fasilitas": "-",
-      "imgUrl": ""
-    }
-  ]
+      "badminton": [
+            {
+                  "id": 1,
+                  "nama": "GCT Badminton",
+                  "alamat": "Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540",
+                  "buka": "08:00",
+                  "tutup": "23:00",
+                  "harga": "50.000 / jam",
+                  "noTlp": "+62816702708",
+                  "fasilitas": "",
+                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/azfiij/field/FIBO_FiIm_azfiij_Ngx9Wt.jpg"
+            },
+            {
+                  "id": 2,
+                  "nama": "Polabugar Sport Center",
+                  "alamat": "Jl. Kedoya Raya No.35, RT.6/RW.3, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
+                  "buka": "08:00",
+                  "tutup": "21:00",
+                  "harga": "200.000 - 400.000 / 2 jam",
+                  "noTlp": "+62215807086",
+                  "fasilitas": "",
+                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/lbpdxa/field/FIBO_FiIm_lbpdxa_oCc2ov.png"
+            },
+            {
+                  "id": 3,
+                  "nama": "Zeta Sport Center",
+                  "alamat": "Jl. Condet Raya No.1, RW.3, Balekambang, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13530",
+                  "buka": "08:00",
+                  "tutup": "22:00",
+                  "harga": "45.000 / jam",
+                  "noTlp": "+6287885545429",
+                  "fasilitas": "",
+                  "imgUrl": "https://rumputinterlock.com/wp-content/uploads/2020/11/WhatsApp-Image-2020-11-23-at-06.08.46.jpeg"
+            },
+            {
+                  "id": 4,
+                  "nama": "Gedung Bulutangkis Mitra Utama",
+                  "alamat": "Jl. Musirin 1 No.23A, RT.10/RW.2, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
+                  "buka": "07:00",
+                  "tutup": "23:00",
+                  "harga": "-",
+                  "noTlp": "+62215825895",
+                  "fasilitas": "",
+                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/bjlxzm/field/FIBO_FiIm_bjlxzm_vhz0NJ.png"
+            },
+            {
+                  "id": 5,
+                  "nama": "Supreme Arena Badminton",
+                  "alamat": "Jalan Karet Pedurenan Al Barokah #12A, RT.4/RW.6, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940",
+                  "buka": "07:00",
+                  "tutup": "23:00",
+                  "harga": "-",
+                  "noTlp": "+62818983383",
+                  "fasilitas": "",
+                  "imgUrl": "https://admin.saraga.id/storage/images/20210914-172440_1631615724.jpg"
+            }
+      ]
 }

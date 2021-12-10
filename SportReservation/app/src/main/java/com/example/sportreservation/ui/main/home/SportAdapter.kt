@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ItemPlaceBinding
 import com.example.sportreservation.utils.loadImage
+import com.example.sportreservation.utils.mainThreadDelay
+import com.example.sportreservation.utils.singleThreadIO
 
-class BasketAdapter : PagedListAdapter<SportPlaceEntity, BasketAdapter.ViewHolder>(diffCallback) {
+class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickListener: OnItemClickListener? = null
 
@@ -37,7 +39,11 @@ class BasketAdapter : PagedListAdapter<SportPlaceEntity, BasketAdapter.ViewHolde
                     onItemClickListener?.onItemClicked(place)
                 }
                 tvTitle.text = place.name
-                imgPlace.loadImage(place.imgUrl)
+                singleThreadIO {
+                    mainThreadDelay {
+                        imgPlace.loadImage(place.imgUrl)
+                    }
+                }
             }
         }
     }
@@ -47,7 +53,7 @@ class BasketAdapter : PagedListAdapter<SportPlaceEntity, BasketAdapter.ViewHolde
     }
 
     companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<SportPlaceEntity>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SportPlaceEntity>() {
             override fun areItemsTheSame(
                 oldItem: SportPlaceEntity,
                 newItem: SportPlaceEntity

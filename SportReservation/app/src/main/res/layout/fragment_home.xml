@@ -83,6 +83,29 @@
             app:layout_constraintStart_toStartOf="@+id/tv_badminton"
             app:layout_constraintTop_toBottomOf="@+id/tv_badminton" />
 
+        <TextView
+            android:id="@+id/tv_golf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/golf"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/rv_badminton"
+            app:layout_constraintStart_toStartOf="@+id/rv_badminton"
+            app:layout_constraintTop_toBottomOf="@+id/rv_badminton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_golf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintEnd_toEndOf="@+id/tv_golf"
+            app:layout_constraintStart_toStartOf="@+id/tv_golf"
+            app:layout_constraintTop_toBottomOf="@+id/tv_golf" />
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"

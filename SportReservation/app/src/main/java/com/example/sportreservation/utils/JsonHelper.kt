@@ -106,6 +106,34 @@ class JsonHelper(private val context: Context) {
         return list
     }
 
+    fun loadGolfPlace(): List<SportPlaceResponse> {
+        val list = ArrayList<SportPlaceResponse>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("Golf.json").toString())
+            val listArray = responseObject.getJSONArray("golf")
+            for (item in 0 until listArray.length()) {
+                val place = listArray.getJSONObject(item)
+
+                list.add(
+                    SportPlaceResponse(
+                        place.getInt("id"),
+                        place.getString("nama"),
+                        place.getString("alamat"),
+                        place.getString("buka"),
+                        place.getString("tutup"),
+                        place.getString("harga"),
+                        place.getString("noTlp"),
+                        place.getString("fasilitas"),
+                        place.getString("imgUrl")
+                    )
+                )
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return list
+    }
+
     fun loadArticle(): List<ArticleResponse> {
         val list = ArrayList<ArticleResponse>()
         try {
