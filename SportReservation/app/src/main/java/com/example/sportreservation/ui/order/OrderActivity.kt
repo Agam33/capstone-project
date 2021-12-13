@@ -12,7 +12,8 @@ import com.example.sportreservation.databinding.ActivityOrderBinding
 import com.example.sportreservation.utils.OrderStatus
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OrderActivity : AppCompatActivity(), OrderAdapter.OnItemClickCallback {
+class OrderActivity : AppCompatActivity(),
+    OrderAdapter.OnItemClickCallback {
 
     private var _orderBinding: ActivityOrderBinding? = null
     private val orderBinding get() = _orderBinding

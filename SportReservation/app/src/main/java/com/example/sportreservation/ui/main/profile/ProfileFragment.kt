@@ -1,9 +1,12 @@
 package com.example.sportreservation.ui.main.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sportreservation.databinding.FragmentProfileBinding
 import com.example.sportreservation.userpreferences.UserPreference
@@ -33,9 +36,26 @@ class ProfileFragment : Fragment() {
             this?.tvEmail?.text = userModel.email
             this?.tvAddress?.text = userModel.address
             this?.tvPhone?.text = userModel.phone
-            this?.imgUser?.loadImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+            this?.imgUser?.loadImage(userModel.imgUrl)
         }
 
+        binding?.addImgBtn?.setOnClickListener {
+            pickImageFromGallery()
+        }
+    }
+
+    private fun pickImageFromGallery() {
+        val intentGallery = Intent(Intent.ACTION_PICK)
+        intentGallery.type = "image/*"
+        startActivityResult.launch(intentGallery)
+    }
+
+    private var startActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == AppCompatActivity.RESULT_OK) {
+            val userPreference = UserPreference(requireContext())
+            binding?.imgUser?.loadImage(it.data?.dataString)
+            userPreference.setImage(it.data?.dataString)
+        }
     }
 
     override fun onDestroyView() {
