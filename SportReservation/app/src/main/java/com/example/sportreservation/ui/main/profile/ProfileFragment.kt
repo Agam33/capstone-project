@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sportreservation.databinding.FragmentProfileBinding
+import com.example.sportreservation.ui.main.profile.updatedata.UpdateDataUserActivity
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.loadImage
 
@@ -16,6 +17,8 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
+
+    private lateinit var userPreference: UserPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +31,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userPreference = UserPreference(requireContext())
+        userPreference = UserPreference(requireContext())
         val userModel = userPreference.getUser()
 
         with(binding) {
@@ -42,6 +45,10 @@ class ProfileFragment : Fragment() {
         binding?.addImgBtn?.setOnClickListener {
             pickImageFromGallery()
         }
+
+        binding?.fabEditProfile?.setOnClickListener {
+            startActivity(Intent(context, UpdateDataUserActivity::class.java))
+        }
     }
 
     private fun pickImageFromGallery() {
@@ -52,7 +59,6 @@ class ProfileFragment : Fragment() {
 
     private var startActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
-            val userPreference = UserPreference(requireContext())
             binding?.imgUser?.loadImage(it.data?.dataString)
             userPreference.setImage(it.data?.dataString)
         }

@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".di.App"
@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportReservation">
         <activity
-            android:name=".ui.order.input.OrderInputActivity"
-            android:theme="@style/Theme.custom_1"
+            android:name=".ui.main.profile.updatedata.UpdateDataUserActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.order.input.OrderInputActivity"
+            android:exported="false"
+            android:theme="@style/Theme.custom_1" />
         <activity
             android:name=".ui.order.OrderActivity"
             android:exported="false"
@@ -53,7 +56,6 @@
             android:name=".notification.NotificationOrder"
             android:enabled="true"
             android:exported="true" />
-        
     </application>
 
 </manifest>
