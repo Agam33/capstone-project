@@ -80,5 +80,6 @@
     <string name="txt_status">Status</string>
     <string name="txt_dibatalkan">Dibatalkan</string>
     <string name="txt_empty_list">Tidak ada Data</string>
+    <string name="txt_ubah">Ubah data</string>
 
 </resources>
