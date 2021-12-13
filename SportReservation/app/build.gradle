@@ -51,6 +51,7 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$legacySupport"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "androidx.preference:preference-ktx:$preference_version"
+    implementation "de.hdodenhof:circleimageview:$circleImage"
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
@@ -69,5 +70,4 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomRuntimeVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     implementation "androidx.paging:paging-runtime:$pagingVersion"
-
 }

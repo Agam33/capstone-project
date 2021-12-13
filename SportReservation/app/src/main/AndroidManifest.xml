@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".di.App"
@@ -30,7 +32,6 @@
             android:theme="@style/Theme.custom_1" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".ui.detailarticle.DetailArticleActivity"
@@ -52,6 +53,7 @@
             android:name=".notification.NotificationOrder"
             android:enabled="true"
             android:exported="true" />
+        
     </application>
 
 </manifest>
