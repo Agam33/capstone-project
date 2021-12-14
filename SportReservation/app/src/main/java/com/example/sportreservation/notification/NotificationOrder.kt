@@ -28,7 +28,7 @@ class NotificationOrder: BroadcastReceiver() {
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
             val orderList = repository.getOrderByDate(dateFormat.format(date))
-
+            
             if(orderList.isNotEmpty()) {
                 showNotification(context, orderList)
             }

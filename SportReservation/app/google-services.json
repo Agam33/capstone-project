@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "631678822502",
+    "project_id": "sport-reservation-c31f2",
+    "storage_bucket": "sport-reservation-c31f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631678822502:android:8633ab6e4014660c2d65a7",
+        "android_client_info": {
+          "package_name": "com.example.sportreservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631678822502-m1jg7s8k2fd2ihj5kd51rfp5uohcvp4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgv3sHcxYdzovOVHXsby81I_obYrL1MD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631678822502-m1jg7s8k2fd2ihj5kd51rfp5uohcvp4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
