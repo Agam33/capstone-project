@@ -37,7 +37,7 @@ class RefereeAdapter : RecyclerView.Adapter<RefereeAdapter.RefereeViewHolder>() 
             with(binding) {
                 tvName.text = referee.name
                 tvPrice.text = referee.price
-                //imgReferee.loadImage(referee.imgUrl)
+                imgReferee.loadImage(referee.imgUrl)
             }
         }
     }

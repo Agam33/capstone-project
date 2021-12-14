@@ -1,11 +1,13 @@
 package com.example.sportreservation.ui.main.rent.referee
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.databinding.FragmentRefereeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,16 +29,20 @@ class RefereeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val refereeAdapter = RefereeAdapter()
-
         viewModel.getReferee().observe(viewLifecycleOwner, {
-            refereeAdapter.setReferees(it)
+            showReferee(it)
         })
 
-        with(binding?.rvReferee) {
-            this?.layoutManager = LinearLayoutManager(context)
-            this?.setHasFixedSize(true)
-            this?.adapter = refereeAdapter
+    }
+
+    private fun showReferee(referees: List<RefereeResponse>) {
+        val refereeAdapter = RefereeAdapter()
+        refereeAdapter.setReferees(referees)
+
+        binding?.rvReferee?.let {
+            it.adapter = refereeAdapter
+            it.setHasFixedSize(true)
+            it.layoutManager = LinearLayoutManager(context)
         }
     }
 
