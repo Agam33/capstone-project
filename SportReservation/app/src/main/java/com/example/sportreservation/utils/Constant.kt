@@ -52,6 +52,7 @@ fun setNotification( context: Context, title: String, msg: String) {
         CUSTOM_NOTIFICATION_NAME,
         NotificationManager.IMPORTANCE_DEFAULT
     )
+
     builder.setChannelId(CUSTOM_NOTIFICATION_CHANNEL_ID)
     notificationManager.createNotificationChannel(channel)
     notificationManager.notify(CUSTOM_NOTIFICATION_ID, builder.build())

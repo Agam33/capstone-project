@@ -3,7 +3,6 @@ package com.example.sportreservation.data
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.sportreservation.data.source.NetworkBoundResource
 import com.example.sportreservation.data.source.local.LocalDataSourceImpl
 import com.example.sportreservation.data.source.local.entity.ArticleEntity

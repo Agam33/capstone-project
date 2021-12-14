@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ItemPlaceBinding
 import com.example.sportreservation.utils.loadImage
+import com.example.sportreservation.utils.mainThread
 import com.example.sportreservation.utils.mainThreadDelay
 import com.example.sportreservation.utils.singleThreadIO
 
@@ -32,6 +33,7 @@ class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>
     }
 
     inner class ViewHolder(private val binding: ItemPlaceBinding) :
+
         RecyclerView.ViewHolder(binding.root) {
         fun bind(place: SportPlaceEntity) {
             with(binding) {
@@ -39,10 +41,8 @@ class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>
                     onItemClickListener?.onItemClicked(place)
                 }
                 tvTitle.text = place.name
-                singleThreadIO {
-                    mainThreadDelay {
-                        imgPlace.loadImage(place.imgUrl)
-                    }
+                mainThread {
+                    imgPlace.loadImage(place.imgUrl)
                 }
             }
         }
