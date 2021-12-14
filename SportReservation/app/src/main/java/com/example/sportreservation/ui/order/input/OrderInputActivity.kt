@@ -120,7 +120,7 @@ class OrderInputActivity : AppCompatActivity(),
         packet[SPORT_NAME] = sportPlaceEntity.sportName
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
-        dbRef.child(sportPlaceEntity.name).push().setValue(packet)
+        dbRef.child("Sport Place").child(sportPlaceEntity.name).push().setValue(packet)
 
         finish()
     }
