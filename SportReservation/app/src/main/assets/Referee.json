@@ -5,6 +5,12 @@
       "name": "Mohammad Sodiq Hasbani",
       "price": "200.000",
       "imgUrl": "https://ik.imagekit.io/carro/jualo/original/28995148/image_20201117-23795-1h3bmun.jpg?v=1605624481"
+    },
+    {
+      "id": 2,
+      "name": "Aan Suparman",
+      "price": "1.500.000",
+      "imgUrl": "https://cdn0-production-images-kly.akamaized.net/E4r8DwKAOAL2KkHpfBPRzKZyCq8=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1287892/original/001077700_1468470754-harja.jpg"
     }
   ]
 }

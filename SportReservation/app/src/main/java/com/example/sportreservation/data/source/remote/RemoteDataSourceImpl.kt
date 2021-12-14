@@ -53,10 +53,7 @@ class RemoteDataSourceImpl(
 
     override fun getReferee(): LiveData<List<RefereeResponse>> {
         val result = MutableLiveData<List<RefereeResponse>>()
-        mainThreadDelay {
-            result.value = jsonHelper.loadReferee()
-        }
-        //result.postValue(jsonHelper.loadReferee())
+        result.postValue(jsonHelper.loadReferee())
         return result
     }
 

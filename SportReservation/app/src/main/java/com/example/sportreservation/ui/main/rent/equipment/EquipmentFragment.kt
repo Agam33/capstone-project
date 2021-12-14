@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sportreservation.data.source.remote.response.EquipmentResponse
 import com.example.sportreservation.databinding.FragmentEquipmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,17 +29,21 @@ class EquipmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val equipmentAdapter = EquipmentAdapter()
-
         viewModel.getEquipment().observe(viewLifecycleOwner, {
-            equipmentAdapter.setEquipments(it)
+            showEquipment(it)
         })
+    }
 
-        with(binding?.rvEquipment) {
-            this?.layoutManager = LinearLayoutManager(context)
-            this?.setHasFixedSize(true)
-            this?.adapter = equipmentAdapter
+    private fun showEquipment(equipments: List<EquipmentResponse>) {
+        val equipmentAdapter = EquipmentAdapter()
+        equipmentAdapter.setEquipments(equipments)
+
+        binding?.rvEquipment?.let {
+            it.layoutManager = LinearLayoutManager(context)
+            it.setHasFixedSize(true)
+            it.adapter = equipmentAdapter
         }
+
     }
 
     override fun onDestroyView() {

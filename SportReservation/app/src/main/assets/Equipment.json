@@ -8,15 +8,9 @@
     },
     {
       "id": 2,
-      "name": "",
-      "price": "",
-      "imgUrl": ""
-    },
-    {
-      "id": 3,
-      "name": "",
-      "price": "",
-      "imgUrl": ""
+      "name": "Sepatu Futsal",
+      "price": "25.000/jam",
+      "imgUrl": "https://topscore.b-cdn.net/wp-content/uploads/2020/03/SEPATU-FUTSAL-ORTUSEIGHT-FORTE-VALKYRIE-IN-BLACK-GOLD-3.jpg"
     }
   ]
 }
