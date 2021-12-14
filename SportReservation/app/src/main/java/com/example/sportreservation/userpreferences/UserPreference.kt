@@ -22,10 +22,14 @@ class UserPreference(context: Context) {
             preferences.getString(EMAIL, ""),
             preferences.getString(ADDRESS, ""),
             preferences.getString(PHONE, ""),
-            preferences.getString(IMAGE, ""),
+            preferences.getString(IMAGE, null),
         )
 
     fun isUserRegis() = preferences.getBoolean(REGIS, false)
+
+    fun setImage(url: String?) = preferences.edit().apply {
+            putString(IMAGE, url)
+    }.apply()
 
     companion object {
         private const val PREFS_NAME = "user_pref"

@@ -8,6 +8,7 @@ import com.example.sportreservation.databinding.ActivityRegistrationBinding
 import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
+import com.example.sportreservation.utils.isValidEmail
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -32,12 +33,13 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun setUserInput(name: String, email: String, address: String, phone: String)  {
         val userModel = UserModel()
-
-        userModel.name = name
-        userModel.email = email
-        userModel.address = address
-        userModel.phone = phone
-        userModel.imgUrl = ""
+        userModel.let {
+            it.name = name
+            it.email = email
+            it.address = address
+            it.phone = phone
+            it.imgUrl = ""
+        }
 
         userPreferences.setUser(userModel)
     }
@@ -83,10 +85,6 @@ class RegistrationActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-    }
-
-    private fun isValidEmail(email : CharSequence) : Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     companion object {

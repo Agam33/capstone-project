@@ -1,10 +1,8 @@
 package com.example.sportreservation.ui.order.input
 
-import android.content.ContentValues.TAG
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
@@ -55,7 +53,7 @@ class OrderInputActivity : AppCompatActivity(),
         var durationInput = orderInputBinding?.edtHours?.text.toString()
         durationInput = if( durationInput == "") "0" else durationInput
 
-        if(durationInput.toInt() < 1 || durationInput.toInt() > 5) {
+        if(durationInput.toInt() < 1 || durationInput.toInt() > 4) {
             Toast.makeText(this, getString(R.string.txt_min_booking), Toast.LENGTH_SHORT).show()
             return
         }
