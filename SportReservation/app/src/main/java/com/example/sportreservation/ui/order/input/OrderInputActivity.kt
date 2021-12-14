@@ -116,6 +116,7 @@ class OrderInputActivity : AppCompatActivity(),
         packet[USERNAME] = userPreference.getUser().name!!
         packet[USER_EMAIL] = userPreference.getUser().email!!
         packet[USER_PHONE] = userPreference.getUser().phone!!
+        packet[START_DATE] = startDate
         packet[SPORT_NAME] = sportPlaceEntity.sportName
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
@@ -165,6 +166,7 @@ class OrderInputActivity : AppCompatActivity(),
         const val DATE = "date"
         const val EXTRA_BUNDLE_PLACE = "sport-place"
         const val SPORT_NAME = "sport name"
+        const val START_DATE = "date"
         const val USER_START_TIME = "start time"
         const val USER_END_TIME = "end time"
         const val USERNAME = "username"
