@@ -16,11 +16,19 @@
         android:name="com.example.sportreservation.ui.main.article.ArticleFragment"
         android:label="@string/title_article"
         tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/navigation_rent"
+        android:name="com.example.sportreservation.ui.main.rent.RentFragment"
+        android:label="@string/title_rent"
+        tools:layout="@layout/fragment_rent" />
+
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.example.sportreservation.ui.main.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
+
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.sportreservation.ui.main.profile.ProfileFragment"

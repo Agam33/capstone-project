@@ -41,9 +41,11 @@ class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>
                     onItemClickListener?.onItemClicked(place)
                 }
                 tvTitle.text = place.name
+
                 mainThread {
-                    imgPlace.loadImage(place.imgUrl)
+                        imgPlace.loadImage(place.imgUrl)
                 }
+
             }
         }
     }

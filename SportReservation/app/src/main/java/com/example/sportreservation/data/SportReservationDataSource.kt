@@ -6,6 +6,8 @@ import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
+import com.example.sportreservation.data.source.remote.response.EquipmentResponse
+import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.utils.Resource
 
 interface SportReservationDataSource {
@@ -17,8 +19,13 @@ interface SportReservationDataSource {
     fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
     fun getSportById(id: Int): LiveData<SportPlaceEntity>
 
+    // Article
     fun getArticle(): LiveData<Resource<PagedList<ArticleEntity>>>
     fun getArticleById(id: Int): LiveData<ArticleEntity>
+
+    // Rent
+    fun getReferee(): LiveData<List<RefereeResponse>>
+    fun getEquipment(): LiveData<List<EquipmentResponse>>
 
     // History
     fun insertHistory(historyEntity: HistoryEntity)
