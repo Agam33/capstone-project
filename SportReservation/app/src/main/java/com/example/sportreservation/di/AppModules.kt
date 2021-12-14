@@ -12,6 +12,8 @@ import com.example.sportreservation.ui.detailplace.DetailPlaceViewModel
 import com.example.sportreservation.ui.main.article.ArticleFragmentViewModel
 import com.example.sportreservation.ui.main.history.HistoryFragmentViewModel
 import com.example.sportreservation.ui.main.home.HomeFragmentViewModel
+import com.example.sportreservation.ui.main.rent.equipment.EquipmentFragmentViewModel
+import com.example.sportreservation.ui.main.rent.referee.RefereeFragmentViewModel
 import com.example.sportreservation.ui.order.OrderViewModel
 import com.example.sportreservation.ui.order.input.OrderInputViewModel
 import com.example.sportreservation.utils.JsonHelper
@@ -40,6 +42,8 @@ var viewModels = module {
     viewModel { DetailArticleViewModel(sportReservationRepository = get()) }
     viewModel { DetailPlaceViewModel(sportReservationRepository = get()) }
     viewModel { ArticleFragmentViewModel(sportReservationRepository = get()) }
+    viewModel { RefereeFragmentViewModel(sportReservationRepository = get()) }
+    viewModel { EquipmentFragmentViewModel(sportReservationRepository = get())}
     viewModel { OrderViewModel(sportReservationRepository = get()) }
     viewModel { OrderInputViewModel(sportReservationRepository = get()) }
     viewModel { HistoryFragmentViewModel(sportReservationRepository = get()) }

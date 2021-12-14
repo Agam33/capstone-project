@@ -8,7 +8,7 @@
       "tutup": "19:00",
       "harga": "700.000 /2jam",
       "noTlp": "+6282261159337",
-      "fasilitas":"",
+      "fasilitas":"Shower\nParkir\nToko",
       "imgUrl": "https://gelora-public-storage.s3-ap-southeast-1.amazonaws.com/upload/public-20210216111751.jpg"
     },
     {
@@ -19,7 +19,7 @@
       "tutup": "22:00",
       "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+62215734070",
-      "fasilitas":"",
+      "fasilitas":"Lapangan Outdoor\nParkir",
       "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
@@ -30,7 +30,7 @@
       "tutup": "21:00",
       "harga": "50 juta / 12 jam per hari",
       "noTlp": "+62215734070",
-      "fasilitas":"",
+      "fasilitas":"Lapangan Indoor\nParkir",
       "imgUrl": "https://gbk.id/wp-content/uploads/2018/06/Basket-edit.jpg"
     },
     {
@@ -39,9 +39,9 @@
       "alamat": "Panglima Polim St No.37, RT.1/RW.1, Melawai, Kebayoran Baru, South Jakarta City, Jakarta 12130",
       "buka": "06:00",
       "tutup": "12:00",
-      "harga": "",
+      "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+6281310239090",
-      "fasilitas": "",
+      "fasilitas": "Shower\nParkir\nLocker",
       "imgUrl": "https://gelora-public-storage.s3-ap-southeast-1.amazonaws.com/upload/public-20210217060900.jpg"
     },
     {
@@ -52,7 +52,7 @@
       "tutup": "23:59",
       "harga": "150.000",
       "noTlp": "+62217392300",
-      "fasilitas": "",
+      "fasilitas": "Lapangan Indoor\nParkir",
       "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/cadvau/field/FIBO_FiIm_cadvau_yzVvin.jpg"
     }
   ]
