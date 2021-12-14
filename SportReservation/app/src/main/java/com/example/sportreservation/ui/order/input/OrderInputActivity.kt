@@ -8,9 +8,12 @@ import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityOrderInputBinding
+import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.DatePickerFragment
 import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.TimePickerFragment
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
@@ -22,6 +25,10 @@ class OrderInputActivity : AppCompatActivity(),
 
     private val orderInputViewModel: OrderInputViewModel by viewModel()
 
+    private lateinit var dbRef: DatabaseReference
+
+    private lateinit var userPreference: UserPreference
+
     private var startTime = "00:00"
     private var endTime = ""
     private var startDate = ""
@@ -30,6 +37,11 @@ class OrderInputActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         _orderInputBinding = ActivityOrderInputBinding.inflate(layoutInflater)
         setContentView(orderInputBinding?.root)
+
+        dbRef = FirebaseDatabase.getInstance().reference
+
+        userPreference = UserPreference(this)
+
 
         setSupportActionBar(orderInputBinding?.toolbar)
 
@@ -100,6 +112,15 @@ class OrderInputActivity : AppCompatActivity(),
             OrderStatus.PESAN
         ))
 
+        val packet = HashMap<String, String>()
+        packet[USERNAME] = userPreference.getUser().name!!
+        packet[USER_EMAIL] = userPreference.getUser().email!!
+        packet[USER_PHONE] = userPreference.getUser().phone!!
+        packet[SPORT_NAME] = sportPlaceEntity.sportName
+        packet[USER_START_TIME] = startTime
+        packet[USER_END_TIME] = endTime
+        dbRef.child(sportPlaceEntity.name).push().setValue(packet)
+
         finish()
     }
 
@@ -143,5 +164,11 @@ class OrderInputActivity : AppCompatActivity(),
         const val START_TIME = "start-time"
         const val DATE = "date"
         const val EXTRA_BUNDLE_PLACE = "sport-place"
+        const val SPORT_NAME = "sport name"
+        const val USER_START_TIME = "start time"
+        const val USER_END_TIME = "end time"
+        const val USERNAME = "username"
+        const val USER_EMAIL = "email"
+        const val USER_PHONE = "phone"
     }
 }
