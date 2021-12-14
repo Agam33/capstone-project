@@ -3,6 +3,8 @@ package com.example.sportreservation.data.source.remote
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sportreservation.data.source.remote.response.ArticleResponse
+import com.example.sportreservation.data.source.remote.response.EquipmentResponse
+import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.JsonHelper
 import com.example.sportreservation.utils.mainThreadDelay
@@ -46,6 +48,21 @@ class RemoteDataSourceImpl(
         mainThreadDelay {
             result.value = ApiResponse.success(jsonHelper.loadArticle())
         }
+        return result
+    }
+
+    override fun getReferee(): LiveData<List<RefereeResponse>> {
+        val result = MutableLiveData<List<RefereeResponse>>()
+        mainThreadDelay {
+            result.value = jsonHelper.loadReferee()
+        }
+        //result.postValue(jsonHelper.loadReferee())
+        return result
+    }
+
+    override fun getEquipment(): LiveData<List<EquipmentResponse>> {
+        val result = MutableLiveData<List<EquipmentResponse>>()
+        result.postValue(jsonHelper.loadEquipment())
         return result
     }
 }

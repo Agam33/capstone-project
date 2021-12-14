@@ -1,0 +1,22 @@
+{
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Rompi",
+      "price": "25.000/jam",
+      "imgUrl": "https://topscore.b-cdn.net/wp-content/uploads/2020/01/Rompi-Latihan-Training-Bibs-MILLS-Code-9001-Stabilo-.jpg"
+    },
+    {
+      "id": 2,
+      "name": "",
+      "price": "",
+      "imgUrl": ""
+    },
+    {
+      "id": 3,
+      "name": "",
+      "price": "",
+      "imgUrl": ""
+    }
+  ]
+}

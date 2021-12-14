@@ -13,6 +13,8 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
 import com.example.sportreservation.data.source.remote.response.ArticleResponse
+import com.example.sportreservation.data.source.remote.response.EquipmentResponse
+import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.Resource
 import com.example.sportreservation.utils.singleThreadIO
@@ -230,6 +232,14 @@ class SportReservationRepository(
 
     override fun getArticleById(id: Int): LiveData<ArticleEntity> =
         localDataSourceImpl.getArticleById(id)
+
+    override fun getReferee(): LiveData<List<RefereeResponse>> {
+        return remoteDataSourceImpl.getReferee()
+    }
+
+    override fun getEquipment(): LiveData<List<EquipmentResponse>> {
+        return remoteDataSourceImpl.getEquipment()
+    }
 
     override fun insertHistory(historyEntity: HistoryEntity) {
         singleThreadIO {  localDataSourceImpl.insertHistory(historyEntity) }
