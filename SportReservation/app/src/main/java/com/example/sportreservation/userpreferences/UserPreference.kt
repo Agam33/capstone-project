@@ -34,6 +34,7 @@ class UserPreference(context: Context) {
     companion object {
         private const val PREFS_NAME = "user_pref"
         private const val REGIS = "regis"
+        private const val USER_ID = "userId"
         private const val NAME = "name"
         private const val EMAIL = "email"
         private const val ADDRESS = "address"

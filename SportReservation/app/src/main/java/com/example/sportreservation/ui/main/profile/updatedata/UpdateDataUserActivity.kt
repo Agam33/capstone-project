@@ -25,23 +25,21 @@ class UpdateDataUserActivity : AppCompatActivity() {
 
         userPreference = UserPreference(this)
 
+        updateDataUserBinding?.inputLayout?.addEdEmail?.isEnabled = false
+
         updateDataUserBinding?.changeBtn?.setOnClickListener {
             validateInput()
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
     private fun validateInput() = with(updateDataUserBinding?.inputLayout!!) {
 
         var name = addEdName.text.toString().trim()
-        var email = addEdEmail.text.toString().trim()
+        var email = userPreference.getUser().email!!
         var address = addEdAddress.text.toString().trim()
         var phone = addEdPhone.text.toString().trim()
-
-        if(!isValidEmail(email)) {
-            addEdEmail.error = FIELD_IS_NOT_VALID
-            return
-        }
 
         if(!TextUtils.isDigitsOnly(phone)) {
             addEdPhone.error = FIELD_DIGIT_ONLY
@@ -78,6 +76,5 @@ class UpdateDataUserActivity : AppCompatActivity() {
     companion object {
         private const val NOTIFICATION_TITLE = "Data berhasil diperbarui"
         private const val FIELD_DIGIT_ONLY = "Hanya boleh terisi angka"
-        private const val FIELD_IS_NOT_VALID = "Email tidak valid"
     }
 }
