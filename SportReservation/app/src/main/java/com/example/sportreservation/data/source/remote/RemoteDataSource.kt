@@ -12,6 +12,7 @@ interface RemoteDataSource {
     fun getBasketPlace():  LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getFutsalPlace():  LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getGolfPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>>
+    fun getFootballPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>>
     fun getArticle():  LiveData<ApiResponse<List<ArticleResponse>>>
     fun getReferee(): LiveData<List<RefereeResponse>>
     fun getEquipment(): LiveData<List<EquipmentResponse>>

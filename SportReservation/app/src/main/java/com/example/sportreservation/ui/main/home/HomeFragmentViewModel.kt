@@ -23,4 +23,6 @@ class HomeFragmentViewModel(
     fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> =
         sportReservationRepository.getGolfPlace()
 
+    fun getFootballPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> =
+        sportReservationRepository.getFootballPlace()
 }
