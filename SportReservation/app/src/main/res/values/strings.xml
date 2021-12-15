@@ -49,7 +49,7 @@
     <string name="txt_input_email">Email</string>
     <string name="txt_input_address">Alamat</string>
     <string name="txt_input_phone_number">No. tlp</string>
-    <string name="txt_regis">daftar</string>
+    <string name="txt_regis">Daftar</string>
     <string name="txt_setting">Setting</string>
 
     <string name="notification_key">notification_key</string>
@@ -88,5 +88,7 @@
     <string name="txt_ubah">Ubah data</string>
     <string name="rent_refereee">Sewa Wasit</string>
     <string name="rent_equipment">SEWA ALAT</string>
+    <string name="txt_login">Masuk</string>
+    <string name="txt_password">Password</string>
 
 </resources>

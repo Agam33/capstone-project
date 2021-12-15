@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.databinding.FragmentRefereeBinding
+import com.example.sportreservation.ui.main.rent.booking.BookingFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RefereeFragment : Fragment() {
@@ -44,6 +45,17 @@ class RefereeFragment : Fragment() {
             it.setHasFixedSize(true)
             it.layoutManager = LinearLayoutManager(context)
         }
+
+        refereeAdapter.setOnItemClickCallback(object : RefereeAdapter.OnItemClickCallback {
+            override fun openBookingDialog() {
+                val bookingFragment = BookingFragment()
+                bookingFragment.show(childFragmentManager, BOOKING_REFEREE)
+            }
+        })
+    }
+
+    companion object {
+        private const val BOOKING_REFEREE = "booking"
     }
 
     override fun onDestroyView() {

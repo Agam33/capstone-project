@@ -12,6 +12,7 @@ import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.DatePickerFragment
 import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.TimePickerFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,6 +26,7 @@ class OrderInputActivity : AppCompatActivity(),
 
     private val orderInputViewModel: OrderInputViewModel by viewModel()
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
 
     private lateinit var userPreference: UserPreference
@@ -39,9 +41,9 @@ class OrderInputActivity : AppCompatActivity(),
         setContentView(orderInputBinding?.root)
 
         dbRef = FirebaseDatabase.getInstance().reference
+        auth = FirebaseAuth.getInstance()
 
         userPreference = UserPreference(this)
-
 
         setSupportActionBar(orderInputBinding?.toolbar)
 
@@ -113,6 +115,7 @@ class OrderInputActivity : AppCompatActivity(),
         ))
 
         val packet = HashMap<String, String>()
+        packet[USER_ID] = auth.uid!!
         packet[USERNAME] = userPreference.getUser().name!!
         packet[USER_EMAIL] = userPreference.getUser().email!!
         packet[USER_PHONE] = userPreference.getUser().phone!!
@@ -162,15 +165,16 @@ class OrderInputActivity : AppCompatActivity(),
     }
 
     companion object {
-        const val START_TIME = "start-time"
-        const val DATE = "date"
+        private const val START_TIME = "start-time"
+        private const val DATE = "date"
         const val EXTRA_BUNDLE_PLACE = "sport-place"
-        const val SPORT_NAME = "sport name"
-        const val START_DATE = "date"
-        const val USER_START_TIME = "start time"
-        const val USER_END_TIME = "end time"
-        const val USERNAME = "username"
-        const val USER_EMAIL = "email"
-        const val USER_PHONE = "phone"
+        private const val SPORT_NAME = "sport name"
+        private const val START_DATE = "date"
+        private const val USER_ID = "userId"
+        private const val USER_START_TIME = "start time"
+        private const val USER_END_TIME = "end time"
+        private const val USERNAME = "username"
+        private const val USER_EMAIL = "email"
+        private const val USER_PHONE = "phone"
     }
 }
