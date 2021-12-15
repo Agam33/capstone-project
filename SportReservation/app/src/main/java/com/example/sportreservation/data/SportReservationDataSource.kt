@@ -17,6 +17,7 @@ interface SportReservationDataSource {
     fun getBasketPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
     fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
     fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
+    fun getFootballPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>>
     fun getSportById(id: Int): LiveData<SportPlaceEntity>
 
     // Article

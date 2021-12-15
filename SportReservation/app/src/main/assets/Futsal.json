@@ -6,32 +6,32 @@
       "alamat": "Kompleks Rasuna Epicentrum Kav. C-22, Jl. H. R. Rasuna Said, RT.2/RW.5, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920",
       "buka": "08:00",
       "tutup": "23:59",
-      "harga": "150.000 - 300.000",
+      "harga": "150.000 - 300.000 / jam",
       "noTlp": "+6281806187494",
-      "fasilitas":"4 lapangan rumput sintetis\n2 lapangan indoor\n2 lapangan outdoor",
+      "fasilitas":"4 lapangan rumput sintetis\n2 lapangan indoor\n2 lapangan outdoor\nScore Board\nRuang Shower\nMushola\nFree WiFi\nLoker\nToko Olahraga\nCafetaria\nToilet\nTempat Parkir",
       "imgUrl": "https://lapanganfutsal.id/wp-content/uploads/2018/05/venue-rasuna-banner.jpg"
     },
     {
       "id": 2,
-      "nama": "Mega Kuningan Futsal",
-      "alamat": "Jl. Guru Mughni Blok Batas No.4, RT.12/RW.1, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950",
-      "buka": "06:00",
-      "tutup": "14:00",
-      "harga": "150.000 - 300.000",
-      "noTlp": "+6282210522277",
-      "fasilitas":"Lapangan sintetis",
-      "imgUrl": "https://lapanganfutsal.id/wp-content/uploads/2018/05/lapangan-futsal-samba-futsal-jakarta-2.jpg"
+      "nama": "Viva Futsal",
+      "alamat": "Jl. Professor Doktor Satrio RT.4/RW.4, Karet Semanggi, Setiabudi, RT.4/RW.4, Karet Semanggi, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12930",
+      "buka": "07:00",
+      "tutup": "00:00",
+      "harga": "100.000 - 320.000 / jam",
+      "noTlp": "+6287771186189",
+      "fasilitas":"Lapangan rumput sintetis\nMushola\nToilet\nKantin\nTempat Parkir",
+      "imgUrl": "https://admin.saraga.id/storage/images/7_1635228343.JPG"
     },
     {
       "id": 3,
       "nama": "Grand Futsal Kuningan",
       "alamat": "Jalan Karet Pedurenan Masjid No.45 RT.6/RW.7 Kuningan, RT.6/RW.7, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12730",
       "buka": "07:00",
-      "tutup": "24:00",
-      "harga": "150.000 - 300.000",
+      "tutup": "00:00",
+      "harga": "160.000 - 260.000 / jam",
       "noTlp": "+622157853506",
-      "fasilitas":"5 lapangan rumput sintesis",
-      "imgUrl": "https://cdns.klimg.com/bola.net/library/p/grand-futsal-1.jpg"
+      "fasilitas":"5 lapangan rumput sintesis\nTribun Penonton\nMushola\nTempat Parkir\nKantin\nToilet",
+      "imgUrl": "https://admin.saraga.id/storage/images/20211021-180727_1634814987.jpg"
     },
     {
       "id": 4,
@@ -39,7 +39,7 @@
       "alamat": "Kuningan Village, Jl. Karbela Timur No.1, RT.1/RW.5, Kuningan, Karet, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12920",
       "buka": "10:00",
       "tutup": "22:00",
-      "harga": "300.000 - 400.000",
+      "harga": "300.000 - 400.000 / jam",
       "noTlp": "+622152903131",
       "fasilitas": "Lapangan rumput sintetis terbaik dari Belgia",
       "imgUrl": "https://lapanganfutsal.id/wp-content/uploads/2018/06/lapnagan-futsal-kuningan-village-jakarta-.jpg"
@@ -50,10 +50,10 @@
       "alamat": "Cilandak Town Square Kav 17, Jalan Terminal Bus Simatupang, RT.2/RW.1, Cilandak Barat, Cilandak, RT.2/RW.1, Cilandak Bar., Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12430",
       "buka": "07:00",
       "tutup": "23:59",
-      "harga": "300.000 - 350.000",
+      "harga": "300.000 - 350.000 / jam",
       "noTlp": "+622175816231",
       "fasilitas": "Lantai vinyl kayu",
-      "imgUrl": "https://lapanganfutsal.id/wp-content/uploads/2018/06/lapnagan-futsal-Cilandak-Futsal-jakarta-2.jpg"
+      "imgUrl": "https://mitrasraya.com/wp-content/uploads/2021/06/DSC05797-1.jpg"
     }
   ]
 }

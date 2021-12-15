@@ -6,9 +6,9 @@
       "alamat": "Jl. Kalibata Utara II No.25, RT.4/RW.7, Kalibata, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12740",
       "buka": "07:00",
       "tutup": "19:00",
-      "harga": "700.000 /2jam",
+      "harga": "700.000 / 2jam",
       "noTlp": "+6282261159337",
-      "fasilitas":"Shower\nParkir\nToko",
+      "fasilitas":"Ruang Tunggu\nKamar Ganti\nScore Point\nMushola\nToilet",
       "imgUrl": "https://gelora-public-storage.s3-ap-southeast-1.amazonaws.com/upload/public-20210216111751.jpg"
     },
     {
@@ -19,7 +19,7 @@
       "tutup": "22:00",
       "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+62215734070",
-      "fasilitas":"Lapangan Outdoor\nParkir",
+      "fasilitas":"Tempat Parkir\nKamar Mandi Shower\nKamar Ganti",
       "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
@@ -28,9 +28,9 @@
       "alamat": "Jl. Pintu Satu Senayan, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
       "buka": "09:00",
       "tutup": "21:00",
-      "harga": "50 juta / 12 jam per hari",
+      "harga": "50 juta / 12 jam",
       "noTlp": "+62215734070",
-      "fasilitas":"Lapangan Indoor\nParkir",
+      "fasilitas":"Tribun\nRuang Ganti\nRuang Kesehatan\nMushola\nToilet\nTempat Parkir",
       "imgUrl": "https://gbk.id/wp-content/uploads/2018/06/Basket-edit.jpg"
     },
     {
@@ -38,7 +38,7 @@
       "nama": "Buls Arena",
       "alamat": "Panglima Polim St No.37, RT.1/RW.1, Melawai, Kebayoran Baru, South Jakarta City, Jakarta 12130",
       "buka": "06:00",
-      "tutup": "12:00",
+      "tutup": "00:00",
       "harga": "200.000 - 400.000 / 2 jam",
       "noTlp": "+6281310239090",
       "fasilitas": "Shower\nParkir\nLocker",
@@ -48,11 +48,11 @@
       "id": 5,
       "nama": "Pati Unus Courtyard",
       "alamat": "Jl. Pati Unus No.F4, RT.4/RW.4, Gunung, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12110",
-      "buka": "08:00",
-      "tutup": "23:59",
-      "harga": "150.000",
+      "buka": "06:00",
+      "tutup": "22:00",
+      "harga": "150.000 / jam",
       "noTlp": "+62217392300",
-      "fasilitas": "Lapangan Indoor\nParkir",
+      "fasilitas": "Ruang Ganti\nMushola\nKantin\nToilet\nTempat Parkir",
       "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/cadvau/field/FIBO_FiIm_cadvau_yzVvin.jpg"
     }
   ]
