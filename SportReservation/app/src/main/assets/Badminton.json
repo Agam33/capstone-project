@@ -6,9 +6,9 @@
                   "alamat": "Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540",
                   "buka": "08:00",
                   "tutup": "23:00",
-                  "harga": "50.000 / jam",
+                  "harga": "75.000 - 150.000 / jam",
                   "noTlp": "+62816702708",
-                  "fasilitas": "3 lapangan",
+                  "fasilitas": "4 lapangan Badminton dengan material Karpet Standar Nasional\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
                   "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/azfiij/field/FIBO_FiIm_azfiij_Ngx9Wt.jpg"
             },
             {
@@ -17,32 +17,32 @@
                   "alamat": "Jl. Kedoya Raya No.35, RT.6/RW.3, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
                   "buka": "08:00",
                   "tutup": "21:00",
-                  "harga": "200.000 - 400.000 / 2 jam",
+                  "harga": "82.000 - 246.000 / jam",
                   "noTlp": "+62215807086",
-                  "fasilitas": "2 lapangan",
+                  "fasilitas": "Mushola\nKantin\nShower\nToilet\nTempat Parkir",
                   "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/lbpdxa/field/FIBO_FiIm_lbpdxa_oCc2ov.png"
             },
             {
                   "id": 3,
-                  "nama": "Zeta Sport Center",
-                  "alamat": "Jl. Condet Raya No.1, RW.3, Balekambang, Kec. Kramat jati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13530",
-                  "buka": "08:00",
-                  "tutup": "22:00",
-                  "harga": "45.000 / jam",
-                  "noTlp": "+6287885545429",
-                  "fasilitas": "3 lapangan",
-                  "imgUrl": "https://rumputinterlock.com/wp-content/uploads/2020/11/WhatsApp-Image-2020-11-23-at-06.08.46.jpeg"
+                  "nama": "Garuda Badminton Hall",
+                  "alamat": "Jl. Perdana Kusuma Blok Qq No.248 B, RT.2/RW.4, Wijaya Kusuma, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11460",
+                  "buka": "07:00",
+                  "tutup": "23:00",
+                  "harga": "65.000 / jam",
+                  "noTlp": "+6285959247676",
+                  "fasilitas": "5 lapangan Badminton dengan material Karpet\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
+                  "imgUrl": "https://admin.saraga.id/storage/images/garuda-badminton-3_1633971689.jpg"
             },
             {
                   "id": 4,
-                  "nama": "Gedung Bulutangkis Mitra Utama",
-                  "alamat": "Jl. Musirin 1 No.23A, RT.10/RW.2, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
+                  "nama": "Tunas Bugar Badminton Hall",
+                  "alamat": "Jl. H.Mandor Salim No.3A, RW.2, Srengseng, Kembang, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630",
                   "buka": "07:00",
                   "tutup": "23:00",
-                  "harga": "200.000 - 400.000 / 2 jam",
-                  "noTlp": "+62215825895",
-                  "fasilitas": "6 Lapangan",
-                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/bjlxzm/field/FIBO_FiIm_bjlxzm_vhz0NJ.png"
+                  "harga": "80.000 - 240.000 / jam",
+                  "noTlp": "+628129337003",
+                  "fasilitas": "6 lapangan Badminton dengan material vinyl\nMushola\nShower\nToilet\nTempat Parkir",
+                  "imgUrl": "https://admin.saraga.id/storage/images/20200816-231058-1597656038_1624531128.jpg"
             },
             {
                   "id": 5,
@@ -52,7 +52,7 @@
                   "tutup": "23:00",
                   "harga": "120.000 / jam",
                   "noTlp": "+62818983383",
-                  "fasilitas": "2 Lapangan",
+                  "fasilitas": "Mushola\nShower\nToilet\nTempat Parkir",
                   "imgUrl": "https://admin.saraga.id/storage/images/20210914-172440_1631615724.jpg"
             }
       ]
