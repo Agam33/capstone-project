@@ -58,9 +58,9 @@ class BookingFragment: DialogFragment() {
 
         bookingBinding?.btnBook?.setOnClickListener {
             if(bookingType == BOOKING_EQUIPMENT) {
-                validateInput(BOOKING_EQUIPMENT,null,  arguments?.getParcelable(BOOKING_DATA) as? EquipmentResponse)
+                validateInput("EQUIPMENT",null,  arguments?.getParcelable(BOOKING_DATA) as? EquipmentResponse)
             } else if(bookingType == BOOKING_REFEREE) {
-                validateInput(BOOKING_REFEREE, arguments?.getParcelable(BOOKING_DATA) as? RefereeResponse, null)
+                validateInput("REFEREE", arguments?.getParcelable(BOOKING_DATA) as? RefereeResponse, null)
             }
         }
 
@@ -158,9 +158,9 @@ class BookingFragment: DialogFragment() {
         packet[START_DATE] = startDate
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
-        packet["rent"] = tag
-        packet["rent id"] = rentId!!.toString()
-        packet["rent name"] = rentName!!
+        packet["rentType"] = tag
+        packet["rentId"] = rentId!!.toString()
+        packet["rentName"] = rentName!!
         dbRef.child("Rental").push().setValue(packet)
 
         dismiss()
@@ -171,14 +171,13 @@ class BookingFragment: DialogFragment() {
         _bookingBinding = null
     }
 
-
     companion object {
         const val BOOKING_DATA = "data"
         const val BOOKING_TYPE = "type"
         private const val START_DATE = "date"
         private const val USER_ID = "userId"
-        private const val USER_START_TIME = "start time"
-        private const val USER_END_TIME = "end time"
+        private const val USER_START_TIME = "startTime"
+        private const val USER_END_TIME = "endTime"
         private const val USERNAME = "username"
         private const val USER_EMAIL = "email"
         private const val USER_PHONE = "phone"

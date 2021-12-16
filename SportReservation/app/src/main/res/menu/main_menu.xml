@@ -6,6 +6,10 @@
         android:id="@+id/action_reservasi"/>
 
     <item
+        android:title="@string/txt_rental"
+        android:id="@+id/action_rental"/>
+
+    <item
         android:id="@+id/action_setting"
         android:title="@string/txt_setting"/>
 
