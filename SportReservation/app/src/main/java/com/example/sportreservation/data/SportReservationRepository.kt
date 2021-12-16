@@ -12,6 +12,8 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
 import com.example.sportreservation.data.source.remote.response.ArticleResponse
+import com.example.sportreservation.data.source.remote.response.EquipmentResponse
+import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
 import com.example.sportreservation.utils.Resource
 import com.example.sportreservation.utils.singleThreadIO
@@ -188,6 +190,45 @@ class SportReservationRepository(
         }.asLiveData()
     }
 
+    override fun getFootballPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
+        val sportName = "Football"
+        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(LOAD_PAGE)
+                    .setPageSize(PAGE_SIZE)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean = data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> = remoteDataSourceImpl.getFootballPlace()
+
+            override fun saveCallResult(data: List<SportPlaceResponse>) {
+                val sportPlace = ArrayList<SportPlaceEntity>()
+                for (place in data) {
+                    sportPlace.add(
+                        SportPlaceEntity(
+                            0,
+                            place.name,
+                            place.address,
+                            place.phone,
+                            place.open,
+                            place.close,
+                            place.cost,
+                            place.facility,
+                            place.imgUrl,
+                            sportName
+                        )
+                    )
+                }
+                localDataSourceImpl.insertSport(sportPlace)
+            }
+        }.asLiveData()
+    }
+
     override fun getSportById(id: Int): LiveData<SportPlaceEntity> =
         localDataSourceImpl.getSportById(id)
 
@@ -229,6 +270,14 @@ class SportReservationRepository(
 
     override fun getArticleById(id: Int): LiveData<ArticleEntity> =
         localDataSourceImpl.getArticleById(id)
+
+    override fun getReferee(): LiveData<List<RefereeResponse>> {
+        return remoteDataSourceImpl.getReferee()
+    }
+
+    override fun getEquipment(): LiveData<List<EquipmentResponse>> {
+        return remoteDataSourceImpl.getEquipment()
+    }
 
     override fun insertHistory(historyEntity: HistoryEntity) {
         singleThreadIO {  localDataSourceImpl.insertHistory(historyEntity) }

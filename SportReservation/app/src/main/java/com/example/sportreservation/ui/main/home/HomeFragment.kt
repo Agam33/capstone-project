@@ -11,9 +11,6 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.FragmentHomeBinding
 import com.example.sportreservation.ui.detailplace.DetailPlaceActivity
 import com.example.sportreservation.utils.Status
-import com.example.sportreservation.utils.mainThread
-import com.example.sportreservation.utils.mainThreadDelay
-import com.example.sportreservation.utils.singleThreadIO
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -37,6 +34,7 @@ class HomeFragment : Fragment() {
             showListBasket()
             showListBadminton()
             showListGolf()
+        showListFootball()
 
     }
 
@@ -166,8 +164,8 @@ class HomeFragment : Fragment() {
             when (it.status) {
                 Status.SUCCESS -> {
                     success()
-                    it.data?.let { badminton ->
-                        golfAdapter.submitList(badminton)
+                    it.data?.let { golf ->
+                        golfAdapter.submitList(golf)
                     }
                 }
                 Status.ERROR -> {
@@ -184,6 +182,43 @@ class HomeFragment : Fragment() {
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             this?.setHasFixedSize(true)
             this?.adapter = golfAdapter
+        }
+    }
+
+    private fun showListFootball() {
+
+        val footballAdapter = SportAdapter()
+
+        footballAdapter.setOnItemClickListener(object : SportAdapter.OnItemClickListener {
+            override fun onItemClicked(data: SportPlaceEntity) {
+                val intent = Intent(context, DetailPlaceActivity::class.java)
+                intent.putExtra(DetailPlaceActivity.EXTRA_PLACE, data.id)
+                startActivity(intent)
+            }
+        })
+
+        viewModel.getFootballPlace().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    success()
+                    it.data?.let { football ->
+                        footballAdapter.submitList(football)
+                    }
+                }
+                Status.ERROR -> {
+                    error()
+                }
+                Status.LOADING -> {
+                    loading()
+                }
+            }
+        })
+
+        with(binding?.rvFootball) {
+            this?.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            this?.setHasFixedSize(true)
+            this?.adapter = footballAdapter
         }
     }
 
