@@ -7,9 +7,9 @@
     </style>
 
     <style name = "ThemeOverlay.App.Toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/green_500</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryVariant">@color/teal_200</item>
+        <item name="colorPrimaryVariant">@color/orange_200</item>
     </style>
 
     <!-- Custom FAB  -->
@@ -18,9 +18,9 @@
     </style>
 
     <style name="ThemeOverlay.App.FloatingActionButton" parent="">
-        <item name="colorSecondary">@color/purple_500</item>
+        <item name="colorSecondary">@color/green_500</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorOnSurface">@color/purple_500</item>
+        <item name="colorOnSurface">@color/green_500</item>
     </style>
 
 </resources>
