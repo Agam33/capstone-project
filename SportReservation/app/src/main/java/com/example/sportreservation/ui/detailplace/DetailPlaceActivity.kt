@@ -48,7 +48,7 @@ class DetailPlaceActivity : AppCompatActivity() {
         viewModel.getOrderById(detailPlace.id).observe(this, { order ->
             if(order == null) {
                 binding.btnBook.text = getString(R.string.txt_booking)
-                binding.btnBook.setBackgroundColor(getColor(R.color.purple_500))
+                binding.btnBook.setBackgroundColor(getColor(R.color.green_500))
                 binding.btnBook.isEnabled = true
                 binding.btnBook.setOnClickListener {
                     startActivity(Intent(this, OrderInputActivity::class.java).apply {

@@ -53,16 +53,16 @@ class HomeFragment : Fragment() {
         viewModel.getFutsalPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(false)
                     it.data?.let { futsal ->
                         futsalAdapter.submitList(futsal)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -90,16 +90,16 @@ class HomeFragment : Fragment() {
         viewModel.getBasketPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(true)
                     it.data?.let { basket ->
                         basketAdapter.submitList(basket)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -126,16 +126,16 @@ class HomeFragment : Fragment() {
         viewModel.getBadmintonPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(false)
                     it.data?.let { badminton ->
                         badmintonAdapter.submitList(badminton)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -163,16 +163,16 @@ class HomeFragment : Fragment() {
         viewModel.getGolfPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(false)
                     it.data?.let { golf ->
                         golfAdapter.submitList(golf)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -200,16 +200,16 @@ class HomeFragment : Fragment() {
         viewModel.getFootballPlace().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(false)
                     it.data?.let { football ->
                         footballAdapter.submitList(football)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -220,18 +220,6 @@ class HomeFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = footballAdapter
         }
-    }
-
-    private fun success() {
-        showLoading(false)
-    }
-
-    private fun loading() {
-        showLoading(true)
-    }
-
-    private fun error() {
-        showLoading(false)
     }
 
     private fun showLoading(isLoading: Boolean) {
