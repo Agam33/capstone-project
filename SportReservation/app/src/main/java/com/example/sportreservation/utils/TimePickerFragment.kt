@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
+import java.lang.ClassCastException
 import java.util.*
 
 class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
@@ -26,7 +27,11 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mListener = context as DialogTimeListener?
+        try {
+            mListener = context as DialogTimeListener?
+        } catch (e: ClassCastException) {
+            throw ClassCastException("$context must implement OnDateSetListener");
+        }
     }
 
     override fun onDetach() {

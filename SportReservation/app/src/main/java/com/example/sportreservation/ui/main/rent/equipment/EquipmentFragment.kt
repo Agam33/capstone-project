@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.data.source.remote.response.EquipmentResponse
 import com.example.sportreservation.databinding.FragmentEquipmentBinding
+import com.example.sportreservation.ui.main.rent.booking.BookingFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -43,7 +44,17 @@ class EquipmentFragment : Fragment() {
             it.setHasFixedSize(true)
             it.adapter = equipmentAdapter
         }
-
+        equipmentAdapter.setOnItemClickCallback(object : EquipmentAdapter.OnItemClickCallback {
+            override fun openBookingDialog(equipment: EquipmentResponse) {
+                val bookingFragment = BookingFragment()
+                val bundle = Bundle().apply {
+                    this.putString(BookingFragment.BOOKING_TYPE, BOOKING_EQUIPMENT)
+                    this.putParcelable(BookingFragment.BOOKING_DATA, equipment)
+                }
+                bookingFragment.arguments = bundle
+                bookingFragment.show(childFragmentManager, BOOKING_EQUIPMENT)
+            }
+        })
     }
 
     override fun onDestroyView() {
@@ -51,4 +62,7 @@ class EquipmentFragment : Fragment() {
         _binding = null
     }
 
+    companion object {
+        const val BOOKING_EQUIPMENT = "booking-equipment"
+    }
 }

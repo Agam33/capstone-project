@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.databinding.FragmentRefereeBinding
 import com.example.sportreservation.ui.main.rent.booking.BookingFragment
+import com.example.sportreservation.ui.main.rent.booking.BookingFragment.Companion.BOOKING_DATA
+import com.example.sportreservation.ui.main.rent.booking.BookingFragment.Companion.BOOKING_TYPE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RefereeFragment : Fragment() {
@@ -47,15 +49,20 @@ class RefereeFragment : Fragment() {
         }
 
         refereeAdapter.setOnItemClickCallback(object : RefereeAdapter.OnItemClickCallback {
-            override fun openBookingDialog() {
+            override fun openBookingDialog(referee: RefereeResponse) {
                 val bookingFragment = BookingFragment()
+                val bundle = Bundle().apply {
+                    this.putString(BOOKING_TYPE, BOOKING_REFEREE)
+                    this.putParcelable(BOOKING_DATA, referee)
+                }
+                bookingFragment.arguments = bundle
                 bookingFragment.show(childFragmentManager, BOOKING_REFEREE)
             }
         })
     }
 
     companion object {
-        private const val BOOKING_REFEREE = "booking"
+       const val BOOKING_REFEREE = "rent-referee"
     }
 
     override fun onDestroyView() {

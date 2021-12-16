@@ -11,6 +11,12 @@ class EquipmentAdapter : RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHold
 
     private var listEquipments = ArrayList<EquipmentResponse>()
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     fun setEquipments(equipments: List<EquipmentResponse>?) {
         if (equipments == null) return
         this.listEquipments.clear()
@@ -37,7 +43,14 @@ class EquipmentAdapter : RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHold
                 tvName.text = equipment.name
                 tvPrice.text = equipment.price
                 imgEquipment.loadImage(equipment.imgUrl)
+                btnRent.setOnClickListener {
+                    onItemClickCallback.openBookingDialog(equipment)
+                }
             }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun openBookingDialog(equipment: EquipmentResponse)
     }
 }

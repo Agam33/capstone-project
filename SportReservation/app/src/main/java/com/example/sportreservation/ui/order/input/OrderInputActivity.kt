@@ -1,8 +1,10 @@
 package com.example.sportreservation.ui.order.input
 
+import android.content.ContentValues.TAG
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
@@ -145,6 +147,8 @@ class OrderInputActivity : AppCompatActivity(),
     override fun onDialogDateSet(tag: String?, year: Int, month: Int, dayOfMonth: Int) {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
+
+        Log.d(TAG, "onDialogDateSet: $year - $month - $dayOfMonth ")
 
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val dateString = dateFormat.format(calendar.time)

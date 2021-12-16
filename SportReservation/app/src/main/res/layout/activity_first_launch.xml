@@ -7,7 +7,7 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FirstLaunchActivity">
+    tools:context=".ui.AuthActivity">
 
     <Button
         android:text="@string/txt_login"

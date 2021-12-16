@@ -45,13 +45,13 @@ class RefereeAdapter : RecyclerView.Adapter<RefereeAdapter.RefereeViewHolder>() 
                 tvPrice.text = referee.price
                 imgReferee.loadImage(referee.imgUrl)
                 btnRent.setOnClickListener {
-                    onItemClickCallback.openBookingDialog()
+                    onItemClickCallback.openBookingDialog(referee)
                 }
             }
         }
     }
 
     interface OnItemClickCallback {
-        fun openBookingDialog()
+        fun openBookingDialog(referee: RefereeResponse)
     }
 }

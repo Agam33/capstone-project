@@ -1,7 +1,9 @@
 package com.example.sportreservation.ui.main
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +15,14 @@ import com.example.sportreservation.R
 import com.example.sportreservation.databinding.ActivityMainBinding
 import com.example.sportreservation.setting.SettingActivity
 import com.example.sportreservation.ui.order.OrderActivity
+import com.example.sportreservation.userpreferences.UserModel
+import com.example.sportreservation.userpreferences.UserPreference
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +50,30 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+        if(firebaseUser != null) {
+
+            val dbRef = firebaseUser.uid.let {
+                FirebaseDatabase.getInstance().getReference("Users").child(
+                    it
+                )
+            }
+            dbRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userPreference = UserPreference(this@MainActivity)
+                    val dataSnap = snapshot.getValue(UserModel::class.java)
+                    userPreference.setEmail(dataSnap?.email)
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
