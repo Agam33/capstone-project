@@ -41,6 +41,7 @@
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/Theme.custom_1" />
         <activity
+            android:launchMode="singleInstance"
             android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity
