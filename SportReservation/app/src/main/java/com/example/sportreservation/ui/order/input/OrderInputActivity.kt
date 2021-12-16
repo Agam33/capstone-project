@@ -1,13 +1,16 @@
 package com.example.sportreservation.ui.order.input
 
+import android.content.ContentValues.TAG
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityOrderInputBinding
+import com.example.sportreservation.ui.order.OrderActivity
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.DatePickerFragment
 import com.example.sportreservation.utils.OrderStatus
@@ -31,7 +34,7 @@ class OrderInputActivity : AppCompatActivity(),
 
     private lateinit var userPreference: UserPreference
 
-    private var startTime = "00:00"
+    private var startTime = "99:59"
     private var endTime = ""
     private var startDate = ""
 
@@ -80,10 +83,12 @@ class OrderInputActivity : AppCompatActivity(),
         val sportPlaceOpen = sportPlaceEntity.open.split(":").filter { it != ":" }.map { it.toInt() }
         val sportPlaceClose = sportPlaceEntity.close.split(":").filter { it != ":" }.map { it.toInt() }
 
+        val sportClose = if( sportPlaceClose[0] == 0) 24 else sportPlaceClose[0]
+
         if(arrTime.first() < sportPlaceOpen[0]) {
             Toast.makeText(this, "Tempat kami buka jam ${String.format(timeString, sportPlaceOpen[0], sportPlaceOpen[1])}", Toast.LENGTH_LONG).show()
             return
-        } else if((hourEndTime > sportPlaceClose[0])) {
+        } else if(hourEndTime > sportClose) {
             Toast.makeText(this, "Tempat kami tutup jam ${String.format(timeString, sportPlaceClose[0], sportPlaceClose[1])}", Toast.LENGTH_LONG).show()
             return
         }
@@ -123,7 +128,9 @@ class OrderInputActivity : AppCompatActivity(),
         packet[SPORT_NAME] = sportPlaceEntity.sportName
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
-        dbRef.child("Sport Place").child(sportPlaceEntity.name).push().setValue(packet)
+        packet[ORDER_STATUS] = "pesan"
+
+        dbRef.child(OrderActivity.SPORT_PLACE).child(sportPlaceEntity.name).child(auth.uid!!).setValue(packet)
 
         finish()
     }
@@ -146,6 +153,8 @@ class OrderInputActivity : AppCompatActivity(),
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
 
+        Log.d(TAG, "onDialogDateSet: $year - $month - $dayOfMonth ")
+
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val dateString = dateFormat.format(calendar.time)
 
@@ -165,16 +174,17 @@ class OrderInputActivity : AppCompatActivity(),
     }
 
     companion object {
-        private const val START_TIME = "start-time"
-        private const val DATE = "date"
+        const val START_TIME = "start-time"
+        const val DATE = "date"
         const val EXTRA_BUNDLE_PLACE = "sport-place"
-        private const val SPORT_NAME = "sport name"
-        private const val START_DATE = "date"
-        private const val USER_ID = "userId"
-        private const val USER_START_TIME = "start time"
-        private const val USER_END_TIME = "end time"
-        private const val USERNAME = "username"
-        private const val USER_EMAIL = "email"
-        private const val USER_PHONE = "phone"
+        const val SPORT_NAME = "sportName"
+        const val START_DATE = "date"
+        const val USER_ID = "userId"
+        const val USER_START_TIME = "startTime"
+        const val USER_END_TIME = "endTime"
+        const val USERNAME = "username"
+        const val USER_EMAIL = "email"
+        const val USER_PHONE = "phone"
+        const val ORDER_STATUS = "orderStatus"
     }
 }
