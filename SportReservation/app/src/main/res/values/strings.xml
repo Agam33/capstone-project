@@ -76,7 +76,8 @@
     <string name="txt_booking">Pesan Sekarang</string>
     <string name="txt_sudah_pesan">Sudah dipesan</string>
     <string name="txt_min_booking">"Maaf, pesan tempat hanya bisa 1–4 jam."</string>
-    <string name="txt_min_date_booking">Tanggal yang kamu masukan sudah terlewat.</string>
+    <string name="txt_min_date_booking">Tanggal atau bulan yang kamu masukan sudah terlewat.</string>
+    <string name="txt_lengkapi_profile">Lengkapi data profile anda</string>
     <string name="order_time">%1$s - %2$s</string>
     <string name="txt_input_start_time">%02d:%02d</string>
     <string name="txt_dummy_start_time">14:20</string>

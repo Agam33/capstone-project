@@ -25,10 +25,12 @@ class UserPreference(context: Context) {
             preferences.getString(IMAGE, null),
         )
 
-    fun isUserRegis() = preferences.getBoolean(REGIS, false)
-
     fun setImage(url: String?) = preferences.edit().apply {
             putString(IMAGE, url)
+    }.apply()
+
+    fun setEmail(email: String?) = preferences.edit().apply {
+        putString(EMAIL, email)
     }.apply()
 
     companion object {

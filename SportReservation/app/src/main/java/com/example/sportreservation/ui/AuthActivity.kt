@@ -8,9 +8,8 @@ import com.example.sportreservation.ui.login.LoginActivity
 import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.ui.regis.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
-class FirstLaunchActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
 
     private lateinit var firstLaunchActivity: ActivityFirstLaunchBinding
 
@@ -35,7 +34,7 @@ class FirstLaunchActivity : AppCompatActivity() {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
 
         if(firebaseUser != null) {
-            startActivity(Intent(this@FirstLaunchActivity, MainActivity::class.java))
+            startActivity(Intent(this@AuthActivity, MainActivity::class.java))
             finish()
         }
     }
