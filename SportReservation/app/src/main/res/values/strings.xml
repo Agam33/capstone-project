@@ -92,5 +92,7 @@
     <string name="rent_equipment">SEWA ALAT</string>
     <string name="txt_login">Masuk</string>
     <string name="txt_password">Password</string>
+    <string name="txt_rental">Rental</string>
+    <string name="txt_penyewaan_pada_tanggal">Penyewaan pada tanggal: </string>
 
 </resources>

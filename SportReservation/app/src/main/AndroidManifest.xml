@@ -17,9 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportReservation">
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:parentActivityName=".ui.AuthActivity"
+            android:name=".ui.rental.RentalActivity"
+            android:parentActivityName=".ui.main.MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.AuthActivity" />
         <activity
             android:name=".ui.regis.RegistrationActivity"
             android:exported="false" />
@@ -41,9 +45,9 @@
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/Theme.custom_1" />
         <activity
-            android:launchMode="singleInstance"
             android:name=".ui.main.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleInstance" />
         <activity
             android:name=".ui.detailarticle.DetailArticleActivity"
             android:exported="false" />

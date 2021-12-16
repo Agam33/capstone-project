@@ -15,6 +15,7 @@ import com.example.sportreservation.R
 import com.example.sportreservation.databinding.ActivityMainBinding
 import com.example.sportreservation.setting.SettingActivity
 import com.example.sportreservation.ui.order.OrderActivity
+import com.example.sportreservation.ui.rental.RentalActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -89,6 +90,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_reservasi -> {
                 startActivity(Intent(this, OrderActivity::class.java))
+                true
+            }
+            R.id.action_rental -> {
+                startActivity(Intent(this, RentalActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
