@@ -47,16 +47,16 @@ class ArticleFragment : Fragment() {
         viewModel.getArticle().observe(viewLifecycleOwner, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    success()
+                    showLoading(false)
                     it.data?.let { article ->
                         articleAdapter.submitList(article)
                     }
                 }
                 Status.ERROR -> {
-                    error()
+                    showLoading(false)
                 }
                 Status.LOADING -> {
-                    loading()
+                    showLoading(true)
                 }
             }
         })
@@ -66,18 +66,6 @@ class ArticleFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = articleAdapter
         }
-    }
-
-    private fun success() {
-        showLoading(false)
-    }
-
-    private fun loading() {
-        showLoading(true)
-    }
-
-    private fun error() {
-        showLoading(false)
     }
 
     private fun showLoading(isLoading: Boolean) {
