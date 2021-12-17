@@ -1,11 +1,11 @@
 package com.example.sportreservation.ui.main.rent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import com.example.sportreservation.R
 import com.example.sportreservation.databinding.FragmentRentBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -30,7 +30,7 @@ class RentFragment : Fragment() {
         with(binding) {
             this?.viewPager?.adapter = sectionsPagerAdapter
             this?.let {
-                TabLayoutMediator(it.tabs, it.viewPager) {tab, position ->
+                TabLayoutMediator(it.tabs, it.viewPager) { tab, position ->
                     tab.text = resources.getString(TAB_TITLES[position])
                 }.attach()
             }

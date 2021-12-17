@@ -9,7 +9,7 @@ import com.example.sportreservation.data.source.local.entity.OrderEntity
 
 class OrderViewModel(
     private val sportReservationRepository: SportReservationRepository
-): ViewModel() {
+) : ViewModel() {
 
     fun getOrderList(): LiveData<PagedList<OrderEntity>> =
         sportReservationRepository.getOrderList()

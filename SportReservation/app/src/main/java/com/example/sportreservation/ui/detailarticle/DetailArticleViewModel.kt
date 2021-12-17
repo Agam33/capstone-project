@@ -9,8 +9,8 @@ import com.example.sportreservation.data.source.local.entity.ArticleEntity
 
 class DetailArticleViewModel(
     private val sportReservationRepository: SportReservationRepository
-): ViewModel() {
-    
+) : ViewModel() {
+
     private var _detailId = MutableLiveData<Int>()
     private val _detailArticle = _detailId.switchMap { id ->
         sportReservationRepository.getArticleById(id)

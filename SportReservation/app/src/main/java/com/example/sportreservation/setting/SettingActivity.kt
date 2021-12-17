@@ -1,18 +1,18 @@
 package com.example.sportreservation.setting
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.sportreservation.R
+import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
+import com.example.sportreservation.R
 import com.example.sportreservation.notification.NotificationOrder
 
 class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.settings, SettingsFragment())
@@ -23,7 +23,7 @@ class SettingActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.txt_setting)
     }
 
-    class SettingsFragment: PreferenceFragmentCompat() {
+    class SettingsFragment : PreferenceFragmentCompat() {
 
         private lateinit var notification: NotificationOrder
 
@@ -36,12 +36,20 @@ class SettingActivity : AppCompatActivity() {
                 ?.setOnPreferenceChangeListener { _, newValue ->
                     newValue?.let {
                         val isRemainder = it as Boolean
-                        if(isRemainder) {
+                        if (isRemainder) {
                             notification.setRemainderOrder(requireContext())
-                            Toast.makeText(requireContext(), getString(R.string.notification_enable), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.notification_enable),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         } else {
                             notification.cancelRemainderOrder(requireContext())
-                            Toast.makeText(requireContext(), getString(R.string.notification_disable), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.notification_disable),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                     true

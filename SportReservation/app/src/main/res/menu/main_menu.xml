@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="@string/txt_reservasi"
-        android:id="@+id/action_reservasi"/>
+        android:id="@+id/action_reservasi"
+        android:title="@string/txt_reservation" />
 
     <item
-        android:title="@string/txt_rental"
-        android:id="@+id/action_rental"/>
+        android:id="@+id/action_rental"
+        android:title="@string/txt_rental" />
 
     <item
         android:id="@+id/action_setting"
-        android:title="@string/txt_setting"/>
+        android:title="@string/txt_setting" />
 
 </menu>

@@ -74,7 +74,7 @@ class ProfileFragment : Fragment() {
 
         binding?.btnSignOut?.setOnClickListener {
             Snackbar.make(binding?.root!!, "Anda yakin ini keluar aplikasi?", Snackbar.LENGTH_SHORT)
-                .setAction("Yes")  {
+                .setAction("Yes") {
                     Firebase.auth.signOut()
                     val intent = Intent(requireContext(), AuthActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -91,12 +91,13 @@ class ProfileFragment : Fragment() {
         startActivityResult.launch(intentGallery)
     }
 
-    private var startActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == AppCompatActivity.RESULT_OK) {
-            binding?.imgUser?.loadImage(it.data?.dataString)
-            userPreference.setImage(it.data?.dataString)
+    private var startActivityResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == AppCompatActivity.RESULT_OK) {
+                binding?.imgUser?.loadImage(it.data?.dataString)
+                userPreference.setImage(it.data?.dataString)
+            }
         }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

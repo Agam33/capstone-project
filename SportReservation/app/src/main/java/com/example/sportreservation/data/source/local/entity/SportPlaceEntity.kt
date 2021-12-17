@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity
-data class SportPlaceEntity (
+data class SportPlaceEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,

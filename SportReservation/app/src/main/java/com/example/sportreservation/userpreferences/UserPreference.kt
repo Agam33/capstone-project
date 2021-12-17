@@ -26,7 +26,7 @@ class UserPreference(context: Context) {
         )
 
     fun setImage(url: String?) = preferences.edit().apply {
-            putString(IMAGE, url)
+        putString(IMAGE, url)
     }.apply()
 
     fun setEmail(email: String?) = preferences.edit().apply {

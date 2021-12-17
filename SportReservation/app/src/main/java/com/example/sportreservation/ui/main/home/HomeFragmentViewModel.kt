@@ -9,7 +9,7 @@ import com.example.sportreservation.utils.Resource
 
 class HomeFragmentViewModel(
     private val sportReservationRepository: SportReservationRepository
-): ViewModel() {
+) : ViewModel() {
 
     fun getBadmintonPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> =
         sportReservationRepository.getBadmintonPlace()
