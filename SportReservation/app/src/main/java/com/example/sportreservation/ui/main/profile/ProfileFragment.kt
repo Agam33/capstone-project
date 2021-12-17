@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.sportreservation.databinding.FragmentProfileBinding
 import com.example.sportreservation.ui.AuthActivity
+import com.example.sportreservation.ui.login.LoginActivity
 import com.example.sportreservation.ui.main.profile.updatedata.UpdateDataUserActivity
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.loadImage
@@ -76,7 +77,7 @@ class ProfileFragment : Fragment() {
             Snackbar.make(binding?.root!!, "Anda yakin ini keluar aplikasi?", Snackbar.LENGTH_SHORT)
                 .setAction("Yes") {
                     Firebase.auth.signOut()
-                    val intent = Intent(requireContext(), AuthActivity::class.java).apply {
+                    val intent = Intent(requireContext(), LoginActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     }
                     startActivity(intent)

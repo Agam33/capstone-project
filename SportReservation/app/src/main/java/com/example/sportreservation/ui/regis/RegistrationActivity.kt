@@ -1,12 +1,13 @@
 package com.example.sportreservation.ui.regis
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.databinding.ActivityRegistrationBinding
 import com.example.sportreservation.ui.login.LoginActivity
+import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.isValidEmail
@@ -29,27 +30,16 @@ class RegistrationActivity : AppCompatActivity() {
         _registrationBinding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(registrationBinding?.root)
 
-        supportActionBar?.elevation = 0f
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         userPreferences = UserPreference(this)
 
         auth = FirebaseAuth.getInstance()
 
         registrationBinding?.btnRegis?.setOnClickListener {
             checkEmptyField()
-            startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
-            finish()
         }
     }
 
-    private fun setUserInput(
-        name: String,
-        email: String,
-        address: String,
-        phone: String,
-        password: String
-    ) {
+    private fun setUserInput(name: String, email: String, address: String, phone: String, password: String)  {
 
         val userModel = UserModel()
         userModel.let { user ->
@@ -62,7 +52,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if (it.isSuccessful) {
+                if(it.isSuccessful) {
 
                     val firebaseUser = auth.currentUser
                     val userId = firebaseUser?.uid
@@ -79,9 +69,12 @@ class RegistrationActivity : AppCompatActivity() {
                     dataUser["phone"] = phone
 
                     dbRef.setValue(dataUser)
+                        .addOnCompleteListener {
+                            startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
+                            finish()
+                        }
                 } else {
-                    Toast.makeText(this@RegistrationActivity, "Gagal mendaftar", Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(this@RegistrationActivity, "Gagal mendaftar", Toast.LENGTH_LONG).show()
                 }
             }
     }
@@ -93,32 +86,32 @@ class RegistrationActivity : AppCompatActivity() {
         val phone = addEdPhone.text.toString().trim()
         val password = registrationBinding?.addPassword?.text.toString().trim()
 
-        if (name.isEmpty()) {
+        if(name.isEmpty()) {
             addEdName.error = FIELD_REQUIRED
             return
         }
 
-        if (!isValidEmail(email)) {
+        if(!isValidEmail(email)) {
             addEdEmail.error = FIELD_IS_NOT_VALID
             return
         }
 
-        if (address.isEmpty()) {
+        if(address.isEmpty()) {
             addEdAddress.error = FIELD_REQUIRED
             return
         }
 
-        if (phone.isEmpty()) {
+        if(phone.isEmpty()) {
             addEdPhone.error = FIELD_REQUIRED
             return
         }
 
-        if (!TextUtils.isDigitsOnly(phone)) {
+        if(!TextUtils.isDigitsOnly(phone)) {
             addEdPhone.error = FIELD_DIGIT_ONLY
             return
         }
 
-        if (password.length < 7) {
+        if(password.length < 7) {
             registrationBinding?.addPassword?.error = PASSWORD_REQUIRED_LENGTH
             return
         }
