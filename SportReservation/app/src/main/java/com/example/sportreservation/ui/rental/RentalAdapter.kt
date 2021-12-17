@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.R
 import com.example.sportreservation.databinding.ItemRentalBinding
 
-class RentalAdapter: RecyclerView.Adapter<RentalAdapter.RentalViewHolder>() {
+class RentalAdapter : RecyclerView.Adapter<RentalAdapter.RentalViewHolder>() {
 
     private var listRental = ArrayList<RentalModel>()
 
@@ -16,9 +16,9 @@ class RentalAdapter: RecyclerView.Adapter<RentalAdapter.RentalViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RentalViewHolder {
-       return RentalViewHolder(
-           ItemRentalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-       )
+        return RentalViewHolder(
+            ItemRentalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: RentalViewHolder, position: Int) {
@@ -28,11 +28,12 @@ class RentalAdapter: RecyclerView.Adapter<RentalAdapter.RentalViewHolder>() {
 
     override fun getItemCount(): Int = listRental.size
 
-    inner class RentalViewHolder(private val binding: ItemRentalBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class RentalViewHolder(private val binding: ItemRentalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind(rentalModel: RentalModel) = with(binding) {
-            tvDate.text = "${root.context.getString(R.string.txt_penyewaan_pada_tanggal)} ${rentalModel.date}"
+            tvDate.text = "${root.context.getString(R.string.txt_rent)} ${rentalModel.date}"
             tvUsername.text = rentalModel.username
             tvEmail.text = rentalModel.email
             tvPhone.text = rentalModel.phone

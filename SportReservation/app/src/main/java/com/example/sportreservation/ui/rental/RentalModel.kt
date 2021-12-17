@@ -1,7 +1,7 @@
 package com.example.sportreservation.ui.rental
 
 data class RentalModel(
-    var userId: String ="",
+    var userId: String = "",
     var username: String = "",
     var email: String = "",
     var phone: String = "",

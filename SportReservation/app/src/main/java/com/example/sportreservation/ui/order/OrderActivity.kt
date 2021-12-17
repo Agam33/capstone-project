@@ -1,8 +1,8 @@
 package com.example.sportreservation.ui.order
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +10,6 @@ import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.databinding.ActivityOrderBinding
-import com.example.sportreservation.ui.order.input.OrderInputActivity.Companion.ORDER_STATUS
 import com.example.sportreservation.utils.OrderStatus
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -46,7 +45,7 @@ class OrderActivity : AppCompatActivity(),
     }
 
     private fun showOrderList(orderList: PagedList<OrderEntity>) {
-        if(orderList.isEmpty()) isEmptyList(true) else isEmptyList(false)
+        if (orderList.isEmpty()) isEmptyList(true) else isEmptyList(false)
 
         orderAdapter.submitList(orderList)
         orderAdapter.setOnItemClickCallback(this)
@@ -58,7 +57,7 @@ class OrderActivity : AppCompatActivity(),
     }
 
     private fun isEmptyList(state: Boolean) {
-        if(state) {
+        if (state) {
             orderBinding?.rvOrder?.visibility = View.GONE
             orderBinding?.emptyBox?.frameLayoutFavorite?.visibility = View.VISIBLE
         } else {
@@ -68,8 +67,8 @@ class OrderActivity : AppCompatActivity(),
     }
 
     override fun orderDone(orderEntity: OrderEntity) {
-        Snackbar.make(orderBinding?.root!!, "Apakah reservasi sudah selesai?", Snackbar.LENGTH_LONG)
-            .setAction("Yes") {view ->
+        Snackbar.make(orderBinding?.root!!, "Is the reservation complete?", Snackbar.LENGTH_LONG)
+            .setAction("Yes") { view ->
                 orderViewModel.insertHistory(
                     HistoryEntity(0, orderEntity.name, OrderStatus.SELESAI, orderEntity.date)
                 )
@@ -79,7 +78,7 @@ class OrderActivity : AppCompatActivity(),
 
                 val history = HashMap<String, String>()
                 history[SPORT_NAME] = orderEntity.name
-                history[ORDER_STATUS] = getString(R.string.txt_done)
+                history[ORDER_STATUS] = getString(R.string.finish)
                 history[DATE] = orderEntity.date
 
                 dbRef = FirebaseDatabase.getInstance().reference
@@ -90,8 +89,12 @@ class OrderActivity : AppCompatActivity(),
     }
 
     override fun orderCancel(orderEntity: OrderEntity) {
-        Snackbar.make(orderBinding?.root!!, "Apakah Anda yakin ingin membatalkan reservasi?", Snackbar.LENGTH_LONG)
-            .setAction("Yes") {view ->
+        Snackbar.make(
+            orderBinding?.root!!,
+            "Are you sure you want to cancel your reservation?",
+            Snackbar.LENGTH_LONG
+        )
+            .setAction("Yes") { view ->
                 orderViewModel.insertHistory(
                     HistoryEntity(0, orderEntity.name, OrderStatus.BATALKAN, orderEntity.date)
                 )
@@ -100,7 +103,7 @@ class OrderActivity : AppCompatActivity(),
 
                 val history = HashMap<String, String>()
                 history[SPORT_NAME] = orderEntity.name
-                history[ORDER_STATUS] = getString(R.string.txt_dibatalkan)
+                history[ORDER_STATUS] = getString(R.string.cancel)
                 history[DATE] = orderEntity.date
 
                 dbRef = FirebaseDatabase.getInstance().reference

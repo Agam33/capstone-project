@@ -46,7 +46,7 @@ class DetailPlaceActivity : AppCompatActivity() {
 
     private fun setOrder(detailPlace: SportPlaceEntity) {
         viewModel.getOrderById(detailPlace.id).observe(this, { order ->
-            if(order == null) {
+            if (order == null) {
                 binding.btnBook.text = getString(R.string.txt_booking)
                 binding.btnBook.setBackgroundColor(getColor(R.color.green_500))
                 binding.btnBook.isEnabled = true
@@ -56,9 +56,9 @@ class DetailPlaceActivity : AppCompatActivity() {
                     })
                 }
             } else {
-                when(order.orderStatus) {
+                when (order.orderStatus) {
                     OrderStatus.PESAN -> {
-                        binding.btnBook.text = getString(R.string.txt_sudah_pesan)
+                        binding.btnBook.text = getString(R.string.txt_already_booked)
                         binding.btnBook.setBackgroundColor(getColor(R.color.red))
                         binding.btnBook.isEnabled = false
                     }
@@ -66,9 +66,9 @@ class DetailPlaceActivity : AppCompatActivity() {
                     OrderStatus.SELESAI -> {}
                 }
             }
-       })
+        })
     }
-    
+
     companion object {
         const val EXTRA_PLACE = "extra_place"
     }

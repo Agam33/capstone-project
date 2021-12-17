@@ -9,7 +9,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class RentalViewModel: ViewModel() {
+class RentalViewModel : ViewModel() {
 
     private var dbRef = FirebaseDatabase.getInstance().getReference(RENTAL)
 
@@ -17,16 +17,16 @@ class RentalViewModel: ViewModel() {
     val rentalItem: LiveData<List<RentalModel>> get() = _rentalItem
 
     fun getRentalItem(userId: String) {
-        dbRef.addValueEventListener(object: ValueEventListener {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val rentalModel = snapshot.getValue(RentalModel::class.java)
                 if (rentalModel != null) {
 
-                   val listItem = snapshot.children.map {
-                            it.getValue(RentalModel::class.java)
-                        }.filter {
-                            it?.userId == userId
-                        }
+                    val listItem = snapshot.children.map {
+                        it.getValue(RentalModel::class.java)
+                    }.filter {
+                        it?.userId == userId
+                    }
 
                     _rentalItem.postValue(listItem as List<RentalModel>?)
 

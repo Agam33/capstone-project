@@ -29,7 +29,7 @@ class JsonHelper(private val context: Context) {
         try {
             val responseObject = JSONObject(parsingFileToString("Basket.json").toString())
             val listArray = responseObject.getJSONArray("basket")
-            for(item in 0 until listArray.length()) {
+            for (item in 0 until listArray.length()) {
                 val place = listArray.getJSONObject(item)
 
                 list.add(
@@ -57,7 +57,7 @@ class JsonHelper(private val context: Context) {
         try {
             val responseObject = JSONObject(parsingFileToString("Badminton.json").toString())
             val listArray = responseObject.getJSONArray("badminton")
-            for(item in 0 until listArray.length()) {
+            for (item in 0 until listArray.length()) {
                 val place = listArray.getJSONObject(item)
 
                 list.add(
@@ -85,7 +85,7 @@ class JsonHelper(private val context: Context) {
         try {
             val responseObject = JSONObject(parsingFileToString("Futsal.json").toString())
             val listArray = responseObject.getJSONArray("futsal")
-            for(item in 0 until listArray.length()) {
+            for (item in 0 until listArray.length()) {
                 val place = listArray.getJSONObject(item)
 
                 list.add(
@@ -169,7 +169,7 @@ class JsonHelper(private val context: Context) {
         try {
             val responseObject = JSONObject(parsingFileToString("Article.json").toString())
             val listArray = responseObject.getJSONArray("article")
-            for(item in 0 until listArray.length()) {
+            for (item in 0 until listArray.length()) {
                 val article = listArray.getJSONObject(item)
 
                 list.add(

@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         val firebaseUser = FirebaseAuth.getInstance().currentUser
 
-        if(firebaseUser != null) {
+        if (firebaseUser != null) {
 
             val dbRef = firebaseUser.uid.let {
                 FirebaseDatabase.getInstance().getReference("Users").child(
@@ -68,12 +68,14 @@ class MainActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userPreference = UserPreference(this@MainActivity)
                     val dataSnap = snapshot.getValue(UserModel::class.java)
-                    userPreference.setUser(UserModel(
-                        dataSnap?.name,
-                        dataSnap?.email,
-                        dataSnap?.address,
-                        dataSnap?.phone,
-                    ))
+                    userPreference.setUser(
+                        UserModel(
+                            dataSnap?.name,
+                            dataSnap?.email,
+                            dataSnap?.address,
+                            dataSnap?.phone,
+                        )
+                    )
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
@@ -89,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.action_setting -> {
                 startActivity(Intent(this, SettingActivity::class.java))
                 true

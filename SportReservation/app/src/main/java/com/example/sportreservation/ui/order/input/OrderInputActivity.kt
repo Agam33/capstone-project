@@ -2,10 +2,10 @@ package com.example.sportreservation.ui.order.input
 
 import android.content.ContentValues.TAG
 import android.icu.text.SimpleDateFormat
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
@@ -50,7 +50,8 @@ class OrderInputActivity : AppCompatActivity(),
 
         setSupportActionBar(orderInputBinding?.toolbar)
 
-        val sportPlaceEntity = intent.getParcelableExtra<SportPlaceEntity>(EXTRA_BUNDLE_PLACE) as SportPlaceEntity
+        val sportPlaceEntity =
+            intent.getParcelableExtra<SportPlaceEntity>(EXTRA_BUNDLE_PLACE) as SportPlaceEntity
 
         orderInputBinding?.tvSportPlace?.text = sportPlaceEntity.name
         orderInputBinding?.tvSportName?.text = sportPlaceEntity.sportName
@@ -68,9 +69,9 @@ class OrderInputActivity : AppCompatActivity(),
             input durasi booking harus 1 - 4 jam
          */
         var durationInput = orderInputBinding?.edtHours?.text.toString()
-        durationInput = if( durationInput == "") "0" else durationInput
+        durationInput = if (durationInput == "") "0" else durationInput
 
-        if(durationInput.toInt() < 1 || durationInput.toInt() > 4) {
+        if (durationInput.toInt() < 1 || durationInput.toInt() > 4) {
             Toast.makeText(this, getString(R.string.txt_min_booking), Toast.LENGTH_SHORT).show()
             return
         }
@@ -80,16 +81,38 @@ class OrderInputActivity : AppCompatActivity(),
         val hourEndTime = arrTime[0] + durationInput.toInt()
         val endTimeText = String.format(timeString, hourEndTime, arrTime[1])
 
-        val sportPlaceOpen = sportPlaceEntity.open.split(":").filter { it != ":" }.map { it.toInt() }
-        val sportPlaceClose = sportPlaceEntity.close.split(":").filter { it != ":" }.map { it.toInt() }
+        val sportPlaceOpen =
+            sportPlaceEntity.open.split(":").filter { it != ":" }.map { it.toInt() }
+        val sportPlaceClose =
+            sportPlaceEntity.close.split(":").filter { it != ":" }.map { it.toInt() }
 
-        val sportClose = if( sportPlaceClose[0] == 0) 24 else sportPlaceClose[0]
+        val sportClose = if (sportPlaceClose[0] == 0) 24 else sportPlaceClose[0]
 
-        if(arrTime.first() < sportPlaceOpen[0]) {
-            Toast.makeText(this, "Tempat kami buka jam ${String.format(timeString, sportPlaceOpen[0], sportPlaceOpen[1])}", Toast.LENGTH_LONG).show()
+        if (arrTime.first() < sportPlaceOpen[0]) {
+            Toast.makeText(
+                this,
+                "Tempat kami buka jam ${
+                    String.format(
+                        timeString,
+                        sportPlaceOpen[0],
+                        sportPlaceOpen[1]
+                    )
+                }",
+                Toast.LENGTH_LONG
+            ).show()
             return
-        } else if(hourEndTime > sportClose) {
-            Toast.makeText(this, "Tempat kami tutup jam ${String.format(timeString, sportPlaceClose[0], sportPlaceClose[1])}", Toast.LENGTH_LONG).show()
+        } else if (hourEndTime > sportClose) {
+            Toast.makeText(
+                this,
+                "Tempat kami tutup jam ${
+                    String.format(
+                        timeString,
+                        sportPlaceClose[0],
+                        sportPlaceClose[1]
+                    )
+                }",
+                Toast.LENGTH_LONG
+            ).show()
             return
         }
 
@@ -103,21 +126,24 @@ class OrderInputActivity : AppCompatActivity(),
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val currDateInMillis = Date().time
         val startDateInMillis = dateFormat.parse(startDate).time
-        if(startDateInMillis < currDateInMillis) {
-            Toast.makeText(this, getString(R.string.txt_min_date_booking), Toast.LENGTH_SHORT).show()
+        if (startDateInMillis < currDateInMillis) {
+            Toast.makeText(this, getString(R.string.txt_min_date_booking), Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
-        orderInputViewModel.insertOrder(OrderEntity(
-            sportPlaceEntity.id,
-            sportPlaceEntity.name,
-            sportPlaceEntity.sportName,
-            sportPlaceEntity.address,
-            startDate,
-            startTime,
-            endTime,
-            OrderStatus.PESAN
-        ))
+        orderInputViewModel.insertOrder(
+            OrderEntity(
+                sportPlaceEntity.id,
+                sportPlaceEntity.name,
+                sportPlaceEntity.sportName,
+                sportPlaceEntity.address,
+                startDate,
+                startTime,
+                endTime,
+                OrderStatus.PESAN
+            )
+        )
 
         val packet = HashMap<String, String>()
         packet[USER_ID] = auth.uid!!
@@ -130,7 +156,8 @@ class OrderInputActivity : AppCompatActivity(),
         packet[USER_END_TIME] = endTime
         packet[ORDER_STATUS] = "pesan"
 
-        dbRef.child(OrderActivity.SPORT_PLACE).child(sportPlaceEntity.name).child(auth.uid!!).setValue(packet)
+        dbRef.child(OrderActivity.SPORT_PLACE).child(sportPlaceEntity.name).child(auth.uid!!)
+            .setValue(packet)
 
         finish()
     }

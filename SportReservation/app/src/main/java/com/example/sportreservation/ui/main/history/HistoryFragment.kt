@@ -36,7 +36,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun showListHistory(historyEntity: PagedList<HistoryEntity>) {
-        if(historyEntity.isEmpty()) isEmptyList(true) else isEmptyList(false)
+        if (historyEntity.isEmpty()) isEmptyList(true) else isEmptyList(false)
 
         historyAdapter.submitList(historyEntity)
         binding?.rvHistory?.apply {
@@ -45,8 +45,9 @@ class HistoryFragment : Fragment() {
             adapter = historyAdapter
         }
     }
+
     private fun isEmptyList(state: Boolean) {
-        if(state) {
+        if (state) {
             binding?.rvHistory?.visibility = View.GONE
             binding?.emptyBox?.frameLayoutFavorite?.visibility = View.VISIBLE
         } else {
@@ -54,6 +55,7 @@ class HistoryFragment : Fragment() {
             binding?.emptyBox?.frameLayoutFavorite?.visibility = View.GONE
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

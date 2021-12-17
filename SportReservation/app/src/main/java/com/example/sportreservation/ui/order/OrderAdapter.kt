@@ -1,7 +1,6 @@
 package com.example.sportreservation.ui.order
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -9,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.databinding.ItemOrderBinding
-import com.google.android.material.snackbar.Snackbar
 
-class OrderAdapter: PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffCallback) {
+class OrderAdapter : PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffCallback) {
 
 
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -26,19 +24,24 @@ class OrderAdapter: PagedListAdapter<OrderEntity, OrderAdapter.ViewHolder>(diffC
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val orderEntity = getItem(position)
-        if(orderEntity != null) {
+        if (orderEntity != null) {
             holder.bind(orderEntity)
         }
     }
 
-    inner class ViewHolder(private val binding: ItemOrderBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemOrderBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(orderEntity: OrderEntity) = with(binding) {
 
             tvName.text = orderEntity.name
             tvSportName.text = orderEntity.sportName
             tvDate.text = orderEntity.date
-            tvTime.text = String.format(root.context.getString(R.string.order_time), orderEntity.startTime, orderEntity.endTime)
+            tvTime.text = String.format(
+                root.context.getString(R.string.order_time),
+                orderEntity.startTime,
+                orderEntity.endTime
+            )
             tvLocation.text = orderEntity.address
 
             btnCancel.setBackgroundColor(root.context.getColor(R.color.red))

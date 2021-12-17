@@ -11,12 +11,12 @@ import com.example.sportreservation.utils.mainThreadDelay
 
 class RemoteDataSourceImpl(
     private val jsonHelper: JsonHelper
-): RemoteDataSource {
+) : RemoteDataSource {
 
     override fun getBadmintonPlace(): LiveData<ApiResponse<List<SportPlaceResponse>>> {
         val result = MutableLiveData<ApiResponse<List<SportPlaceResponse>>>()
         mainThreadDelay {
-            result.postValue( ApiResponse.success(jsonHelper.loadBadmintonPlace()))
+            result.postValue(ApiResponse.success(jsonHelper.loadBadmintonPlace()))
         }
         return result
     }

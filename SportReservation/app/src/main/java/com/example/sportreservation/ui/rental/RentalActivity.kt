@@ -1,8 +1,8 @@
 package com.example.sportreservation.ui.rental
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.databinding.ActivityRentalBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -35,7 +35,7 @@ class RentalActivity : AppCompatActivity() {
     }
 
     private fun showRentItem(listRentalItem: List<RentalModel>) {
-        var rentalAdapter = RentalAdapter()
+        val rentalAdapter = RentalAdapter()
         rentalAdapter.setRentalItem(listRentalItem as ArrayList<RentalModel>)
 
         rentalBinding?.rvRental?.let {

@@ -1,7 +1,7 @@
 package com.example.sportreservation.data.source.local.entity
 
 
-class RefereeEntity (
+class RefereeEntity(
     val id: Int,
     val name: String,
     val skill: String,

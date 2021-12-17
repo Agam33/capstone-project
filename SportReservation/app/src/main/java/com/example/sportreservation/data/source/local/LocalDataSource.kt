@@ -2,7 +2,6 @@ package com.example.sportreservation.data.source.local
 
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
@@ -19,7 +18,7 @@ interface LocalDataSource {
     fun getArticleById(id: Int): LiveData<ArticleEntity>
     fun getArticles(): DataSource.Factory<Int, ArticleEntity>
     fun getOrderList(): DataSource.Factory<Int, OrderEntity>
-    fun getHistory():  DataSource.Factory<Int, HistoryEntity>
+    fun getHistory(): DataSource.Factory<Int, HistoryEntity>
     fun getOrderByDate(date: String): List<OrderEntity>
     fun getOrderById(id: Int): LiveData<OrderEntity>
 

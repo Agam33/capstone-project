@@ -1,8 +1,8 @@
 package com.example.sportreservation.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.databinding.ActivityFirstLaunchBinding
 import com.example.sportreservation.ui.login.LoginActivity
 import com.example.sportreservation.ui.main.MainActivity
@@ -33,7 +33,7 @@ class AuthActivity : AppCompatActivity() {
 
         val firebaseUser = FirebaseAuth.getInstance().currentUser
 
-        if(firebaseUser != null) {
+        if (firebaseUser != null) {
             startActivity(Intent(this@AuthActivity, MainActivity::class.java))
             finish()
         }
