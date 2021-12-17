@@ -24,7 +24,6 @@ class RentalAdapter: RecyclerView.Adapter<RentalAdapter.RentalViewHolder>() {
     override fun onBindViewHolder(holder: RentalViewHolder, position: Int) {
         val rentalModel = listRental[position]
         holder.bind(rentalModel)
-
     }
 
     override fun getItemCount(): Int = listRental.size
