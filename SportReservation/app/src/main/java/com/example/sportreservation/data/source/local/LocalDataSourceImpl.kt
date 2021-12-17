@@ -2,7 +2,6 @@ package com.example.sportreservation.data.source.local
 
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
@@ -11,7 +10,7 @@ import com.example.sportreservation.data.source.local.room.SportReservationDao
 
 class LocalDataSourceImpl(
     private val sportReservationDao: SportReservationDao
-): LocalDataSource {
+) : LocalDataSource {
 
     override fun insertSport(sport: List<SportPlaceEntity>) =
         sportReservationDao.insertSport(sport)

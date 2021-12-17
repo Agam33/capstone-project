@@ -31,7 +31,9 @@ class HistoryAdapter : PagedListAdapter<HistoryEntity, HistoryAdapter.ViewHolder
                 tvName.text = history.name
                 tvDate.text = history.date
                 tvStatus.text =
-                    if (history.status == OrderStatus.BATALKAN) root.context.getString(R.string.dibatalkan) else root.context.getString(R.string.selesai)
+                    if (history.status == OrderStatus.BATALKAN) root.context.getString(R.string.cancel) else root.context.getString(
+                        R.string.finish
+                    )
             }
         }
     }

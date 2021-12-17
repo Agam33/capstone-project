@@ -23,10 +23,10 @@ import java.time.YearMonth
 import java.util.*
 import kotlin.collections.HashMap
 
-class BookingFragment: DialogFragment() {
+class BookingFragment : DialogFragment() {
 
     private var _bookingBinding: FragmentBookingBinding? = null
-    private val  bookingBinding get() = _bookingBinding
+    private val bookingBinding get() = _bookingBinding
 
     private var startTime = "99:99"
     private var endTime = ""
@@ -57,32 +57,48 @@ class BookingFragment: DialogFragment() {
         val bookingType = arguments?.getString(BOOKING_TYPE)
 
         bookingBinding?.btnBook?.setOnClickListener {
-            if(bookingType == BOOKING_EQUIPMENT) {
-                validateInput(BOOKING_EQUIPMENT,null,  arguments?.getParcelable(BOOKING_DATA) as? EquipmentResponse)
-            } else if(bookingType == BOOKING_REFEREE) {
-                validateInput(BOOKING_REFEREE, arguments?.getParcelable(BOOKING_DATA) as? RefereeResponse, null)
+            if (bookingType == BOOKING_EQUIPMENT) {
+                validateInput(
+                    "EQUIPMENT",
+                    null,
+                    arguments?.getParcelable(BOOKING_DATA) as? EquipmentResponse
+                )
+            } else if (bookingType == BOOKING_REFEREE) {
+                validateInput(
+                    "REFEREE",
+                    arguments?.getParcelable(BOOKING_DATA) as? RefereeResponse,
+                    null
+                )
             }
         }
 
         bookingBinding?.btnCancel?.setBackgroundColor(requireActivity().getColor(R.color.red))
 
         bookingBinding?.btnCancel?.setOnClickListener {
-           dismiss()
+            dismiss()
         }
     }
 
-    private fun validateInput(tag: String, referee: RefereeResponse?, equipment: EquipmentResponse?) {
+    private fun validateInput(
+        tag: String,
+        referee: RefereeResponse?,
+        equipment: EquipmentResponse?
+    ) {
         val hourOfDay = bookingBinding?.edtHour?.text.toString()
         val minute = bookingBinding?.edtMinute?.text.toString()
 
-        if(hourOfDay.isEmpty()|| minute.isEmpty() || hourOfDay.toInt() > 24 || minute.toInt() > 59) {
-            Toast.makeText(requireContext(), "Jam atau menit yang Anda masukan salah", Toast.LENGTH_SHORT).show()
+        if (hourOfDay.isEmpty() || minute.isEmpty() || hourOfDay.toInt() > 24 || minute.toInt() > 59) {
+            Toast.makeText(
+                requireContext(),
+                "Jam atau menit yang Anda masukan salah",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
         val timeString = context?.getString(R.string.txt_input_start_time)!!
 
-        val startTimeText = String.format(timeString, hourOfDay.toInt() , minute.toInt())
+        val startTimeText = String.format(timeString, hourOfDay.toInt(), minute.toInt())
 
         startTime = startTimeText
 
@@ -90,11 +106,13 @@ class BookingFragment: DialogFragment() {
 
         val calendar = Calendar.getInstance()
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), dayOfMonth.toInt())
-        val yearOfMonth = YearMonth.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1)
+        val yearOfMonth =
+            YearMonth.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1)
         val daysIntMonth = yearOfMonth.lengthOfMonth()
 
-        if(dayOfMonth.toInt() > daysIntMonth) {
-            Toast.makeText(requireContext(), "Tanggal yang Anda masukan salah", Toast.LENGTH_SHORT).show()
+        if (dayOfMonth.toInt() > daysIntMonth) {
+            Toast.makeText(requireContext(), "Tanggal yang Anda masukan salah", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -104,7 +122,7 @@ class BookingFragment: DialogFragment() {
         startDate = dateString
 
         Log.d(TAG, "validateInput: $startDate - $daysIntMonth ($dateString)")
-        
+
         val rentName = referee?.name ?: equipment?.name
         val rentId = referee?.id ?: equipment?.id
 
@@ -112,17 +130,25 @@ class BookingFragment: DialogFragment() {
            input durasi booking harus 1 - 4 jam
         */
         var durationInput = bookingBinding?.edtHours?.text.toString()
-        durationInput = if( durationInput == "") "0" else durationInput
+        durationInput = if (durationInput == "") "0" else durationInput
 
-        if(durationInput.toInt() < 1 || durationInput.toInt() > 4) {
-            Toast.makeText(requireContext(), getString(R.string.txt_min_booking), Toast.LENGTH_SHORT).show()
+        if (durationInput.toInt() < 1 || durationInput.toInt() > 4) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.txt_min_booking),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
         val arrTime = startTime.split(":").filter { it != ":" }.map { it.toInt() }
 
-        if(arrTime[0] > 24 || arrTime[1] > 59) {
-            Toast.makeText(requireContext(), "Jam atau menit yang Anda masukan salah.", Toast.LENGTH_SHORT).show()
+        if (arrTime[0] > 24 || arrTime[1] > 59) {
+            Toast.makeText(
+                requireContext(),
+                "Jam atau menit yang Anda masukan salah.",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -139,14 +165,23 @@ class BookingFragment: DialogFragment() {
 
         val currDateInMillis = Date().time
         val startDateInMillis = dateFormat.parse(startDate).time
-        if(startDateInMillis < currDateInMillis) {
-            Toast.makeText(requireContext(), getString(R.string.txt_min_date_booking), Toast.LENGTH_SHORT).show()
+        if (startDateInMillis < currDateInMillis) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.txt_min_date_booking),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
-        if(userPreference.getUser().name!!.isEmpty()
-            || userPreference.getUser().phone!!.isEmpty() ) {
-            Toast.makeText(requireContext(), getString(R.string.txt_lengkapi_profile), Toast.LENGTH_SHORT).show()
+        if (userPreference.getUser().name!!.isEmpty()
+            || userPreference.getUser().phone!!.isEmpty()
+        ) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.txt_complete_profile),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -158,9 +193,9 @@ class BookingFragment: DialogFragment() {
         packet[START_DATE] = startDate
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
-        packet["rent"] = tag
-        packet["rent id"] = rentId!!.toString()
-        packet["rent name"] = rentName!!
+        packet["rentType"] = tag
+        packet["rentId"] = rentId!!.toString()
+        packet["rentName"] = rentName!!
         dbRef.child("Rental").push().setValue(packet)
 
         dismiss()
@@ -171,14 +206,13 @@ class BookingFragment: DialogFragment() {
         _bookingBinding = null
     }
 
-
     companion object {
         const val BOOKING_DATA = "data"
         const val BOOKING_TYPE = "type"
         private const val START_DATE = "date"
         private const val USER_ID = "userId"
-        private const val USER_START_TIME = "start time"
-        private const val USER_END_TIME = "end time"
+        private const val USER_START_TIME = "startTime"
+        private const val USER_END_TIME = "endTime"
         private const val USERNAME = "username"
         private const val USER_EMAIL = "email"
         private const val USER_PHONE = "phone"

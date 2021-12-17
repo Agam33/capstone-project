@@ -3,7 +3,6 @@ package com.example.sportreservation.data.source.local.room
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.sportreservation.data.source.local.entity.ArticleEntity
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
@@ -17,7 +16,7 @@ interface SportReservationDao {
     fun insertSport(sport: List<SportPlaceEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun  insertArticles(articleEntity: List<ArticleEntity>)
+    fun insertArticles(articleEntity: List<ArticleEntity>)
 
     @Insert
     fun insertOrder(order: OrderEntity)
@@ -51,7 +50,6 @@ interface SportReservationDao {
 
     @Delete
     fun deleteOrder(order: OrderEntity)
-
 
 
 }

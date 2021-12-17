@@ -62,7 +62,7 @@ class RefereeFragment : Fragment() {
     }
 
     companion object {
-       const val BOOKING_REFEREE = "rent-referee"
+        const val BOOKING_REFEREE = "rent-referee"
     }
 
     override fun onDestroyView() {

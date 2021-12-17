@@ -53,13 +53,13 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             when (response.status) {
                 StatusResponse.SUCCESS ->
                     singleThreadIO {
-                    saveCallResult(response.body)
-                    mainThread {
-                        result.addSource(loadFromDB()) { newData ->
-                            result.value = Resource.success(newData)
+                        saveCallResult(response.body)
+                        mainThread {
+                            result.addSource(loadFromDB()) { newData ->
+                                result.value = Resource.success(newData)
+                            }
                         }
                     }
-                }
                 StatusResponse.EMPTY -> mainThread {
                     result.addSource(loadFromDB()) { newData ->
                         result.value = Resource.success(newData)

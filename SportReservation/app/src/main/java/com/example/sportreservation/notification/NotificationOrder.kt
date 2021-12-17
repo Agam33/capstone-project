@@ -18,18 +18,18 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @SuppressLint("UnspecifiedImmutableFlag")
-class NotificationOrder: BroadcastReceiver() {
+class NotificationOrder : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         singleThreadIO {
-            val repository : SportReservationRepository by inject(SportReservationRepository::class.java)
+            val repository: SportReservationRepository by inject(SportReservationRepository::class.java)
 
             val date = Calendar.getInstance().time
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
             val orderList = repository.getOrderByDate(dateFormat.format(date))
-            
-            if(orderList.isNotEmpty()) {
+
+            if (orderList.isNotEmpty()) {
                 showNotification(context, orderList)
             }
         }
@@ -69,10 +69,11 @@ class NotificationOrder: BroadcastReceiver() {
         val intent = Intent(context, OrderActivity::class.java)
         val pendingIntent = TaskStackBuilder.create(context).run {
             addNextIntentWithParentStack(intent)
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT,)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val notificationStyle = NotificationCompat.InboxStyle()
 
         val timeString = context.getString(R.string.notification_message_format)
@@ -84,7 +85,7 @@ class NotificationOrder: BroadcastReceiver() {
         val builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_NAME)
             .setSmallIcon(R.drawable.ic_notifications_active_24)
             .setContentTitle(context.getString(R.string.notification_content_title))
-            .setVibrate(longArrayOf(1000,1000,1000,1000,1000))
+            .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setContentIntent(pendingIntent)
 
 

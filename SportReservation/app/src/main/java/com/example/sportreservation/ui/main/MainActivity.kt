@@ -1,9 +1,8 @@
 package com.example.sportreservation.ui.main
 
-import android.content.ContentValues
+
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +14,7 @@ import com.example.sportreservation.R
 import com.example.sportreservation.databinding.ActivityMainBinding
 import com.example.sportreservation.setting.SettingActivity
 import com.example.sportreservation.ui.order.OrderActivity
+import com.example.sportreservation.ui.rental.RentalActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         val firebaseUser = FirebaseAuth.getInstance().currentUser
 
-        if(firebaseUser != null) {
+        if (firebaseUser != null) {
 
             val dbRef = firebaseUser.uid.let {
                 FirebaseDatabase.getInstance().getReference("Users").child(
@@ -68,11 +68,20 @@ class MainActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userPreference = UserPreference(this@MainActivity)
                     val dataSnap = snapshot.getValue(UserModel::class.java)
-                    userPreference.setEmail(dataSnap?.email)
+                    userPreference.setUser(
+                        UserModel(
+                            dataSnap?.name,
+                            dataSnap?.email,
+                            dataSnap?.address,
+                            dataSnap?.phone,
+                        )
+                    )
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
             })
+        } else {
+            finish()
         }
     }
 
@@ -82,13 +91,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.action_setting -> {
                 startActivity(Intent(this, SettingActivity::class.java))
                 true
             }
             R.id.action_reservasi -> {
                 startActivity(Intent(this, OrderActivity::class.java))
+                true
+            }
+            R.id.action_rental -> {
+                startActivity(Intent(this, RentalActivity::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)

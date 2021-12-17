@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Sport Reservation</string>
-    <string name="title_activity_detail_user">DetailUserActivity</string>
 
     <!-- Botton Navigation -->
     <string name="title_home">Home</string>
@@ -20,10 +19,10 @@
 
     <!-- Detail Place -->
     <string name="title_open">Open</string>
-    <string name="title_price">Harga</string>
-    <string name="title_phone">No Telephone</string>
-    <string name="title_facility">Fasilitas</string>
-    <string name="title_address">Alamat</string>
+    <string name="title_price">Price</string>
+    <string name="title_phone">Phone Number</string>
+    <string name="title_facility">Facility</string>
+    <string name="title_address">Address</string>
 
     <string name="open">%1s - %2s</string>
     <string name="price">Rp %1s</string>
@@ -31,66 +30,73 @@
     <string name="facility">%1s</string>
     <string name="address">%1s</string>
 
-    <!-- Rent -->
+    <!-- Rental -->
     <string name="title_referee">Referee</string>
     <string name="title_equipment">Equipment</string>
+    <string name="time_start">Time Start</string>
+    <string name="time_end">Time End</string>
 
     <!-- History -->
-    <string name="dibatalkan">DIBATALKAN</string>
-    <string name="selesai">SELESAI</string>
+    <string name="cancel">CANCEL</string>
+    <string name="finish">FINISH</string>
 
     <!-- Profile -->
-    <string name="title_name">Nama</string>
+    <string name="title_name">Name</string>
     <string name="title_email">Email</string>
     <string name="img_profile">Image Profile</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txt_input_your_name">Nama</string>
+    <!-- Sign Up -->
+    <string name="txt_input_your_name">Name</string>
     <string name="txt_input_email">Email</string>
-    <string name="txt_input_address">Alamat</string>
-    <string name="txt_input_phone_number">No. tlp</string>
-    <string name="txt_regis">Daftar</string>
+    <string name="txt_input_address">Address</string>
+    <string name="txt_input_phone_number">Phone Number</string>
+    <string name="txt_regis">Sign Up</string>
     <string name="txt_setting">Setting</string>
 
+    <!-- Notification -->
     <string name="notification_key">notification_key</string>
     <string name="notification_title">Notification</string>
-    <string name="notification_summary">Notifikasi akan aktif setiap jam 5.30</string>
+    <string name="notification_summary">Notifications will be active every 5.30</string>
     <string name="notification_message_format">(%1$s - %2$s) %3$s</string>
     <string name="notification_content_title">Sport Reservation</string>
-    <string name="notification_enable">Notifikasi diaktifkan</string>
-    <string name="notification_disable">Notifikasi dimatikan</string>
+    <string name="notification_enable">Notification enable</string>
+    <string name="notification_disable">Notification disable</string>
 
-    <string name="txt_dummy_place_name">Dummy Place Name</string>
-    <string name="txt_dummy_sport_location">Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540</string>
-    <string name="txt_title_place">Nama Tempat</string>
-    <string name="txt_title_location">Lokasi</string>
-    <string name="txt_title_sport_name">Nama olahraga</string>
-    <string name="txt_dummy_sport_name">Badminton</string>
-    <string name="txt_title_date">Tanggal</string>
-    <string name="txt_dummy_date">01/12/2021</string>
-    <string name="txt_title_time">Waktu</string>
-    <string name="txt_dummy_time">09:00 – 10:00</string>
-    <string name="txt_done">selesai</string>
-    <string name="txt_reservasi">Reservasi</string>
-    <string name="txt_booking">Pesan Sekarang</string>
-    <string name="txt_sudah_pesan">Sudah dipesan</string>
-    <string name="txt_min_booking">"Maaf, pesan tempat hanya bisa 1–4 jam."</string>
-    <string name="txt_min_date_booking">Tanggal atau bulan yang kamu masukan sudah terlewat.</string>
-    <string name="txt_lengkapi_profile">Lengkapi data profile anda</string>
+    <!-- Rental -->
+    <string name="username">Username</string>
+    <string name="rental_type">Rental Type</string>
+
+    <string name="txt_title_place">Place</string>
+    <string name="txt_title_location">Location</string>
+    <string name="txt_title_sport_name">Sport</string>
+    <string name="txt_title_date">Date</string>
+    <string name="txt_title_time">Time</string>
+    <string name="txt_reservation">Reservation</string>
+    <string name="txt_booking">Book</string>
+    <string name="txt_already_booked">Already Booked</string>
+    <string name="txt_min_booking">"Sorry, reservation can only take 1–4 hours."</string>
+    <string name="txt_min_date_booking">The date or month you entered has passed.</string>
+    <string name="txt_complete_profile">Complete your profile data</string>
     <string name="order_time">%1$s - %2$s</string>
     <string name="txt_input_start_time">%02d:%02d</string>
     <string name="txt_dummy_start_time">14:20</string>
-    <string name="txt_duration">Durasi</string>
-    <string name="txt_hours">Jam</string>
-    <string name="txt_pesan">Pesan</string>
+    <string name="txt_dummy_start_date">01/12/2021</string>
+    <string name="image_referee">Image Referee</string>
+    <string name="image_equipment">Image Equipment</string>
+    <string name="txt_duration">Duration</string>
+    <string name="txt_hours">Hour</string>
+    <string name="txt_book">Book Now</string>
     <string name="txt_status">Status</string>
-    <string name="txt_dibatalkan">Dibatalkan</string>
-    <string name="txt_empty_list">Tidak ada Data</string>
-    <string name="txt_ubah">Ubah data</string>
-    <string name="rent_refereee">Sewa Wasit</string>
-    <string name="rent_equipment">SEWA ALAT</string>
-    <string name="txt_login">Masuk</string>
+    <string name="txt_empty_list">No Data</string>
+    <string name="txt_edit">Edit Profile</string>
+    <string name="rent_referee">Rent Referee</string>
+    <string name="rent_equipment">Rent Equipment</string>
+    <string name="txt_sign_in">Sign In</string>
+    <string name="txt_sign_out">Sign Out</string>
     <string name="txt_password">Password</string>
+    <string name="txt_rental">Rental</string>
+    <string name="txt_rent">Rental on : </string>
+    <string name="input_rental_time_and_date">Input rental time and date</string>
+    <string name="separator">:</string>
 
 </resources>

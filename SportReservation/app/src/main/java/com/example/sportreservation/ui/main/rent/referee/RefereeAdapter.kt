@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportreservation.data.source.remote.response.RefereeResponse
 import com.example.sportreservation.databinding.ItemRefereeBinding
-import com.example.sportreservation.ui.main.rent.booking.BookingFragment
 import com.example.sportreservation.utils.loadImage
 
 class RefereeAdapter : RecyclerView.Adapter<RefereeAdapter.RefereeViewHolder>() {
@@ -38,7 +37,8 @@ class RefereeAdapter : RecyclerView.Adapter<RefereeAdapter.RefereeViewHolder>() 
 
     override fun getItemCount(): Int = listReferees.size
 
-    inner class RefereeViewHolder(private val binding: ItemRefereeBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class RefereeViewHolder(private val binding: ItemRefereeBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(referee: RefereeResponse) {
             with(binding) {
                 tvName.text = referee.name

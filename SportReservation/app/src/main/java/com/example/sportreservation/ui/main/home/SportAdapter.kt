@@ -9,8 +9,6 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ItemPlaceBinding
 import com.example.sportreservation.utils.loadImage
 import com.example.sportreservation.utils.mainThread
-import com.example.sportreservation.utils.mainThreadDelay
-import com.example.sportreservation.utils.singleThreadIO
 
 class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>(DIFF_CALLBACK) {
 
@@ -43,7 +41,7 @@ class SportAdapter : PagedListAdapter<SportPlaceEntity, SportAdapter.ViewHolder>
                 tvTitle.text = place.name
 
                 mainThread {
-                        imgPlace.loadImage(place.imgUrl)
+                    imgPlace.loadImage(place.imgUrl)
                 }
 
             }

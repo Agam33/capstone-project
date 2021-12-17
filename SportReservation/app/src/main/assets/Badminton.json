@@ -1,59 +1,59 @@
 {
-      "badminton": [
-            {
-                  "id": 1,
-                  "nama": "GCT Badminton",
-                  "alamat": "Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540",
-                  "buka": "08:00",
-                  "tutup": "23:00",
-                  "harga": "75.000 - 150.000 / jam",
-                  "noTlp": "+62816702708",
-                  "fasilitas": "4 lapangan Badminton dengan material Karpet Standar Nasional\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
-                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/azfiij/field/FIBO_FiIm_azfiij_Ngx9Wt.jpg"
-            },
-            {
-                  "id": 2,
-                  "nama": "Polabugar Sport Center",
-                  "alamat": "Jl. Kedoya Raya No.35, RT.6/RW.3, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
-                  "buka": "08:00",
-                  "tutup": "21:00",
-                  "harga": "82.000 - 246.000 / jam",
-                  "noTlp": "+62215807086",
-                  "fasilitas": "Mushola\nKantin\nShower\nToilet\nTempat Parkir",
-                  "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/lbpdxa/field/FIBO_FiIm_lbpdxa_oCc2ov.png"
-            },
-            {
-                  "id": 3,
-                  "nama": "Garuda Badminton Hall",
-                  "alamat": "Jl. Perdana Kusuma Blok Qq No.248 B, RT.2/RW.4, Wijaya Kusuma, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11460",
-                  "buka": "07:00",
-                  "tutup": "23:00",
-                  "harga": "65.000 / jam",
-                  "noTlp": "+6285959247676",
-                  "fasilitas": "5 lapangan Badminton dengan material Karpet\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
-                  "imgUrl": "https://admin.saraga.id/storage/images/garuda-badminton-3_1633971689.jpg"
-            },
-            {
-                  "id": 4,
-                  "nama": "Tunas Bugar Badminton Hall",
-                  "alamat": "Jl. H.Mandor Salim No.3A, RW.2, Srengseng, Kembang, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630",
-                  "buka": "07:00",
-                  "tutup": "23:00",
-                  "harga": "80.000 - 240.000 / jam",
-                  "noTlp": "+628129337003",
-                  "fasilitas": "6 lapangan Badminton dengan material vinyl\nMushola\nShower\nToilet\nTempat Parkir",
-                  "imgUrl": "https://admin.saraga.id/storage/images/20200816-231058-1597656038_1624531128.jpg"
-            },
-            {
-                  "id": 5,
-                  "nama": "Supreme Arena Badminton",
-                  "alamat": "Jalan Karet Pedurenan Al Barokah #12A, RT.4/RW.6, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940",
-                  "buka": "07:00",
-                  "tutup": "23:00",
-                  "harga": "120.000 / jam",
-                  "noTlp": "+62818983383",
-                  "fasilitas": "Mushola\nShower\nToilet\nTempat Parkir",
-                  "imgUrl": "https://admin.saraga.id/storage/images/20210914-172440_1631615724.jpg"
-            }
-      ]
+  "badminton": [
+    {
+      "id": 1,
+      "nama": "GCT Badminton",
+      "alamat": "Jl. Warung Jati Barat No.61, RW.5, Jati Padang, Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12540",
+      "buka": "08:00",
+      "tutup": "23:00",
+      "harga": "75.000 - 150.000 / hour",
+      "noTlp": "+62816702708",
+      "fasilitas": "4 lapangan Badminton dengan material Karpet Standar Nasional\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
+      "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/azfiij/field/FIBO_FiIm_azfiij_Ngx9Wt.jpg"
+    },
+    {
+      "id": 2,
+      "nama": "Polabugar Sport Center",
+      "alamat": "Jl. Kedoya Raya No.35, RT.6/RW.3, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520",
+      "buka": "08:00",
+      "tutup": "21:00",
+      "harga": "82.000 - 246.000 / hour",
+      "noTlp": "+62215807086",
+      "fasilitas": "Mushola\nKantin\nShower\nToilet\nTempat Parkir",
+      "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/lbpdxa/field/FIBO_FiIm_lbpdxa_oCc2ov.png"
+    },
+    {
+      "id": 3,
+      "nama": "Garuda Badminton Hall",
+      "alamat": "Jl. Perdana Kusuma Blok Qq No.248 B, RT.2/RW.4, Wijaya Kusuma, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11460",
+      "buka": "07:00",
+      "tutup": "23:00",
+      "harga": "65.000 / hour",
+      "noTlp": "+6285959247676",
+      "fasilitas": "5 lapangan Badminton dengan material Karpet\nMushola\nKantin\nShower\nToilet\nTempat Parkir",
+      "imgUrl": "https://admin.saraga.id/storage/images/garuda-badminton-3_1633971689.jpg"
+    },
+    {
+      "id": 4,
+      "nama": "Tunas Bugar Badminton Hall",
+      "alamat": "Jl. H.Mandor Salim No.3A, RW.2, Srengseng, Kembang, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11630",
+      "buka": "07:00",
+      "tutup": "23:00",
+      "harga": "80.000 - 240.000 / hour",
+      "noTlp": "+628129337003",
+      "fasilitas": "6 lapangan Badminton dengan material vinyl\nMushola\nShower\nToilet\nTempat Parkir",
+      "imgUrl": "https://admin.saraga.id/storage/images/20200816-231058-1597656038_1624531128.jpg"
+    },
+    {
+      "id": 5,
+      "nama": "Supreme Arena Badminton",
+      "alamat": "Jalan Karet Pedurenan Al Barokah #12A, RT.4/RW.6, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940",
+      "buka": "07:00",
+      "tutup": "23:00",
+      "harga": "120.000 / hour",
+      "noTlp": "+62818983383",
+      "fasilitas": "Mushola\nShower\nToilet\nTempat Parkir",
+      "imgUrl": "https://admin.saraga.id/storage/images/20210914-172440_1631615724.jpg"
+    }
+  ]
 }

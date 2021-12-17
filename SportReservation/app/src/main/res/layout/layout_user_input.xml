@@ -34,6 +34,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_ed_email"
+            android:inputType="text"
             android:maxLines="1"
             android:maxLength="255"
             android:layout_width="match_parent"

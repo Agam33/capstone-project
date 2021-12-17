@@ -21,7 +21,7 @@ import com.example.sportreservation.utils.singleThreadIO
 class SportReservationRepository(
     private val remoteDataSourceImpl: RemoteDataSourceImpl,
     private val localDataSourceImpl: LocalDataSourceImpl
-): SportReservationDataSource {
+) : SportReservationDataSource {
 
     companion object {
         const val LOAD_PAGE = 25
@@ -30,14 +30,18 @@ class SportReservationRepository(
 
     override fun getBadmintonPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Badminton"
-        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+        return object :
+            NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
                     .setInitialLoadSizeHint(LOAD_PAGE)
                     .setPageSize(PAGE_SIZE)
                     .build()
-                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+                return LivePagedListBuilder(
+                    localDataSourceImpl.getBySportName(sportName),
+                    config
+                ).build()
             }
 
             override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
@@ -48,7 +52,7 @@ class SportReservationRepository(
 
             override fun saveCallResult(data: List<SportPlaceResponse>) {
                 val sportPlace = ArrayList<SportPlaceEntity>()
-                for(place in data) {
+                for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
                             0,
@@ -71,17 +75,21 @@ class SportReservationRepository(
 
     override fun getBasketPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Basket"
-        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+        return object :
+            NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
                     .setInitialLoadSizeHint(LOAD_PAGE)
                     .setPageSize(PAGE_SIZE)
                     .build()
-                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+                return LivePagedListBuilder(
+                    localDataSourceImpl.getBySportName(sportName),
+                    config
+                ).build()
             }
 
-            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean  =
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
                 data == null || data.isEmpty()
 
             override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
@@ -89,7 +97,7 @@ class SportReservationRepository(
 
             override fun saveCallResult(data: List<SportPlaceResponse>) {
                 val sportPlace = ArrayList<SportPlaceEntity>()
-                for(place in data) {
+                for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
                             0,
@@ -112,14 +120,18 @@ class SportReservationRepository(
 
     override fun getFutsalPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Futsal"
-        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+        return object :
+            NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
                     .setInitialLoadSizeHint(LOAD_PAGE)
                     .setPageSize(PAGE_SIZE)
                     .build()
-                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+                return LivePagedListBuilder(
+                    localDataSourceImpl.getBySportName(sportName),
+                    config
+                ).build()
             }
 
             override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
@@ -133,7 +145,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                          0,
+                            0,
                             place.name,
                             place.address,
                             place.phone,
@@ -153,19 +165,25 @@ class SportReservationRepository(
 
     override fun getGolfPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Golf"
-        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+        return object :
+            NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
                     .setInitialLoadSizeHint(LOAD_PAGE)
                     .setPageSize(PAGE_SIZE)
                     .build()
-                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+                return LivePagedListBuilder(
+                    localDataSourceImpl.getBySportName(sportName),
+                    config
+                ).build()
             }
 
-            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean = data == null || data.isEmpty()
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
+                data == null || data.isEmpty()
 
-            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> = remoteDataSourceImpl.getGolfPlace()
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
+                remoteDataSourceImpl.getGolfPlace()
 
             override fun saveCallResult(data: List<SportPlaceResponse>) {
                 val sportPlace = ArrayList<SportPlaceEntity>()
@@ -192,19 +210,25 @@ class SportReservationRepository(
 
     override fun getFootballPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Football"
-        return object : NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
+        return object :
+            NetworkBoundResource<PagedList<SportPlaceEntity>, List<SportPlaceResponse>>() {
             override fun loadFromDB(): LiveData<PagedList<SportPlaceEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
                     .setInitialLoadSizeHint(LOAD_PAGE)
                     .setPageSize(PAGE_SIZE)
                     .build()
-                return LivePagedListBuilder(localDataSourceImpl.getBySportName(sportName), config).build()
+                return LivePagedListBuilder(
+                    localDataSourceImpl.getBySportName(sportName),
+                    config
+                ).build()
             }
 
-            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean = data == null || data.isEmpty()
+            override fun shouldFetch(data: PagedList<SportPlaceEntity>?): Boolean =
+                data == null || data.isEmpty()
 
-            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> = remoteDataSourceImpl.getFootballPlace()
+            override fun createCall(): LiveData<ApiResponse<List<SportPlaceResponse>>> =
+                remoteDataSourceImpl.getFootballPlace()
 
             override fun saveCallResult(data: List<SportPlaceResponse>) {
                 val sportPlace = ArrayList<SportPlaceEntity>()
@@ -252,7 +276,7 @@ class SportReservationRepository(
 
             override fun saveCallResult(data: List<ArticleResponse>) {
                 val articles = ArrayList<ArticleEntity>()
-                for(article in data) {
+                for (article in data) {
                     articles.add(
                         ArticleEntity(
                             0,
@@ -280,7 +304,7 @@ class SportReservationRepository(
     }
 
     override fun insertHistory(historyEntity: HistoryEntity) {
-        singleThreadIO {  localDataSourceImpl.insertHistory(historyEntity) }
+        singleThreadIO { localDataSourceImpl.insertHistory(historyEntity) }
     }
 
     override fun getOrderList(): LiveData<PagedList<OrderEntity>> {

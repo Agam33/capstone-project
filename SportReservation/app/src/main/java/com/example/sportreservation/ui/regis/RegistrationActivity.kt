@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.example.sportreservation.databinding.ActivityRegistrationBinding
+import com.example.sportreservation.ui.login.LoginActivity
 import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
@@ -56,21 +57,25 @@ class RegistrationActivity : AppCompatActivity() {
                     val firebaseUser = auth.currentUser
                     val userId = firebaseUser?.uid
 
-
                     userPreferences.setUser(userModel)
+
                     dbRef = FirebaseDatabase.getInstance().getReference("Users").child(userId!!)
 
                     val dataUser = HashMap<String, String>()
                     dataUser["id"] = userId
+                    dataUser["name"] = name
                     dataUser["email"] = email
+                    dataUser["address"] = address
+                    dataUser["phone"] = phone
+                    dataUser["imgUrl"] = ""
 
                     dbRef.setValue(dataUser)
                         .addOnCompleteListener {
-                            startActivity(Intent(this@RegistrationActivity, MainActivity::class.java))
+                            startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
                             finish()
                         }
                 } else {
-                    Toast.makeText(this@RegistrationActivity, "Gagal mendaftar", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegistrationActivity, "This email already exist", Toast.LENGTH_LONG).show()
                 }
             }
     }
