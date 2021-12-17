@@ -47,7 +47,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.detailarticle.DetailArticleActivity"
             android:exported="false" />

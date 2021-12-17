@@ -19,7 +19,6 @@ class RentalViewModel: ViewModel() {
     fun getRentalItem(userId: String) {
         dbRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 val rentalModel = snapshot.getValue(RentalModel::class.java)
                 if (rentalModel != null) {
 
@@ -37,5 +36,4 @@ class RentalViewModel: ViewModel() {
             override fun onCancelled(error: DatabaseError) {}
         })
     }
-
 }

@@ -1,9 +1,8 @@
 package com.example.sportreservation.ui.main
 
-import android.content.ContentValues
+
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -69,11 +68,18 @@ class MainActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userPreference = UserPreference(this@MainActivity)
                     val dataSnap = snapshot.getValue(UserModel::class.java)
-                    userPreference.setEmail(dataSnap?.email)
+                    userPreference.setUser(UserModel(
+                        dataSnap?.name,
+                        dataSnap?.email,
+                        dataSnap?.address,
+                        dataSnap?.phone,
+                    ))
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
             })
+        } else {
+            finish()
         }
     }
 

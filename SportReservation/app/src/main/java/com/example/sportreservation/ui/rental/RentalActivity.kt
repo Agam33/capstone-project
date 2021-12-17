@@ -22,7 +22,7 @@ class RentalActivity : AppCompatActivity() {
         _rentalBinding = ActivityRentalBinding.inflate(layoutInflater)
         setContentView(rentalBinding?.root)
 
-        supportActionBar?.title = "Rental"
+        supportActionBar?.title = RENTAL
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         firebaseUser = FirebaseAuth.getInstance().currentUser!!

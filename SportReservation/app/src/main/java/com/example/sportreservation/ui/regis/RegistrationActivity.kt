@@ -56,13 +56,16 @@ class RegistrationActivity : AppCompatActivity() {
                     val firebaseUser = auth.currentUser
                     val userId = firebaseUser?.uid
 
-
                     userPreferences.setUser(userModel)
+
                     dbRef = FirebaseDatabase.getInstance().getReference("Users").child(userId!!)
 
                     val dataUser = HashMap<String, String>()
                     dataUser["id"] = userId
+                    dataUser["name"] = name
                     dataUser["email"] = email
+                    dataUser["address"] = address
+                    dataUser["phone"] = phone
 
                     dbRef.setValue(dataUser)
                         .addOnCompleteListener {

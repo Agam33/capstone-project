@@ -8,8 +8,8 @@ import com.example.sportreservation.databinding.ActivityUpdateDataUserBinding
 import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
-import com.example.sportreservation.utils.isValidEmail
 import com.example.sportreservation.utils.setNotification
+import androidx.activity.viewModels
 
 class UpdateDataUserActivity : AppCompatActivity() {
 
@@ -17,6 +17,8 @@ class UpdateDataUserActivity : AppCompatActivity() {
     private val updateDataUserBinding get() =  _updateDataUserActivity
 
     private lateinit var userPreference: UserPreference
+
+    private val updateDataUserViewModel by viewModels<UpdateDataUserViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +67,13 @@ class UpdateDataUserActivity : AppCompatActivity() {
             phone,
             userPreference.getUser().imgUrl
         ))
+
+        val dataUser = HashMap<String, String>()
+        dataUser["name"] = name
+        dataUser["address"] = address
+        dataUser["phone"] = phone
+
+        updateDataUserViewModel.updateDataUserById(dataUser)
 
         setNotification(this@UpdateDataUserActivity, NOTIFICATION_TITLE, "")
     }
