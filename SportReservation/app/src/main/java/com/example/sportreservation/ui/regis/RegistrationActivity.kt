@@ -36,6 +36,8 @@ class RegistrationActivity : AppCompatActivity() {
 
         registrationBinding?.btnRegis?.setOnClickListener {
             checkEmptyField()
+            startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
+            finish()
         }
     }
 
@@ -70,10 +72,6 @@ class RegistrationActivity : AppCompatActivity() {
                     dataUser["imgUrl"] = ""
 
                     dbRef.setValue(dataUser)
-                        .addOnCompleteListener {
-                            startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
-                            finish()
-                        }
                 } else {
                     Toast.makeText(this@RegistrationActivity, "This email already exist", Toast.LENGTH_LONG).show()
                 }
