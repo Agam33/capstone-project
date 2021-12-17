@@ -2,9 +2,12 @@ package com.example.sportreservation.utils
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.ContentResolver
 import android.content.Context
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
+import android.webkit.MimeTypeMap
 import androidx.core.app.NotificationCompat
 import com.example.sportreservation.R
 import java.util.concurrent.Executors
@@ -57,5 +60,11 @@ fun setNotification(context: Context, title: String, msg: String) {
     builder.setChannelId(CUSTOM_NOTIFICATION_CHANNEL_ID)
     notificationManager.createNotificationChannel(channel)
     notificationManager.notify(CUSTOM_NOTIFICATION_ID, builder.build())
+}
+
+fun getExtension(uri: Uri, context: Context): String? {
+    val cr: ContentResolver = context.contentResolver
+    val mimeTypeMap = MimeTypeMap.getSingleton()
+    return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri))
 }
 
