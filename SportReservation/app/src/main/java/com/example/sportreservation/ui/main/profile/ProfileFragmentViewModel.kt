@@ -29,4 +29,8 @@ class ProfileFragmentViewModel : ViewModel() {
             override fun onCancelled(error: DatabaseError) {}
         })
     }
+
+    fun uploadImageUrl(userId: String, update: HashMap<String, *>) {
+        dbRef.child(userId).updateChildren(update)
+    }
 }

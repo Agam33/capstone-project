@@ -67,6 +67,7 @@ class RegistrationActivity : AppCompatActivity() {
                     dataUser["email"] = email
                     dataUser["address"] = address
                     dataUser["phone"] = phone
+                    dataUser["imgUrl"] = ""
 
                     dbRef.setValue(dataUser)
                         .addOnCompleteListener {
@@ -74,7 +75,7 @@ class RegistrationActivity : AppCompatActivity() {
                             finish()
                         }
                 } else {
-                    Toast.makeText(this@RegistrationActivity, "Gagal mendaftar", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@RegistrationActivity, "This email already exist", Toast.LENGTH_LONG).show()
                 }
             }
     }
