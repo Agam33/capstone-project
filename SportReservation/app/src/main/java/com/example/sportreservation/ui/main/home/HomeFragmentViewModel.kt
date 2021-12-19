@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.example.sportreservation.data.SportReservationRepository
+import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.utils.Resource
 
@@ -25,4 +26,7 @@ class HomeFragmentViewModel(
 
     fun getFootballPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> =
         sportReservationRepository.getFootballPlace()
+
+    fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>> =
+        sportReservationRepository.getOrderList()
 }

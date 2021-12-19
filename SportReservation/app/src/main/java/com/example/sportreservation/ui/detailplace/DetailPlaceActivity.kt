@@ -22,7 +22,7 @@ class DetailPlaceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailPlaceBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        viewModel.getOrderList().observe(this,{})
         val extras = intent.extras
         if (extras != null) {
             val id = extras.getInt(EXTRA_PLACE)

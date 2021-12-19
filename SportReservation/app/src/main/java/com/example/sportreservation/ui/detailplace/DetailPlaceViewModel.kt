@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
+import androidx.paging.PagedList
 import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
+import com.example.sportreservation.utils.Resource
 
 class DetailPlaceViewModel(
     private val sportReservationRepository: SportReservationRepository
@@ -25,5 +27,8 @@ class DetailPlaceViewModel(
 
     fun getOrderById(id: Int): LiveData<OrderEntity> =
         sportReservationRepository.getOrderById(id)
+
+    fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>> =
+        sportReservationRepository.getOrderList()
 
 }

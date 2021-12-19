@@ -18,8 +18,11 @@ interface SportReservationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articleEntity: List<ArticleEntity>)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOrder(order: OrderEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertOrderList(orderList: List<OrderEntity>)
 
     @Insert
     fun insertHistory(historyEntity: HistoryEntity)
