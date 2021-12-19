@@ -18,5 +18,5 @@ data class SportPlaceEntity(
     val cost: String,
     val facility: String,
     val imgUrl: String,
-    val sportName: String,
+    val sportName: String
 ) : Parcelable

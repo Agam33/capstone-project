@@ -36,6 +36,11 @@ class UpdateDataUserActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _updateDataUserActivity = null
+    }
+
     private fun validateInput() = with(updateDataUserBinding?.inputLayout!!) {
 
         var name = addEdName.text.toString().trim()
@@ -78,11 +83,6 @@ class UpdateDataUserActivity : AppCompatActivity() {
         updateDataUserViewModel.updateDataUserById(dataUser)
 
         setNotification(this@UpdateDataUserActivity, NOTIFICATION_TITLE, "")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _updateDataUserActivity = null
     }
 
     companion object {

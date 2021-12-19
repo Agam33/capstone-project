@@ -35,7 +35,6 @@ class OrderActivity : AppCompatActivity(),
         _orderBinding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(orderBinding?.root)
 
-
         auth = FirebaseAuth.getInstance().currentUser!!
 
         setSupportActionBar(orderBinding?.toolbar)

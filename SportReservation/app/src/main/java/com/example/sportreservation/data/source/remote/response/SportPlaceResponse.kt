@@ -9,5 +9,5 @@ data class SportPlaceResponse(
     val cost: String,
     val phone: String,
     val facility: String,
-    val imgUrl: String,
+    val imgUrl: String
 )

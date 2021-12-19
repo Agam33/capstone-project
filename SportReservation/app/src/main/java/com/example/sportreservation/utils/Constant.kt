@@ -67,4 +67,3 @@ fun getExtension(uri: Uri, context: Context): String? {
     val mimeTypeMap = MimeTypeMap.getSingleton()
     return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri))
 }
-

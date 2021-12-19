@@ -80,6 +80,11 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun setupUser(user: UserModel) = with(binding!!) {
         tvName.text = user.name
         tvEmail.text = user.email
@@ -95,7 +100,7 @@ class ProfileFragment : Fragment() {
     }
 
     private var startActivityResult =
-        registerForActivityResult (ActivityResultContracts.StartActivityForResult()) { result ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 uploadFileToFirebase(result.data?.data!!)
                 binding?.imgUser?.loadImage(result.data?.dataString)
@@ -104,23 +109,25 @@ class ProfileFragment : Fragment() {
 
     private fun uploadFileToFirebase(uri: Uri) {
         val storageRef = firebaseStorage.reference
-        val ref = storageRef.child("$IMAGE_BASE_PATH${firebaseUser.uid}.${getExtension(uri, requireContext())}")
+        val ref = storageRef.child(
+            "$IMAGE_BASE_PATH${firebaseUser.uid}.${
+                getExtension(
+                    uri,
+                    requireContext()
+                )
+            }"
+        )
         val uploadTask = ref.putFile(uri)
 
         uploadTask.continueWithTask {
             ref.downloadUrl
         }.addOnCompleteListener { task ->
-            if(task.isSuccessful) {
+            if (task.isSuccessful) {
                 val uploadImageUrl = HashMap<String, String>()
                 uploadImageUrl["imgUrl"] = task.result.toString()
-               profileFragmentViewModel.uploadImageUrl(firebaseUser.uid, uploadImageUrl)
+                profileFragmentViewModel.uploadImageUrl(firebaseUser.uid, uploadImageUrl)
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     companion object {

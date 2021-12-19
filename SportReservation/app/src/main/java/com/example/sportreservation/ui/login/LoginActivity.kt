@@ -22,9 +22,6 @@ class LoginActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        /*supportActionBar?.elevation = 0f
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)*/
-
         loginActivity.btnLogin.setOnClickListener {
             validateInput()
         }
@@ -70,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@LoginActivity,
-                        "Salah password atau email",
+                        "Wrong password or email",
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -78,6 +75,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val FIELD_REQUIRED = "Field tidak boleh kosong"
+        private const val FIELD_REQUIRED = "Field cannot be empty"
     }
 }
