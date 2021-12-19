@@ -12,6 +12,7 @@ interface LocalDataSource {
     fun insertArticles(article: List<ArticleEntity>)
     fun insertOrder(order: OrderEntity)
     fun insertHistory(historyEntity: HistoryEntity)
+    fun insertOrderList(orderList: List<OrderEntity>)
 
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
     fun getSportById(id: Int): LiveData<SportPlaceEntity>

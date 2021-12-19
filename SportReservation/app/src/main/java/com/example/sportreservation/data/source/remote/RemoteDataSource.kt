@@ -1,10 +1,7 @@
 package com.example.sportreservation.data.source.remote
 
 import androidx.lifecycle.LiveData
-import com.example.sportreservation.data.source.remote.response.ArticleResponse
-import com.example.sportreservation.data.source.remote.response.EquipmentResponse
-import com.example.sportreservation.data.source.remote.response.RefereeResponse
-import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
+import com.example.sportreservation.data.source.remote.response.*
 
 interface RemoteDataSource {
 
@@ -16,4 +13,5 @@ interface RemoteDataSource {
     fun getArticle(): LiveData<ApiResponse<List<ArticleResponse>>>
     fun getReferee(): LiveData<List<RefereeResponse>>
     fun getEquipment(): LiveData<List<EquipmentResponse>>
+    fun getOrderList(): LiveData<ApiResponse<List<OrderResponse>>>
 }

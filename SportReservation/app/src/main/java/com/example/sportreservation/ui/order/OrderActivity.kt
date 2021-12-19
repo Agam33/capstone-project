@@ -9,13 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
+import com.example.sportreservation.data.source.remote.response.OrderResponse
 import com.example.sportreservation.databinding.ActivityOrderBinding
+import com.example.sportreservation.utils.DB_BOOKING
 import com.example.sportreservation.utils.OrderStatus
+import com.example.sportreservation.utils.Resource
+import com.example.sportreservation.utils.Status
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OrderActivity : AppCompatActivity(),
@@ -35,13 +38,22 @@ class OrderActivity : AppCompatActivity(),
         _orderBinding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(orderBinding?.root)
 
-
         auth = FirebaseAuth.getInstance().currentUser!!
 
         setSupportActionBar(orderBinding?.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        orderViewModel.getOrderList().observe(this, Observer(this::showOrderList))
+        orderViewModel.getOrderList().observe(this, {
+            when(it.status) {
+                Status.SUCCESS -> {
+                    if(it.data != null) {
+                        showOrderList(it.data)
+                    }
+                }
+                Status.LOADING -> {}
+                Status.ERROR -> {}
+            }
+        })
     }
 
     private fun showOrderList(orderList: PagedList<OrderEntity>) {
@@ -72,8 +84,25 @@ class OrderActivity : AppCompatActivity(),
                 orderViewModel.insertHistory(
                     HistoryEntity(0, orderEntity.name, OrderStatus.SELESAI, orderEntity.date)
                 )
+
                 dbRef = FirebaseDatabase.getInstance().getReference(SPORT_PLACE)
                 dbRef.child(orderEntity.name).child(auth.uid).removeValue()
+
+                dbRef = FirebaseDatabase.getInstance().getReference(DB_BOOKING)
+                dbRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for(data in snapshot.children) {
+                            val item = data.getValue(OrderResponse::class.java)
+                            if(item?.userId == auth.uid) {
+                                data.ref.removeValue()
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+
+                })
+
                 orderViewModel.deleteOrder(orderEntity)
 
                 val history = HashMap<String, String>()

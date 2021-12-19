@@ -7,7 +7,6 @@ import android.text.TextUtils
 import android.widget.Toast
 import com.example.sportreservation.databinding.ActivityRegistrationBinding
 import com.example.sportreservation.ui.login.LoginActivity
-import com.example.sportreservation.ui.main.MainActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
 import com.example.sportreservation.utils.isValidEmail
