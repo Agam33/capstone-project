@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.sportreservation.databinding.FragmentProfileBinding
 import com.example.sportreservation.ui.login.LoginActivity
+import com.example.sportreservation.ui.main.profile.updatedata.PhotoDetailActivity
+import com.example.sportreservation.ui.main.profile.updatedata.PhotoDetailActivity.Companion.IMG_URL
+import com.example.sportreservation.ui.main.profile.updatedata.PhotoDetailActivity.Companion.USERNAME
 import com.example.sportreservation.ui.main.profile.updatedata.UpdateDataUserActivity
 import com.example.sportreservation.userpreferences.UserModel
 import com.example.sportreservation.userpreferences.UserPreference
@@ -91,6 +94,12 @@ class ProfileFragment : Fragment() {
         tvAddress.text = user.address
         tvPhone.text = user.phone
         imgUser.loadImage(user.imgUrl)
+        imgUser.setOnClickListener {
+            startActivity(Intent(requireContext(), PhotoDetailActivity::class.java).apply {
+                putExtra(IMG_URL, user.imgUrl)
+                putExtra(USERNAME, user.name)
+            })
+        }
     }
 
     private fun pickImageFromGallery() {

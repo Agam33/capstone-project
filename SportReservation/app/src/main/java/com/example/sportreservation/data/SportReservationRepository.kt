@@ -1,5 +1,7 @@
 package com.example.sportreservation.data
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
@@ -11,10 +13,8 @@ import com.example.sportreservation.data.source.local.entity.OrderEntity
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.data.source.remote.ApiResponse
 import com.example.sportreservation.data.source.remote.RemoteDataSourceImpl
-import com.example.sportreservation.data.source.remote.response.ArticleResponse
-import com.example.sportreservation.data.source.remote.response.EquipmentResponse
-import com.example.sportreservation.data.source.remote.response.RefereeResponse
-import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
+import com.example.sportreservation.data.source.remote.response.*
+import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.Resource
 import com.example.sportreservation.utils.singleThreadIO
 
@@ -265,7 +265,6 @@ class SportReservationRepository(
             override fun shouldFetch(data: PagedList<ArticleEntity>?): Boolean =
                 data == null || data.isEmpty()
 
-
             override fun createCall(): LiveData<ApiResponse<List<ArticleResponse>>> =
                 remoteDataSourceImpl.getArticle()
 
@@ -302,13 +301,43 @@ class SportReservationRepository(
         singleThreadIO { localDataSourceImpl.insertHistory(historyEntity) }
     }
 
-    override fun getOrderList(): LiveData<PagedList<OrderEntity>> {
-        val config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setInitialLoadSizeHint(LOAD_PAGE)
-            .setPageSize(PAGE_SIZE)
-            .build()
-        return LivePagedListBuilder(localDataSourceImpl.getOrderList(), config).build()
+    override fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>> {
+        return object : NetworkBoundResource<PagedList<OrderEntity>, List<OrderResponse>>() {
+            override fun loadFromDB(): LiveData<PagedList<OrderEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(LOAD_PAGE)
+                    .setPageSize(PAGE_SIZE)
+                    .build()
+                return LivePagedListBuilder(localDataSourceImpl.getOrderList(), config).build()
+            }
+
+            override fun shouldFetch(data: PagedList<OrderEntity>?): Boolean =
+                data == null || data.isEmpty()
+
+            override fun createCall(): LiveData<ApiResponse<List<OrderResponse>>> =
+                remoteDataSourceImpl.getOrderList()
+
+            override fun saveCallResult(data: List<OrderResponse>) {
+                val orderList = ArrayList<OrderEntity>()
+                Log.d(TAG, "saveCallResult : $data")
+                data.forEach {
+                    orderList.add(
+                        OrderEntity(
+                            it.placeId,
+                            it.placeName,
+                            it.sportName,
+                            it.address,
+                            it.date,
+                            it.startTime,
+                            it.endTime,
+                            OrderStatus.PESAN,
+                    ))
+                }
+                localDataSourceImpl.insertOrderList(orderList)
+            }
+        }.asLiveData()
+
     }
 
     override fun getHistory(): LiveData<PagedList<HistoryEntity>> {
@@ -322,6 +351,8 @@ class SportReservationRepository(
 
     override fun insertOrder(order: OrderEntity) =
         singleThreadIO { localDataSourceImpl.insertOrder(order) }
+
+
 
     override fun getOrderByDate(date: String): List<OrderEntity> =
         localDataSourceImpl.getOrderByDate(date)

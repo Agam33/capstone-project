@@ -1,13 +1,19 @@
 package com.example.sportreservation.data.source.remote
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.sportreservation.data.source.remote.response.ArticleResponse
-import com.example.sportreservation.data.source.remote.response.EquipmentResponse
-import com.example.sportreservation.data.source.remote.response.RefereeResponse
-import com.example.sportreservation.data.source.remote.response.SportPlaceResponse
+import com.example.sportreservation.data.source.remote.response.*
+import com.example.sportreservation.utils.DB_BOOKING
 import com.example.sportreservation.utils.JsonHelper
 import com.example.sportreservation.utils.mainThreadDelay
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
 class RemoteDataSourceImpl(
     private val jsonHelper: JsonHelper
@@ -66,6 +72,29 @@ class RemoteDataSourceImpl(
     override fun getEquipment(): LiveData<List<EquipmentResponse>> {
         val result = MutableLiveData<List<EquipmentResponse>>()
         result.postValue(jsonHelper.loadEquipment())
+        return result
+    }
+
+    override fun getOrderList(): LiveData<ApiResponse<List<OrderResponse>>> {
+        val user = Firebase.auth.currentUser
+        val result = MutableLiveData<ApiResponse<List<OrderResponse>>>()
+        if(user != null) {
+            val dbRef = FirebaseDatabase.getInstance().getReference(DB_BOOKING)
+            dbRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val bookList = ArrayList<OrderResponse>()
+                    for(data in snapshot.children) {
+                        val item = data.getValue(OrderResponse::class.java)
+                        if(item?.userId == user.uid) {
+                            bookList.add(item)
+                        }
+                    }
+                    result.postValue(ApiResponse.success(bookList))
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        }
         return result
     }
 }

@@ -25,6 +25,9 @@ class LocalDataSourceImpl(
         sportReservationDao.insertHistory(historyEntity)
     }
 
+    override fun insertOrderList(orderList: List<OrderEntity>) =
+        sportReservationDao.insertOrderList(orderList)
+
     override fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity> =
         sportReservationDao.getBySportName(sportName)
 
