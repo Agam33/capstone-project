@@ -71,7 +71,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding?.btnSignOut?.setOnClickListener {
-            Snackbar.make(binding?.root!!, "Anda yakin ini keluar aplikasi?", Snackbar.LENGTH_SHORT)
+            Snackbar.make(binding?.root!!, "Are you sure you want to exit the app?", Snackbar.LENGTH_SHORT)
                 .setAction("Yes") {
                     Firebase.auth.signOut()
                     val intent = Intent(requireContext(), LoginActivity::class.java).apply {
