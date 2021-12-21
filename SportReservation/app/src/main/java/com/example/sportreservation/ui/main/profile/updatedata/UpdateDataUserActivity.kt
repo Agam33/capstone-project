@@ -27,8 +27,6 @@ class UpdateDataUserActivity : AppCompatActivity() {
 
         userPreference = UserPreference(this)
 
-        updateDataUserBinding?.inputLayout?.addEdEmail?.isEnabled = false
-
         updateDataUserBinding?.changeBtn?.setOnClickListener {
             validateInput()
             startActivity(Intent(this, MainActivity::class.java))
@@ -41,7 +39,7 @@ class UpdateDataUserActivity : AppCompatActivity() {
         _updateDataUserActivity = null
     }
 
-    private fun validateInput() = with(updateDataUserBinding?.inputLayout!!) {
+    private fun validateInput() = with(updateDataUserBinding!!) {
 
         var name = addEdName.text.toString().trim()
         var email = userPreference.getUser().email!!
