@@ -3,7 +3,7 @@
 ## Tata Cara Menggunakan Aplikasi
 
 - Sign Up\
-User harus mengisi Nama, Email, Password, Alamat, & No. tlp
+User harus mengisi Nama, Email, Password, Alamat, & No. tlp\
 ![Sign Up](https://giphy.com/gifs/yHfKglyUoeEunRaF79/fullscreen)
 - Sign In\
 User mengisi Email & Password yang sudah terdaftar
