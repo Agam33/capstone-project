@@ -4,25 +4,29 @@
 
 - Sign Up\
 User harus mengisi Nama, Email, Password, Alamat, & No. tlp\
-![Sign Up](https://media.giphy.com/media/yHfKglyUoeEunRaF79/giphy.gif)
+![Sign Up](https://media.giphy.com/media/yHfKglyUoeEunRaF79/giphy.gif)\
 - Sign In\
-User mengisi Email & Password yang sudah terdaftar
+User mengisi Email & Password yang sudah terdaftar\
+![Sign In](https://media.giphy.com/media/PNlt567afCQJYCMhEz/giphy.gif)\
 - Home\
 Setelah Sign In, aplikasi mengarahkan ke halaman Home yang terdapat tempat-tempat olahraga yang bisa user booking
 - Detail Place\
 Saat User menekan salah satu item di Home, aplikasi akan mengarahkan ke Detail Activity. User bisa melakukan booking dengan menekan button **Book Now**, selanjutnya user harus mengisi jam & tanggal yang user inginkan
 - Reservation\
 Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking
+![Reservation](https://media.giphy.com/media/CkgvhrWhW5GtGv6Wu0/giphy.gif)\
 - Setting\
 Ada fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking
 - Article\
 Artikel pada aplikasi ini adalah artikel kesehatan yang berkaitan dengan olahraga
 - Rent\
-User bisa menggunakan jasa wasit untuk pertandingan persahabatan, pertandingan resmi, dll. Selain itu user juga bisa menyewa perlengkapan olahraga seperti sepatu & rompi
+User bisa menggunakan jasa wasit untuk pertandingan persahabatan, pertandingan resmi, dll. Selain itu user juga bisa menyewa perlengkapan olahraga seperti sepatu & rompi\
+![Rent](https://media.giphy.com/media/WnRTFpTsmnBfm12AGE/giphy.gif)\
 - History\
 History adalah daftar transaksi yang user lakukan saat menekan button Finish/Cancel pada menu Reservation
 - Profile\
 Data profile didapat saat user melakukan Sign Up, data profile bisa diubah sesuai keingan user
+![Rent](https://media.giphy.com/media/bf0NtFsIiUst6gx3uG/giphy.gif)\
 
 ## Library
 
