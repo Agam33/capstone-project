@@ -106,7 +106,7 @@ class ProfileFragment : Fragment() {
     private var startActivityResult =
         registerForActivityResult (ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                uploadFileToFirebase(result.data?.data!!)
+                uploadFileToFirebase((result.data?.data ?: "") as Uri)
                 binding?.imgUser?.loadImage(result.data?.dataString)
             }
         }
@@ -122,7 +122,7 @@ class ProfileFragment : Fragment() {
             if(task.isSuccessful) {
                 val uploadImageUrl = HashMap<String, String>()
                 uploadImageUrl["imgUrl"] = task.result.toString()
-               profileFragmentViewModel.uploadImageUrl(firebaseUser.uid, uploadImageUrl)
+                profileFragmentViewModel.uploadImageUrl(firebaseUser.uid, uploadImageUrl)
             }
         }
     }
