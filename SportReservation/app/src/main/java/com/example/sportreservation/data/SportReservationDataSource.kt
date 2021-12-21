@@ -34,7 +34,7 @@ interface SportReservationDataSource {
 
     // Order
     fun insertOrder(order: OrderEntity)
-    fun getOrderList(): LiveData<PagedList<OrderEntity>>
+    fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>>
     fun deleteOrder(order: OrderEntity)
     fun getOrderByDate(date: String): List<OrderEntity>
     fun getOrderById(id: Int): LiveData<OrderEntity>

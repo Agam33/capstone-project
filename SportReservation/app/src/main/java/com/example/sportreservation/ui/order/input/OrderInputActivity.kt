@@ -12,6 +12,7 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
 import com.example.sportreservation.databinding.ActivityOrderInputBinding
 import com.example.sportreservation.ui.order.OrderActivity
 import com.example.sportreservation.userpreferences.UserPreference
+import com.example.sportreservation.utils.DB_BOOKING
 import com.example.sportreservation.utils.DatePickerFragment
 import com.example.sportreservation.utils.OrderStatus
 import com.example.sportreservation.utils.TimePickerFragment
@@ -91,7 +92,7 @@ class OrderInputActivity : AppCompatActivity(),
         if (arrTime.first() < sportPlaceOpen[0]) {
             Toast.makeText(
                 this,
-                "Tempat kami buka jam ${
+                "Our place is open on ${
                     String.format(
                         timeString,
                         sportPlaceOpen[0],
@@ -104,7 +105,7 @@ class OrderInputActivity : AppCompatActivity(),
         } else if (hourEndTime > sportClose) {
             Toast.makeText(
                 this,
-                "Tempat kami tutup jam ${
+                "Our place is close on ${
                     String.format(
                         timeString,
                         sportPlaceClose[0],
@@ -145,19 +146,25 @@ class OrderInputActivity : AppCompatActivity(),
             )
         )
 
-        val packet = HashMap<String, String>()
+        val packet = HashMap<String, Any>()
         packet[USER_ID] = auth.uid!!
         packet[USERNAME] = userPreference.getUser().name!!
         packet[USER_EMAIL] = userPreference.getUser().email!!
         packet[USER_PHONE] = userPreference.getUser().phone!!
         packet[START_DATE] = startDate
         packet[SPORT_NAME] = sportPlaceEntity.sportName
+        packet[PLACE_ADDRESS] = sportPlaceEntity.address
         packet[USER_START_TIME] = startTime
         packet[USER_END_TIME] = endTime
         packet[ORDER_STATUS] = "pesan"
+        packet[PLACE_ID] = sportPlaceEntity.id
 
         dbRef.child(OrderActivity.SPORT_PLACE).child(sportPlaceEntity.name).child(auth.uid!!)
             .setValue(packet)
+
+
+        packet["placeName"] = sportPlaceEntity.name
+        dbRef.child(DB_BOOKING).push().setValue(packet)
 
         finish()
     }
@@ -204,8 +211,10 @@ class OrderInputActivity : AppCompatActivity(),
         const val START_TIME = "start-time"
         const val DATE = "date"
         const val EXTRA_BUNDLE_PLACE = "sport-place"
+        const val PLACE_ID = "placeId"
         const val SPORT_NAME = "sportName"
         const val START_DATE = "date"
+        const val PLACE_ADDRESS = "address"
         const val USER_ID = "userId"
         const val USER_START_TIME = "startTime"
         const val USER_END_TIME = "endTime"

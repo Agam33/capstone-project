@@ -15,11 +15,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleFragment : Fragment() {
 
-    private val viewModel: ArticleFragmentViewModel by viewModel()
     private var _binding: FragmentArticleBinding? = null
     private val binding get() = _binding
-    private val articleAdapter = ArticleAdapter()
 
+    private val articleAdapter = ArticleAdapter()
+    private val viewModel: ArticleFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,12 +68,12 @@ class ArticleFragment : Fragment() {
         }
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

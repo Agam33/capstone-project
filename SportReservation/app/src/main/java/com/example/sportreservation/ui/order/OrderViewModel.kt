@@ -6,12 +6,13 @@ import androidx.paging.PagedList
 import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.data.source.local.entity.HistoryEntity
 import com.example.sportreservation.data.source.local.entity.OrderEntity
+import com.example.sportreservation.utils.Resource
 
 class OrderViewModel(
     private val sportReservationRepository: SportReservationRepository
 ) : ViewModel() {
 
-    fun getOrderList(): LiveData<PagedList<OrderEntity>> =
+    fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>> =
         sportReservationRepository.getOrderList()
 
     fun insertHistory(historyEntity: HistoryEntity) {

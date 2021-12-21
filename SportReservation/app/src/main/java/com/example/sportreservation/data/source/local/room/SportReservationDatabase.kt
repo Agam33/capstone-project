@@ -14,7 +14,6 @@ import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
         OrderEntity::class,
         ArticleEntity::class,
         SportPlaceEntity::class,
-
     ],
     version = 1,
     exportSchema = false

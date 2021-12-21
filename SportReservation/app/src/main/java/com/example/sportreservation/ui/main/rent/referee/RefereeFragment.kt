@@ -38,6 +38,11 @@ class RefereeFragment : Fragment() {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun showReferee(referees: List<RefereeResponse>) {
         val refereeAdapter = RefereeAdapter()
         refereeAdapter.setReferees(referees)
@@ -63,10 +68,5 @@ class RefereeFragment : Fragment() {
 
     companion object {
         const val BOOKING_REFEREE = "rent-referee"
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

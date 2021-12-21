@@ -12,6 +12,8 @@ import androidx.core.app.NotificationCompat
 import com.example.sportreservation.R
 import java.util.concurrent.Executors
 
+const val DB_BOOKING = "Booking"
+
 const val NOTIFICATION_CHANNEL_NAME = "Order Channel"
 const val NOTIFICATION_CHANNEL_ID = "notify-schedule"
 const val NOTIFICATION_ID = 10
@@ -67,4 +69,3 @@ fun getExtension(uri: Uri, context: Context): String? {
     val mimeTypeMap = MimeTypeMap.getSingleton()
     return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri))
 }
-

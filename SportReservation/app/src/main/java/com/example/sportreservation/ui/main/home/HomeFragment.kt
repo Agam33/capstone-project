@@ -30,12 +30,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getOrderList().observe(this,{})
+
         showListFutsal()
         showListBasket()
         showListBadminton()
         showListGolf()
         showListFootball()
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun showListFutsal() {
@@ -224,10 +231,5 @@ class HomeFragment : Fragment() {
 
     private fun showLoading(isLoading: Boolean) {
         binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
