@@ -18,7 +18,8 @@ Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-
 - Setting\
 Ada fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking
 - Article\
-Artikel pada aplikasi ini adalah artikel kesehatan yang berkaitan dengan olahraga
+Artikel pada aplikasi ini adalah artikel kesehatan yang berkaitan dengan olahraga\
+![Article](https://media.giphy.com/media/8d14OgaJKVYjUUgB0G/giphy.gif)
 - Rent\
 User bisa menggunakan jasa wasit untuk pertandingan persahabatan, pertandingan resmi, dll. Selain itu user juga bisa menyewa perlengkapan olahraga seperti sepatu & rompi\
 ![Rent](https://media.giphy.com/media/WnRTFpTsmnBfm12AGE/giphy.gif)
