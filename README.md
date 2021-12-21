@@ -13,7 +13,7 @@ Setelah Sign In, aplikasi mengarahkan ke halaman Home yang terdapat tempat-tempa
 - Detail Place\
 Saat User menekan salah satu item di Home, aplikasi akan mengarahkan ke Detail Activity. User bisa melakukan booking dengan menekan button **Book Now**, selanjutnya user harus mengisi jam & tanggal yang user inginkan
 - Reservation\
-Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking
+Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking\
 ![Reservation](https://media.giphy.com/media/CkgvhrWhW5GtGv6Wu0/giphy.gif)
 - Setting\
 Ada fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking
@@ -25,7 +25,7 @@ User bisa menggunakan jasa wasit untuk pertandingan persahabatan, pertandingan r
 - History\
 History adalah daftar transaksi yang user lakukan saat menekan button Finish/Cancel pada menu Reservation
 - Profile\
-Data profile didapat saat user melakukan Sign Up, data profile bisa diubah sesuai keingan user
+Data profile didapat saat user melakukan Sign Up, data profile bisa diubah sesuai keingan user\
 ![Rent](https://media.giphy.com/media/bf0NtFsIiUst6gx3uG/giphy.gif)
 
 ## Library
