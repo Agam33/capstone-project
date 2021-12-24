@@ -1,7 +1,7 @@
 {
   "golf": [
     {
-      "id": 1,
+      "id": "g1",
       "nama": "Pondok Indah Driving Range",
       "alamat": "Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310",
       "buka": "05:00",
@@ -12,7 +12,7 @@
       "imgUrl": "https://asset.indosport.com/article/image/q/80/247837/pondok_indah_golf-169.jpg?w=750&h=423"
     },
     {
-      "id": 2,
+      "id": "g2",
       "nama": "Pringgondani Driving Range",
       "alamat": "Jl. Halim Perdana Kusuma, RT.5/RW.10, Halim Perdana Kusumah, Kec. Makasar, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13650",
       "buka": "05:30",
@@ -23,7 +23,7 @@
       "imgUrl": "https://3.bp.blogspot.com/-SCY2jnY9KMg/XCnQogSO2lI/AAAAAAAADaQ/5_nUeq-Lywca_15vI3ZUvGQ2CgvsiqQGACLcBGAs/s1600/Pringgondani%2B09.jpg"
     },
     {
-      "id": 3,
+      "id": "g3",
       "nama": "Royale Jakarta Driving Range",
       "alamat": "Jl. Halim Perdana Kusuma, RT.3/RW.4, Tiga, Halim Perdana Kusumah, Kec. Makasar, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13610",
       "buka": "00:00",
@@ -34,7 +34,7 @@
       "imgUrl": "https://cdn.deemples.com/wp-content/uploads/2019/04/royalejakarta.jpg"
     },
     {
-      "id": 4,
+      "id": "g4",
       "nama": "Cilandak Marinir Driving Range",
       "alamat": "Jl. Raya Cilandak Kko No.22, RT.13/RW.5, Cilandak Tim., Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560",
       "buka": "06:00",
@@ -45,7 +45,7 @@
       "imgUrl": "https://cdn.deemples.com/wp-content/uploads/2021/02/Cilandak-Marinir-Driving-Range-1.jpg"
     },
     {
-      "id": 5,
+      "id": "g5",
       "nama": "Damai Indah Golf",
       "alamat": "Jl. Marina Raya No.7, RW.2, Kapuk, Kec. Penjaringan, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
       "buka": "05:00",

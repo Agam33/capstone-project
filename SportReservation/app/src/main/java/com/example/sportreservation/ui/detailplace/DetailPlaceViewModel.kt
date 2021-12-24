@@ -14,18 +14,18 @@ class DetailPlaceViewModel(
     private val sportReservationRepository: SportReservationRepository
 ) : ViewModel() {
 
-    private val _detailId = MutableLiveData<Int>()
+    private val _detailId = MutableLiveData<String>()
     private val _detailPlace = _detailId.switchMap { id ->
         sportReservationRepository.getSportById(id)
     }
 
     val detailPlace: LiveData<SportPlaceEntity> = _detailPlace
 
-    fun getById(id: Int) {
+    fun getById(id: String) {
         _detailId.value = id
     }
 
-    fun getOrderById(id: Int): LiveData<OrderEntity> =
+    fun getOrderById(id: String): LiveData<OrderEntity> =
         sportReservationRepository.getOrderById(id)
 
     fun getOrderList(): LiveData<Resource<PagedList<OrderEntity>>> =

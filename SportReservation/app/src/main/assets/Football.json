@@ -1,7 +1,7 @@
 {
   "football": [
     {
-      "id": 1,
+      "id": "f1",
       "nama": "Pancoran Soccer Field (Lapangan Sepak Bola TNI AU Pancoran)",
       "alamat": "Jl. Gatot Subroto No.72, RT.1/RW.4, Pancoran, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12780",
       "buka": "06:00",
@@ -12,7 +12,7 @@
       "imgUrl": "https://pancoransoccerfield.com/field-image/0L3A06GZ1MMI96BEIG5YXVEQ0TVAILW9.jpg"
     },
     {
-      "id": 2,
+      "id":  "f2",
       "nama": "Vidi Arena Pulomas",
       "alamat": "Jl. Tanah Mas 1 No.1, RT.1/RW.1, Kayu Putih, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13210",
       "buka": "06:00",
@@ -23,7 +23,7 @@
       "imgUrl": "https://s3-ap-southeast-1.amazonaws.com/fibostorage/venue_file/vmndra/field/FIBO_FiIm_vmndra_KSMGjH.jpg"
     },
     {
-      "id": 3,
+      "id":  "f3",
       "nama": "Oceano Football",
       "alamat": "Jl. Pantai Mutiara No.5, RT.6/RW.16, Pluit, Kec. Penjaringan, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14450",
       "buka": "06:00",
@@ -34,7 +34,7 @@
       "imgUrl": "https://cdns.klimg.com/bola.net/library/upload/20/2017/05/oceano_b12b762.jpg"
     },
     {
-      "id": 4,
+      "id":  "f4",
       "nama": "Lapangan Latihan Persija Pulomas",
       "alamat": "Jl. Kayu Putih Utara II No.4, RT.12/RW.8, Pulo Gadung, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13210",
       "buka": "06:00",
@@ -45,7 +45,7 @@
       "imgUrl": "https://admin.saraga.id/storage/images/whatsapp-image-2021-11-01-at-103705-pm1_1635837380.jpeg"
     },
     {
-      "id": 5,
+      "id": "f5",
       "nama": "De'Kings Arena",
       "alamat": "Jl. Manunggal XVII No.70, RT.5/RW.5, Lubang Buaya, Kec. Cipayung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13810",
       "buka": "06:00",

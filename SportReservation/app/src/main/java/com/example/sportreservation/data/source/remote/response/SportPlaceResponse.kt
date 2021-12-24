@@ -1,7 +1,7 @@
 package com.example.sportreservation.data.source.remote.response
 
 data class SportPlaceResponse(
-    val id: Int,
+    val id: String,
     val name: String,
     val address: String,
     val open: String,
