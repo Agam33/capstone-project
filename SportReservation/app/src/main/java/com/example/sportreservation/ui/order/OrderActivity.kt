@@ -3,7 +3,6 @@ package com.example.sportreservation.ui.order
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sportreservation.R
@@ -13,7 +12,6 @@ import com.example.sportreservation.data.source.remote.response.OrderResponse
 import com.example.sportreservation.databinding.ActivityOrderBinding
 import com.example.sportreservation.utils.DB_BOOKING
 import com.example.sportreservation.utils.OrderStatus
-import com.example.sportreservation.utils.Resource
 import com.example.sportreservation.utils.Status
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth

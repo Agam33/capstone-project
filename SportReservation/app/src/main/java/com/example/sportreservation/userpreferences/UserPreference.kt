@@ -25,18 +25,9 @@ class UserPreference(context: Context) {
             preferences.getString(IMAGE, null),
         )
 
-    fun setImage(url: String?) = preferences.edit().apply {
-        putString(IMAGE, url)
-    }.apply()
-
-    fun setEmail(email: String?) = preferences.edit().apply {
-        putString(EMAIL, email)
-    }.apply()
-
     companion object {
         private const val PREFS_NAME = "user_pref"
         private const val REGIS = "regis"
-        private const val USER_ID = "userId"
         private const val NAME = "name"
         private const val EMAIL = "email"
         private const val ADDRESS = "address"

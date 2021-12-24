@@ -1,7 +1,5 @@
 package com.example.sportreservation.data.source.remote
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sportreservation.data.source.remote.response.*
