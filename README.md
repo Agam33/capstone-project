@@ -14,7 +14,7 @@ User mengisi Email & Password yang sudah terdaftar\
   - Setelah Sign In, aplikasi akan mengarahkan ke halaman Home yang terdapat tempat-tempat olahraga yang bisa user booking dengan menekan item tempat
   - Selanjutnya aplikasi akan mengarahkan ke halaman detail, user bisa melakukan booking dengan menekan button **Book** lalu aplikasi akan mengarahkan ke halaman reservasi
   - Setelah itu, user perlu mengisi jam, tanggal, & durasi sesuai yang diinginkan lalu menekan button **Book Now**
-  - Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking\
+  - Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking
   - Terdapat fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking\
 ![Reservation](https://media.giphy.com/media/CkgvhrWhW5GtGv6Wu0/giphy.gif)
 
@@ -33,6 +33,10 @@ History adalah daftar transaksi yang user lakukan saat menekan button Finish/Can
 - Profile\
 Data profile didapat saat user melakukan Sign Up, data profile bisa diubah sesuai keinginan user\
 ![Rent](https://media.giphy.com/media/bf0NtFsIiUst6gx3uG/giphy.gif)
+
+- Sign Out\
+![Sign Out](https://media.giphy.com/media/scxI8BaGPluK80a0i5/giphy.gif)
+
 
 ## Library
 
