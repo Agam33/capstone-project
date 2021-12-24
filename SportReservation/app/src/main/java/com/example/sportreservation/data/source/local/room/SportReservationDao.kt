@@ -54,4 +54,7 @@ interface SportReservationDao {
     @Delete
     fun deleteOrder(order: OrderEntity)
 
+    @Query("DELETE FROM orderentity")
+    fun deleteAllOrder()
+
 }

@@ -358,6 +358,8 @@ class SportReservationRepository(
     override fun getOrderById(id: String): LiveData<OrderEntity> =
         localDataSourceImpl.getOrderById(id)
 
+    override fun deleteAllOrder() = singleThreadIO { localDataSourceImpl.deleteAllOrder() }
+
     override fun deleteOrder(order: OrderEntity) =
         singleThreadIO { localDataSourceImpl.deleteOrder(order) }
 

@@ -55,4 +55,6 @@ class LocalDataSourceImpl(
     override fun deleteOrder(order: OrderEntity) {
         sportReservationDao.deleteOrder(order)
     }
+
+    override fun deleteAllOrder() = sportReservationDao.deleteAllOrder()
 }

@@ -24,4 +24,5 @@ interface LocalDataSource {
     fun getOrderById(id: String): LiveData<OrderEntity>
 
     fun deleteOrder(order: OrderEntity)
+    fun deleteAllOrder()
 }
