@@ -38,5 +38,5 @@ interface SportReservationDataSource {
     fun deleteOrder(order: OrderEntity)
     fun getOrderByDate(date: String): List<OrderEntity>
     fun getOrderById(id: String): LiveData<OrderEntity>
-
+    fun deleteAllOrder()
 }

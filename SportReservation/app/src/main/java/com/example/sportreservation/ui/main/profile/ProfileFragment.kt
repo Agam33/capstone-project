@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.sportreservation.data.SportReservationRepository
 import com.example.sportreservation.databinding.FragmentProfileBinding
 import com.example.sportreservation.ui.login.LoginActivity
 import com.example.sportreservation.ui.main.profile.updatedata.PhotoDetailActivity
@@ -26,6 +27,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import org.koin.java.KoinJavaComponent
 
 
 class ProfileFragment : Fragment() {
@@ -77,6 +79,10 @@ class ProfileFragment : Fragment() {
                     val intent = Intent(requireContext(), LoginActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     }
+                    val repository: SportReservationRepository by KoinJavaComponent.inject(
+                        SportReservationRepository::class.java
+                    )
+                    repository.deleteAllOrder()
                     startActivity(intent)
                 }
                 .show()
