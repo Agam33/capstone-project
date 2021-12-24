@@ -54,6 +54,4 @@ interface SportReservationDao {
     @Delete
     fun deleteOrder(order: OrderEntity)
 
-
 }
-

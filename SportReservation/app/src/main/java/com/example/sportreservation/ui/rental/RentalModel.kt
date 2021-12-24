@@ -9,5 +9,5 @@ data class RentalModel(
     var rentType: String = "",
     var startTime: String = "",
     var endTime: String = "",
-    var rentName: String = "",
+    var rentName: String = ""
 )

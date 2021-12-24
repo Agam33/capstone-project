@@ -14,12 +14,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryFragment : Fragment() {
 
-    private val viewModel: HistoryFragmentViewModel by viewModel()
-
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding
 
     private var historyAdapter = HistoryAdapter()
+    private val viewModel: HistoryFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +32,11 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getHistoryOrder().observe(viewLifecycleOwner, Observer(this::showListHistory))
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun showListHistory(historyEntity: PagedList<HistoryEntity>) {
@@ -54,10 +58,5 @@ class HistoryFragment : Fragment() {
             binding?.rvHistory?.visibility = View.VISIBLE
             binding?.emptyBox?.frameLayoutFavorite?.visibility = View.GONE
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

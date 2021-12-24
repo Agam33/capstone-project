@@ -79,6 +79,11 @@ class BookingFragment : DialogFragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _bookingBinding = null
+    }
+
     private fun validateInput(
         tag: String,
         referee: RefereeResponse?,
@@ -199,11 +204,6 @@ class BookingFragment : DialogFragment() {
         dbRef.child("Rental").push().setValue(packet)
 
         dismiss()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _bookingBinding = null
     }
 
     companion object {

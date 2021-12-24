@@ -23,11 +23,6 @@ class SportReservationRepository(
     private val localDataSourceImpl: LocalDataSourceImpl
 ) : SportReservationDataSource {
 
-    companion object {
-        const val LOAD_PAGE = 25
-        const val PAGE_SIZE = 25
-    }
-
     override fun getBadmintonPlace(): LiveData<Resource<PagedList<SportPlaceEntity>>> {
         val sportName = "Badminton"
         return object :
@@ -365,4 +360,9 @@ class SportReservationRepository(
 
     override fun deleteOrder(order: OrderEntity) =
         singleThreadIO { localDataSourceImpl.deleteOrder(order) }
+
+    companion object {
+        const val LOAD_PAGE = 25
+        const val PAGE_SIZE = 25
+    }
 }

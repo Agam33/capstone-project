@@ -92,7 +92,7 @@ class OrderInputActivity : AppCompatActivity(),
         if (arrTime.first() < sportPlaceOpen[0]) {
             Toast.makeText(
                 this,
-                "Tempat kami buka jam ${
+                "Our place is open on ${
                     String.format(
                         timeString,
                         sportPlaceOpen[0],
@@ -105,7 +105,7 @@ class OrderInputActivity : AppCompatActivity(),
         } else if (hourEndTime > sportClose) {
             Toast.makeText(
                 this,
-                "Tempat kami tutup jam ${
+                "Our place is close on ${
                     String.format(
                         timeString,
                         sportPlaceClose[0],

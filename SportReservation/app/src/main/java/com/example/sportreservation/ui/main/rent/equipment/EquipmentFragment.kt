@@ -35,6 +35,11 @@ class EquipmentFragment : Fragment() {
         })
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun showEquipment(equipments: List<EquipmentResponse>) {
         val equipmentAdapter = EquipmentAdapter()
         equipmentAdapter.setEquipments(equipments)
@@ -55,11 +60,6 @@ class EquipmentFragment : Fragment() {
                 bookingFragment.show(childFragmentManager, BOOKING_EQUIPMENT)
             }
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     companion object {

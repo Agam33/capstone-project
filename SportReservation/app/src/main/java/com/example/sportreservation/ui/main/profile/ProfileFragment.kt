@@ -71,7 +71,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding?.btnSignOut?.setOnClickListener {
-            Snackbar.make(binding?.root!!, "Anda yakin ini keluar aplikasi?", Snackbar.LENGTH_SHORT)
+            Snackbar.make(binding?.root!!, "Are you sure you want to exit the app?", Snackbar.LENGTH_SHORT)
                 .setAction("Yes") {
                     Firebase.auth.signOut()
                     val intent = Intent(requireContext(), LoginActivity::class.java).apply {
@@ -81,6 +81,11 @@ class ProfileFragment : Fragment() {
                 }
                 .show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun setupUser(user: UserModel) = with(binding!!) {
@@ -104,7 +109,7 @@ class ProfileFragment : Fragment() {
     }
 
     private var startActivityResult =
-        registerForActivityResult (ActivityResultContracts.StartActivityForResult()) { result ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 uploadFileToFirebase((result.data?.data ?: "") as Uri)
                 binding?.imgUser?.loadImage(result.data?.dataString)
@@ -113,23 +118,25 @@ class ProfileFragment : Fragment() {
 
     private fun uploadFileToFirebase(uri: Uri) {
         val storageRef = firebaseStorage.reference
-        val ref = storageRef.child("$IMAGE_BASE_PATH${firebaseUser.uid}.${getExtension(uri, requireContext())}")
+        val ref = storageRef.child(
+            "$IMAGE_BASE_PATH${firebaseUser.uid}.${
+                getExtension(
+                    uri,
+                    requireContext()
+                )
+            }"
+        )
         val uploadTask = ref.putFile(uri)
 
         uploadTask.continueWithTask {
             ref.downloadUrl
         }.addOnCompleteListener { task ->
-            if(task.isSuccessful) {
+            if (task.isSuccessful) {
                 val uploadImageUrl = HashMap<String, String>()
                 uploadImageUrl["imgUrl"] = task.result.toString()
                 profileFragmentViewModel.uploadImageUrl(firebaseUser.uid, uploadImageUrl)
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     companion object {
