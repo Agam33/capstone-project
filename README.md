@@ -27,7 +27,7 @@ User bisa menggunakan jasa wasit untuk pertandingan persahabatan, pertandingan r
 ![Rent](https://media.giphy.com/media/WnRTFpTsmnBfm12AGE/giphy.gif)
 
 - History\
-History adalah daftar transaksi yang user lakukan saat menekan button Finish/Cancel pada menu Reservation
+History adalah daftar transaksi yang user lakukan saat menekan button Finish/Cancel pada menu Reservation\
 ![History](https://user-images.githubusercontent.com/87791573/147328783-18efcc3c-accb-4cf5-808c-51d6f9569197.png)
 
 - Profile\
