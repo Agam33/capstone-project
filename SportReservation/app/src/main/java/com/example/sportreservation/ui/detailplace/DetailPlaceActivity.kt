@@ -1,7 +1,9 @@
 package com.example.sportreservation.ui.detailplace
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.R
 import com.example.sportreservation.data.source.local.entity.SportPlaceEntity
@@ -25,7 +27,7 @@ class DetailPlaceActivity : AppCompatActivity() {
         viewModel.getOrderList().observe(this,{})
         val extras = intent.extras
         if (extras != null) {
-            val id = extras.getInt(EXTRA_PLACE)
+            val id = extras.getString(EXTRA_PLACE)!!
             viewModel.getById(id)
             viewModel.detailPlace.observe(this, {
                 populatePlace(it)
@@ -47,6 +49,7 @@ class DetailPlaceActivity : AppCompatActivity() {
     private fun setOrder(detailPlace: SportPlaceEntity) {
         viewModel.getOrderById(detailPlace.id).observe(this, { order ->
             if (order == null) {
+                Log.d(TAG, "onCreate: $order and ${detailPlace.id}")
                 binding.btnBook.text = getString(R.string.txt_booking)
                 binding.btnBook.setBackgroundColor(getColor(R.color.green_500))
                 binding.btnBook.isEnabled = true

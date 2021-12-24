@@ -1,7 +1,7 @@
 {
   "basket": [
     {
-      "id": 1,
+      "id": "bs1",
       "nama": "Brickhouse Kalibata",
       "alamat": "Jl. Kalibata Utara II No.25, RT.4/RW.7, Kalibata, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12740",
       "buka": "07:00",
@@ -12,7 +12,7 @@
       "imgUrl": "https://gelora-public-storage.s3-ap-southeast-1.amazonaws.com/upload/public-20210216111751.jpg"
     },
     {
-      "id": 2,
+      "id": "bs2",
       "nama": "Senayan Basketball Court",
       "alamat": "Area Gelora Bung Karno Senayan, Jl. Pintu Satu Senayan, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
       "buka": "06:00",
@@ -23,7 +23,7 @@
       "imgUrl": "https://reservation.gbk.id/assets/frontend/img/venue/venue_67.jpg"
     },
     {
-      "id": 3,
+      "id": "bs3",
       "nama": "GBK Basketball Hall",
       "alamat": "Jl. Pintu Satu Senayan, RT.1/RW.3, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270",
       "buka": "09:00",
@@ -34,7 +34,7 @@
       "imgUrl": "https://gbk.id/wp-content/uploads/2018/06/Basket-edit.jpg"
     },
     {
-      "id": 4,
+      "id":"bs4",
       "nama": "Buls Arena",
       "alamat": "Panglima Polim St No.37, RT.1/RW.1, Melawai, Kebayoran Baru, South Jakarta City, Jakarta 12130",
       "buka": "06:00",
@@ -45,7 +45,7 @@
       "imgUrl": "https://gelora-public-storage.s3-ap-southeast-1.amazonaws.com/upload/public-20210217060900.jpg"
     },
     {
-      "id": 5,
+      "id": "bs5",
       "nama": "Pati Unus Courtyard",
       "alamat": "Jl. Pati Unus No.F4, RT.4/RW.4, Gunung, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12110",
       "buka": "06:00",

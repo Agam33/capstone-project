@@ -31,7 +31,7 @@ interface SportReservationDao {
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
 
     @Query("SELECT * FROM sportplaceentity WHERE id = :id")
-    fun getSportById(id: Int): LiveData<SportPlaceEntity>
+    fun getSportById(id: String): LiveData<SportPlaceEntity>
 
     @Query("SELECT * FROM articleentity")
     fun getArticles(): DataSource.Factory<Int, ArticleEntity>
@@ -49,7 +49,7 @@ interface SportReservationDao {
     fun getOrderByDate(date: String): List<OrderEntity>
 
     @Query("SELECT * FROM orderentity WHERE id = :id")
-    fun getOrderById(id: Int): LiveData<OrderEntity>
+    fun getOrderById(id: String): LiveData<OrderEntity>
 
     @Delete
     fun deleteOrder(order: OrderEntity)

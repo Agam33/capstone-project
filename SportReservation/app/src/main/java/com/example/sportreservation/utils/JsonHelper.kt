@@ -34,7 +34,7 @@ class JsonHelper(private val context: Context) {
 
                 list.add(
                     SportPlaceResponse(
-                        place.getInt("id"),
+                        place.getString("id"),
                         place.getString("nama"),
                         place.getString("alamat"),
                         place.getString("buka"),
@@ -62,7 +62,7 @@ class JsonHelper(private val context: Context) {
 
                 list.add(
                     SportPlaceResponse(
-                        place.getInt("id"),
+                        place.getString("id"),
                         place.getString("nama"),
                         place.getString("alamat"),
                         place.getString("buka"),
@@ -90,7 +90,7 @@ class JsonHelper(private val context: Context) {
 
                 list.add(
                     SportPlaceResponse(
-                        place.getInt("id"),
+                        place.getString("id"),
                         place.getString("nama"),
                         place.getString("alamat"),
                         place.getString("buka"),
@@ -118,7 +118,7 @@ class JsonHelper(private val context: Context) {
 
                 list.add(
                     SportPlaceResponse(
-                        place.getInt("id"),
+                        place.getString("id"),
                         place.getString("nama"),
                         place.getString("alamat"),
                         place.getString("buka"),
@@ -146,7 +146,7 @@ class JsonHelper(private val context: Context) {
 
                 list.add(
                     SportPlaceResponse(
-                        place.getInt("id"),
+                        place.getString("id"),
                         place.getString("nama"),
                         place.getString("alamat"),
                         place.getString("buka"),

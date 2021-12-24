@@ -55,7 +55,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            0,
+                            place.id,
                             place.name,
                             place.address,
                             place.phone,
@@ -100,7 +100,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            0,
+                            place.id,
                             place.name,
                             place.address,
                             place.phone,
@@ -145,7 +145,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            0,
+                            place.id,
                             place.name,
                             place.address,
                             place.phone,
@@ -190,7 +190,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            0,
+                            place.id,
                             place.name,
                             place.address,
                             place.phone,
@@ -235,7 +235,7 @@ class SportReservationRepository(
                 for (place in data) {
                     sportPlace.add(
                         SportPlaceEntity(
-                            0,
+                            place.id,
                             place.name,
                             place.address,
                             place.phone,
@@ -253,7 +253,7 @@ class SportReservationRepository(
         }.asLiveData()
     }
 
-    override fun getSportById(id: Int): LiveData<SportPlaceEntity> =
+    override fun getSportById(id: String): LiveData<SportPlaceEntity> =
         localDataSourceImpl.getSportById(id)
 
     override fun getArticle(): LiveData<Resource<PagedList<ArticleEntity>>> {
@@ -357,12 +357,10 @@ class SportReservationRepository(
     override fun insertOrder(order: OrderEntity) =
         singleThreadIO { localDataSourceImpl.insertOrder(order) }
 
-
-
     override fun getOrderByDate(date: String): List<OrderEntity> =
         localDataSourceImpl.getOrderByDate(date)
 
-    override fun getOrderById(id: Int): LiveData<OrderEntity> =
+    override fun getOrderById(id: String): LiveData<OrderEntity> =
         localDataSourceImpl.getOrderById(id)
 
     override fun deleteOrder(order: OrderEntity) =
