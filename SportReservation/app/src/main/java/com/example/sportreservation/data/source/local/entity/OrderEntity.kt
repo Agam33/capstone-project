@@ -7,7 +7,7 @@ import com.example.sportreservation.utils.OrderStatus
 @Entity
 data class OrderEntity(
     @PrimaryKey
-    val id: Int,
+    val id: String,
     val name: String,
     val sportName: String,
     val address: String,

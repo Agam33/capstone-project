@@ -15,13 +15,13 @@ interface LocalDataSource {
     fun insertOrderList(orderList: List<OrderEntity>)
 
     fun getBySportName(sportName: String): DataSource.Factory<Int, SportPlaceEntity>
-    fun getSportById(id: Int): LiveData<SportPlaceEntity>
+    fun getSportById(id: String): LiveData<SportPlaceEntity>
     fun getArticleById(id: Int): LiveData<ArticleEntity>
     fun getArticles(): DataSource.Factory<Int, ArticleEntity>
     fun getOrderList(): DataSource.Factory<Int, OrderEntity>
     fun getHistory(): DataSource.Factory<Int, HistoryEntity>
     fun getOrderByDate(date: String): List<OrderEntity>
-    fun getOrderById(id: Int): LiveData<OrderEntity>
+    fun getOrderById(id: String): LiveData<OrderEntity>
 
     fun deleteOrder(order: OrderEntity)
 }

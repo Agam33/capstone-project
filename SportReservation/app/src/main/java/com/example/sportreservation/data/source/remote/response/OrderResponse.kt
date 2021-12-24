@@ -2,7 +2,7 @@ package com.example.sportreservation.data.source.remote.response
 
 data class OrderResponse(
     var userId: String = "",
-    var placeId: Int = 0,
+    var placeId: String = "",
     var placeName: String = "",
     var sportName: String = "",
     var address: String = "",

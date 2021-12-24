@@ -3,6 +3,7 @@ package com.example.sportreservation.ui.main.profile.updatedata
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sportreservation.databinding.ActivityUpdateDataUserBinding
@@ -33,14 +34,13 @@ class UpdateDataUserActivity : AppCompatActivity() {
             finish()
         }
     }
-
+    
     override fun onDestroy() {
         super.onDestroy()
         _updateDataUserActivity = null
     }
 
-    private fun validateInput() = with(updateDataUserBinding!!) {
-
+   private fun validateInput() = with(updateDataUserBinding!!) {
         var name = addEdName.text.toString().trim()
         var email = userPreference.getUser().email!!
         var address = addEdAddress.text.toString().trim()
