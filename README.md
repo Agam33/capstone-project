@@ -13,7 +13,7 @@ User mengisi Email & Password yang sudah terdaftar\
   - Selanjutnya aplikasi akan mengarahkan ke halaman detail, user bisa melakukan booking dengan menekan button **Book** lalu aplikasi akan mengarahkan ke halaman reservasi
   - Setelah itu, user perlu mengisi jam, tanggal, & durasi sesuai yang diinginkan lalu menekan button **Book Now**
   - Setelah melakukan booking tempat, user bisa melihat daftar tempat yang sudah di-booking. Terdapat button Finish untuk simulasi user sudah membayar dan button Cancel untuk melakukan pembatalan booking
-  - Terdapat fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking
+  - Terdapat fitur notifikasi untuk mengingatkan user, notifikasi akan aktif pada jam 05:30 di tanggal yang user booking\
 ![Reservation](https://media.giphy.com/media/CkgvhrWhW5GtGv6Wu0/giphy.gif)
 - Article\
 Artikel pada aplikasi ini adalah artikel kesehatan yang berkaitan dengan olahraga\
